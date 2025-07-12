@@ -1,0 +1,42 @@
+.nameicon img{
+     width: 10vw;
+    background-color: rgb(179, 168, 168);
+}
+.nameicon{
+    display: flex;
+   
+}
+.name-icons{
+    margin-left: 10%;
+}
+.footer-name{
+    font-size: 23px;
+}
+.footer{
+    background-color: rgb(240, 229, 229);
+}
+.footer-icon{
+    margin-left: 12px;
+    display: flex;
+    list-style: none;
+     gap: 15px;
+}
+.footer-icon i{
+    font-size: 150%;
+}
+.footer-container{
+    padding: 3%;
+   padding: 3%;
+    display: flex;
+    gap: 7%;
+}
+.quickp{
+    font-size: 23px;
+
+}
+.collectionp{
+    font-size: 23px;
+}
+.letsp{
+     font-size: 23px;
+}

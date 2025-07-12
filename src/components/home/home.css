@@ -1,0 +1,29 @@
+.main-pic{
+    margin-left: 20px;
+    margin-right: 20px;
+     height: 90vh;
+     margin-top: 10px;
+     display: flex;
+     flex-wrap: wrap-reverse;
+ 
+}
+.pic-text{
+            position: absolute;
+             top: 35%;
+            left: 50px;
+            font-weight: 800;
+            font-size:3.3rem;
+            font-family: 'Playfair Display', 'Raleway','Georgia', 'serif';
+            font-style: italic;
+            letter-spacing: 2px;
+            line-height: 5.5rem;
+            /* color: #E5C100;
+             text-shadow: 2px 2px 6px rgba(0,0,0,0.6); */
+
+}
+.main-pic img{
+    position: relative;
+   height: 90vh;
+   width: 96vw;
+   border-radius: 15px;
+}

@@ -1,0 +1,24 @@
+.heading-main{
+    margin-left: 20%;
+    margin-bottom: 35px;
+}
+.itemss img{
+    height: 11rem;
+    width: 11rem;
+    border-radius: 50%;
+
+}
+.itemss{
+    display: flex;
+      gap: 24px;
+      margin-left:7%;
+      /* margin-right: 7%; */
+}
+.item-img{
+    display: flex;
+    flex-direction: column;
+}
+.item-img p{
+    font-weight: bolder;
+    margin-left: 3.5rem;
+}

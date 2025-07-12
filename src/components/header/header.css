@@ -1,0 +1,36 @@
+.main-container{
+    display: flex;
+    gap: 25%;
+    border-radius: 20px;
+   border: 8px solid black;
+  background-color: black;
+  color: white;
+  margin-right: 10px;
+  margin-left: 10px;
+
+}
+.icon-container {
+    margin-left: 15px;
+    display: flex;
+    margin-top: 15px;
+    gap: 15px;
+    list-style: none;
+  
+}
+.icon-container i{
+   
+    font-size: 150%;
+}
+@media screen and (max-width:800px)
+{
+    .main-container{
+        display: flex;
+        gap: 10%;
+
+    }
+    .icon-container i{
+   
+    font-size: 120%;
+}
+
+}
