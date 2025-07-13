@@ -1,6 +1,7 @@
 import React from 'react'
 import './footer.css'
 import logo from "../../pictures/logo.png" 
+import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <div className='footer'>
@@ -21,8 +22,8 @@ const Footer = () => {
          <div className='quick-links'>
             <p className='quickp'>QUICK LINKS</p>
              
-               <p>Home</p>
-               <p>Product</p>
+              <Link to='/'><p>Home</p></Link> 
+               <Link to='/product'> <p>Product</p></Link>
                <p>Contact</p>
                <p>About</p>
            

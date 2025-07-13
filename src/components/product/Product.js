@@ -1,9 +1,24 @@
 import React from 'react'
-
+import HomeProduct from '../Homeproduct/HomeProduct'
+import Footer from '../footer/Footer'
+import main14 from '../../pictures/main14.jpg'
+import './product.css'
 const Product = () => {
   return (
     <div>
-      <h1>Product page</h1>
+       <div className='productpic'>
+               <div>
+                  <img alt='' src={main14}/>
+               </div>
+            
+            {/* <div className='product-pic-text'>
+                  <p>Jewellery that <br></br> tells your
+                  <br></br> story</p>
+                
+              </div> */}
+          </div>
+     <HomeProduct/>
+     <Footer/>
     </div>
   )
 }

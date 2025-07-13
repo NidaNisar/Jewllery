@@ -40,3 +40,14 @@
 .letsp{
      font-size: 23px;
 }
+.quick-links a {
+  text-decoration: none; 
+  color: black; 
+  font-weight: 500; 
+ 
+}
+
+.quick-links a:hover {
+  color: #0a0909; 
+  text-decoration: underline;
+}

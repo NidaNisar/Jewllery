@@ -2,7 +2,7 @@
     margin-left: 20px;
     margin-right: 20px;
      height: 90vh;
-     margin-top: 10px;
+     margin-top: 15px;
      display: flex;
      flex-wrap: wrap-reverse;
  
@@ -23,7 +23,7 @@
 }
 .main-pic img{
     position: relative;
-   height: 90vh;
+   height: 85vh;
    width: 96vw;
    border-radius: 15px;
 }

@@ -21,7 +21,7 @@ import main13 from '../../pictures/main3.jpg'
 const HomeProduct = () => {
   return (
     <div className='main-home'>
-        <h3>Our Most Beloved Product</h3>
+        <h3>Our Most Be Loved Product</h3>
         <div className='forproducts'>
         <div className='all'>
            < div className='home-product'>
