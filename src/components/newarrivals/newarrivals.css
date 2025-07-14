@@ -1,0 +1,39 @@
+.arrival-product img{
+       width: 35vh;
+       height: 20vw;
+       border-radius: 10px;
+}
+.main-arrivals h3{
+    margin-left: 37% ;
+    font-size: 40px;
+   
+}
+.arrivalpic img{
+    position: relative;
+   height: 50vh;
+   width: 94vw;
+   border-radius: 15px;
+}
+.arrivalpic{
+    margin-left: 2%;
+    margin-bottom: 5%;
+    margin-top: 3%;
+    margin-right: 3%;
+}
+/* .main-arrivals h3{
+    margin-left: 2%;
+} */
+.arrivalproducts{
+     display: flex;
+    /* flex-direction: row; */
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-left: 7%;
+     margin-bottom: 5%;
+    
+    
+} 
+
+/* .all{
+     margin-left: 7% 
+} */

@@ -1,0 +1,30 @@
+
+.about-container{
+        display: flex;
+        gap: 7%;
+        margin-top: 3%;
+}
+.about-container img{
+    border-radius: 50%;
+    margin-left: 5%;
+    width: 30vw;
+    height: 50vh;
+    padding: 20px;
+    
+}
+.para1{
+    width: 35%;
+    line-height: 1.5;
+    /* letter-spacing: 2px; */
+    /* margin-right: 5%; */
+}
+.para1 p{
+    font-size: 37px;
+}
+.para2{
+    margin-top: 2%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 3%;
+    line-height: 1.5;
+}
