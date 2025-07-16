@@ -17,7 +17,7 @@ import Footer from '../footer/Footer'
 
 
 
-
+import {Products} from '../../productjson'
 
 
 const Newarrivals = () => {
