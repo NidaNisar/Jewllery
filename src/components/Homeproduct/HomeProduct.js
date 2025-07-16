@@ -13,7 +13,7 @@ import main11 from '../../pictures/main11.jpg'
 import main12 from '../../pictures/main12.jpg'
 import main13 from '../../pictures/main3.jpg'
 
-
+import {Products} from '../../productjson'
 
 
 
@@ -22,215 +22,37 @@ const HomeProduct = () => {
   return (
     <div className='main-home'>
         <h3>Our Most Be Loved Product</h3>
-        <div className='forproducts'>
-        <div className='all'>
+        
+        
+          
+      
+            <div className='forproducts'>
+{Products.map(product=>{
+        return(
+              <div  key={product.id} className='all'>
            < div className='home-product'>
-               <img alt='' src={main1}/>
+               <img alt='' src={product.image}/>
       </div>
       <div className='homep-name'>
-               <p>Necklace</p>
+               <p>{product.name}</p>
                <i class="fa-regular fa-star"></i>
                <i class="fa-regular fa-star"></i>
                <i class="fa-regular fa-star"></i>
                <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
+                <p>{product.price}</p>   
       </div>
-      </div>
-      <div className='all'>
-           < div className='home-product'>
-               <img alt='' src={main2}/>
-      </div>
-      <div className='homep-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      </div>
-      <div className='all'>
-           < div className='home-product'>
-               <img alt='' src={main4}/>
-      </div>
-      <div className='homep-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      </div>
-      <div className='all'>
-           < div className='home-product'>
-               <img alt='' src={main3}/>
-      </div>
-      <div className='homep-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      </div>
-      <div className='all'>
-           < div className='home-product'>
-               <img alt='' src={main12}/>
-      </div>
-      <div className='homep-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
       </div>
       
+        )
+    
+      })}
       </div>
-      <div className='all'>
-           < div className='home-product'>
-               <img alt='' src={main6}/>
-      </div>
-      <div className='homep-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
+   
       
-      </div>
-      <div className='all'>
-           < div className='home-product'>
-               <img alt='' src={main7}/>
-      </div>
-      <div className='homep-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='home-product'>
-               <img alt='' src={main8}/>
-      </div>
-      <div className='homep-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='home-product'>
-               <img alt='' src={main9}/>
-      </div>
-      <div className='homep-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='home-product'>
-               <img alt='' src={main10}/>
-      </div>
-      <div className='homep-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='home-product'>
-               <img alt='' src={main11}/>
-      </div>
-      <div className='homep-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='home-product'>
-               <img alt='' src={main12}/>
-      </div>
-      <div className='homep-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='home-product'>
-               <img alt='' src={main13}/>
-      </div>
-      <div className='homep-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='home-product'>
-               <img alt='' src={main6}/>
-      </div>
-      <div className='homep-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='home-product'>
-               <img alt='' src={main7}/>
-      </div>
-      <div className='homep-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
      
-        </div>
+  
+     
+       
       
     </div>
     

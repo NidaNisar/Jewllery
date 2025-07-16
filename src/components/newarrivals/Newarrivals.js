@@ -29,7 +29,7 @@ const Newarrivals = () => {
                      </div>
                        </div>
           <h3>New-Arrivals</h3>
-        <div className='arrivalproducts'>
+        {/* <div className='arrivalproducts'>
           
         <div className='all-a'>
            < div className='arrival-product'>
@@ -43,202 +43,34 @@ const Newarrivals = () => {
                <i class="fa-regular fa-star"></i>
                 <p>Rs.1000</p>   
       </div>
-      </div>
-      <div className='all'>
-           < div className='arrival-product'>
-               <img alt='' src={main2}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      </div>
-      <div className='all'>
-           < div className='arrival-product'>
-               <img alt='' src={main4}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      </div>
-      <div className='all'>
-           < div className='arrival-product'>
-               <img alt='' src={main3}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      </div>
-      <div className='all'>
-           < div className='arrival-product'>
-               <img alt='' src={main12}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='arrival-product'>
-               <img alt='' src={main6}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='arrival-product'>
-               <img alt='' src={main7}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='arrival-product'>
-               <img alt='' src={main8}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='arrival-product'>
-               <img alt='' src={main9}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='arrival-product'>
-               <img alt='' src={main10}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='arrival-product'>
-               <img alt='' src={main11}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='arrival-product'>
-               <img alt='' src={main12}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='arrival-product'>
-               <img alt='' src={main13}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='arrival-product'>
-               <img alt='' src={main6}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
-      <div className='all'>
-           < div className='arrival-product'>
-               <img alt='' src={main7}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      
-      </div>
+      </div> */}
      
-        </div>
+      
+        <div className='forproducts'>
+      {Products.map(product=>{
+              return(
+                    <div  key={product.id} className='all'>
+                 < div className='home-product'>
+                     <img alt='' src={product.image}/>
+            </div>
+            <div className='homep-name'>
+                     <p>{product.name}</p>
+                     <i class="fa-regular fa-star"></i>
+                     <i class="fa-regular fa-star"></i>
+                     <i class="fa-regular fa-star"></i>
+                     <i class="fa-regular fa-star"></i>
+                      <p>{product.price}</p>   
+            </div>
+            </div>
+            
+              )
+          
+            })}
+            </div>
+      
+      
+     
+        {/* </div> */}
         <Footer/>
       
     </div>

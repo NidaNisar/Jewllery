@@ -1,6 +1,6 @@
 .home-product img{
-       width: 35vh;
-       height: 20vw;
+       width: 40vh;
+       height: 25vw;
        border-radius: 10px;
 }
 .main-home h3{
@@ -12,9 +12,10 @@
     margin-bottom: 5%;
 }
 .forproducts{
+    /* 5 */
      display: flex;
     /* flex-direction: row; */
-    gap: 20px;
+    gap: 50px;
     flex-wrap: wrap;
     margin-left: 7%;
     
