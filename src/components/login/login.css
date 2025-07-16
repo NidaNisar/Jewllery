@@ -1,0 +1,53 @@
+.login-container{
+    width: 50%;
+    /* background-color: beige; */
+    margin: auto;
+
+}
+.login-container h2{
+   margin-left: 31%;
+}
+.login-text{
+    width: 65%;
+    margin-top: 5px;
+    padding: 15px;
+    border-radius: 10px;
+}
+.sign-button{
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    width: 70%;
+    padding: 17px;
+    text-align: center;
+    border-radius: 12px;
+ }
+ .forget{
+    color: grey;
+    text-decoration: underline;
+    /* text-align: end; */
+    margin-left: 50%;
+   
+ }
+ .sign-up{
+    color: grey;
+   display: flex;
+   margin-top: 15px;
+    margin-left: 18%;
+    margin-bottom: 5%;
+  
+ }
+ .account{
+    text-decoration: underline;
+      text-decoration: none;
+    color: grey;
+ }
+ .login-email{
+    width: 65%;
+    margin-top: 5px;
+    padding: 15px;
+    border-radius: 10px;
+ }
+ /* .login-email i{
+    width: 20%;
+ } */

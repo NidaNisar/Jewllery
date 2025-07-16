@@ -26,7 +26,7 @@ const Navbar = () => {
           <div className='icons'>
             <li> <i className="fa fa-search"></i></li>
            <li><i class="fa fa-cart-shopping"></i></li>
-           <li>  <i class="fa-regular fa-user"></i></li>
+         <Link to='/login'> <li>  <i class="fa-regular fa-user"></i></li></Link> 
            </div>
         
         </nav> 

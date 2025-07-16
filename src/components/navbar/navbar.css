@@ -28,6 +28,11 @@
   font-weight: 500; 
  
 }
+.icons a{
+text-decoration: none; 
+  color: black; 
+  font-weight: 500; 
+}
 
 .mid-part a:hover {
   color: #0a0909; 

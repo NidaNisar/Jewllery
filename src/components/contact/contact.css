@@ -40,11 +40,11 @@ textarea {
  /* .name-fields div{
     flex: 1;
  } */
- input[type='text'],input[type='email'],select,textarea{
+  .contact-f input,select,textarea{
     width: 120%;
     margin-top: 5px;
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 10px;
  }
  input,select{
     margin-bottom: 13px;
@@ -54,16 +54,17 @@ textarea {
   margin-top: 15px;
   font-size: 20px;
    font-weight: 600;
+   margin-bottom: 4px;
 } 
 .names{
     color: #555;
 }
- button{
-    margin-top: 10px;
+ .contact-button{
+    margin-top: 20px;
     background-color: black;
     color: white;
     width: 128%;
-    padding: 10px;
+    padding: 14px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 10px;
  }

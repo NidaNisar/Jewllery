@@ -12,7 +12,7 @@ const Contact = () => {
          <div className='form-container'>
           <p className='contact-heading'>Conatct Us</p> 
      
-              <form>
+              <form className='contact-f'> 
                 <label  className='name' for="name">NAME</label>
                 <div className='name-fields'>
                   
@@ -24,11 +24,11 @@ const Contact = () => {
                   <div>
                            <label  className='names'
                            for="lname">Last name:</label>
-                            <input type="text" id="lname" name="lname"></input>
+                            <input type="text" id="lname" name="lname"/>
                   </div>
                 </div>
                  <label for="email">Email:</label>
-                   <input type="email" id="email" name="email"></input>
+                   <input type="email" id="email" name="email"/>
                       <label for="help">I Need Help Regarding</label>
                       <select>
                         <option value='refund'>Refund</option>
@@ -37,7 +37,7 @@ const Contact = () => {
                       </select>
                        <label for="message">MESSAGE</label>
                        <textarea id='message' name='message' placeholder='Type your message here'></textarea>
-                       <button type='submit'>SUBMIT</button>
+                       <button className='contact-button' type='submit'>SUBMIT</button>
                       
               </form>
           
