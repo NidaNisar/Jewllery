@@ -34,5 +34,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
+//  git remote add origin http://github.com/NidaNisar/Jewllery.git
 export default App;

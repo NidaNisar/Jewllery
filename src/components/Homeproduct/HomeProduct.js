@@ -1,18 +1,7 @@
 import React from 'react'
 import './Homeproduct.css'
-import main6 from '../../pictures/main6.jpg'
-import main8 from '../../pictures/main8.jpeg'
-import main9 from '../../pictures/main9.jpeg'
-import main10 from '../../pictures/main10.jpeg'
-import main2 from '../../pictures/main2.jpg'
-import main4 from '../../pictures/main4.jpg'
-import main3 from '../../pictures/main3.jpg'
-import main7 from '../../pictures/main7.jpg'
-import main1 from '../../pictures/main1.jpg'
-import main11 from '../../pictures/main11.jpg'
-import main12 from '../../pictures/main12.jpg'
-import main13 from '../../pictures/main3.jpg'
 
+import { Link } from 'react-router-dom'
 import {Products} from '../../productjson'
 
 
@@ -29,6 +18,7 @@ const HomeProduct = () => {
             <div className='forproducts'>
 {Products.map(product=>{
         return(
+            <Link to={`/productcart/${product.id}`}>
               <div  key={product.id} className='all'>
            < div className='home-product'>
                <img alt='' src={product.image}/>
@@ -41,7 +31,7 @@ const HomeProduct = () => {
                <i class="fa-regular fa-star"></i>
                 <p>{product.price}</p>   
       </div>
-      </div>
+      </div></Link>
       
         )
     

@@ -15,17 +15,17 @@ import main13 from './pictures/main13.jpg'
 
 
 export  const Products=[
-    {id:'1',name:'Necklace',price:'1000 Rs',image:main10},
-      {id:'2',name:'Necklace',price:'1000 Rs',image:main11},
-        {id:'3',name:'Necklace',price:'1000 Rs',image:main12},
-          {id:'4',name:'Necklace',price:'1000 Rs',image:main13},
-            {id:'5',name:'Necklace',price:'1000 Rs',image:main1},
-              {id:'6',name:'Necklace',price:'1000 Rs',image:main7},
-                {id:'7',name:'Necklace',price:'1000 Rs',image:main3},
-                  {id:'8',name:'Necklace',price:'1000 Rs',image:main4},
-                    {id:'9',name:'Necklace',price:'1000 Rs',image:main2},
-                      {id:'10',name:'Necklace',price:'1000 Rs',image:main6},
-                        {id:'11',name:'Necklace',price:'1000 Rs',image:main8},
-                          {id:'12',name:'Necklace',price:'1000 Rs',image:main9}
+    {id:'1',name:'Necklace',price:'1000 Rs',image:main10,categoryid:20},
+      {id:'2',name:'Earrings',price:'1000 Rs',image:main11,categoryid:21},
+        {id:'3',name:'Rings',price:'1000 Rs',image:main12,categoryid:22},
+          {id:'4',name:'Ring',price:'1000 Rs',image:main13,categoryid:22},
+            {id:'5',name:'Earrings',price:'1000 Rs',image:main1,categoryid:21},
+              {id:'6',name:'Earrings',price:'1000 Rs',image:main7,categoryid:21},
+                {id:'7',name:'Earrings',price:'1000 Rs',image:main3,categoryid:21},
+                  {id:'8',name:'Locketset',price:'1000 Rs',image:main4,categoryid:23},
+                    {id:'9',name:'Earrings',price:'1000 Rs',image:main2,categoryid:21},
+                      {id:'10',name:'Watches',price:'1000 Rs',image:main6,categoryid:24},
+                        {id:'11',name:'Rings set',price:'1000 Rs',image:main8,categoryid:25},
+                          {id:'12',name:'Braclets',price:'1000 Rs',image:main9,categoryid:26}
 
 ]
