@@ -51,3 +51,14 @@
   color: #0a0909; 
   text-decoration: underline;
 }
+.collections a {
+    text-decoration: none;
+    color: black;
+      font-weight: 500; 
+    
+}
+.collections a:hover {
+  color: #0a0909; 
+  text-decoration: underline;
+}
+

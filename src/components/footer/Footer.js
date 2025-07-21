@@ -2,9 +2,10 @@ import React from 'react'
 import './footer.css'
 import logo from "../../pictures/logo.png" 
 import { Link } from 'react-router-dom'
+import {categories } from '../../productjson'
 const Footer = () => {
   return (
-    <div className='footer'>
+    <div className='footer'> 
       <div className='footer-container'>
         <div className='name-icons'>
             <div className='nameicon'>
@@ -34,9 +35,12 @@ const Footer = () => {
           <div className='collections'>
              <p className='collectionp'>Collection</p>
              
-               <p>Earrings</p>
-               <p>Necklace</p>
-               <p>Rings</p>
+             {categories.slice(0, 3).map((category) => (
+        <Link key={category.id} to={`/categoryproduct/${category.id}`}>
+            <p className='collection-name'>{category.name}</p>
+            </Link>
+                ))}
+           
                
                
               

@@ -33,6 +33,91 @@ text-decoration: none;
   color: black; 
   font-weight: 500; 
 }
+.hidden{
+    display: none;
+}
+.search-main{
+    display: flex;
+   justify-content: space-between;
+   
+   
+}
+.search-input{
+    display: flex;
+    margin-top: 4%;
+       border-bottom: 1px solid #0f0e0e ;
+    
+}
+
+
+.search-input input {
+    
+    border:none;
+ 
+    /* margin-bottom: 20px; */
+    outline: none;
+    padding: 5px;
+    width: 100%;
+}
+
+.close{
+    margin-top: 15px;
+    margin-right: 10px;
+    font-size: 25px;
+}
+.close:hover{
+    font-size: 30px;
+}
+.search-cont{
+    margin-top: 3%;
+    margin-left: 8%;
+     margin-right: 8%;
+  
+
+  
+     
+}
+.search-category{
+    display: flex;
+    gap: 20px;
+}
+.search-category li  i{
+    /* font-size: 5px; */
+    margin-top: 17px;
+}
+.search-category li{
+    list-style: none;
+}
+.searched-most p:hover{
+    text-decoration: underline;
+}
+
+.search-category p{
+    font-size: 16px;
+}
+/* .searched-most ul{
+    list-style: none;
+    font-size: 17px;
+} */
+.searchicon{
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      
+      
+}
+.searchicon{
+    width: 35%;
+    height: 90%;
+    background-color: white;
+    position: absolute;
+    top:5%;
+    right: 35%;
+   z-index: 10;
+   border-radius: 10px;
+}
+
+
+
+
 
 .mid-part a:hover {
   color: #0a0909; 

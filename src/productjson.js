@@ -16,7 +16,7 @@ import main13 from './pictures/main13.jpg'
 
 export  const Products=[
     {id:'1',name:'Necklace',price:'1000 Rs',image:main10,categoryid:20},
-      {id:'2',name:'Earrings',price:'1000 Rs',image:main11,categoryid:21},
+      {id:'2',name:'Earings',price:'1000 Rs',image:main11,categoryid:21},
         {id:'3',name:'Rings',price:'1000 Rs',image:main12,categoryid:22},
           {id:'4',name:'Ring',price:'1000 Rs',image:main13,categoryid:22},
             {id:'5',name:'Earrings',price:'1000 Rs',image:main1,categoryid:21},
@@ -29,3 +29,12 @@ export  const Products=[
                           {id:'12',name:'Braclets',price:'1000 Rs',image:main9,categoryid:26}
 
 ]
+ export const categories = [
+  { id: 21, name: 'Earings' },
+  { id: 20, name: 'Necklaces' },
+  { id: 22, name: 'Rings' },
+  {id:26,name:'Rings set'},
+  {id:24,name:'Watches'},
+  {id:23,name:'locket set'},
+
+];

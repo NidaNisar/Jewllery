@@ -16,7 +16,7 @@ const HomeProduct = () => {
           
       
             <div className='forproducts'>
-{Products.map(product=>{
+          {Products.map(product=>{
         return(
             <Link to={`/productcart/${product.id}`}>
               <div  key={product.id} className='all'>

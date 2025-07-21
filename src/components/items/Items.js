@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
  import main2 from '../../pictures/main2.jpg'
   import main4 from '../../pictures/main4.jpg'
     import main3 from '../../pictures/main3.jpg'
@@ -10,7 +10,17 @@ import React from 'react';
                             import main10 from '../../pictures/main10.jpeg'
 
 import "./items.css"
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Products } from '../../productjson';
 const Items = () => {
+  const navigate = useNavigate();
+  
+  const handleClick = (categoryid) => {
+
+    // Set and navigate together
+    navigate(`/categoryproduct/${categoryid}`);
+  };
   return (
     <div>
         <div className='heading-main'>
@@ -19,22 +29,22 @@ const Items = () => {
         <div className='itemss'>
             
             <div className='item-img'>
-                   <img src={main2} alt=''/>
+                  <img src={main2} alt='' onClick={() => handleClick(21)}  /> 
                    <p>Earrings</p>
             </div>
                 <div className='item-img'>
-                    <img src={main4} alt=''/>
+                    <img src={main4} alt='' onClick={() => handleClick(20)}/>
                     <p>Necklaces</p>
                 </div>
-                <div className='item-img'> <img src={main10} alt=''/>
+                <div className='item-img'> <img src={main10} alt='' onClick={() => handleClick(22)}/>
                            <p>Rings</p>
                 </div>
-                 <div className='item-img'> <img src={main6} alt=''/>
+                 <div className='item-img'> <img src={main6} alt='' onClick={() => handleClick(24)}/>
                  <p>Watches</p>
                  </div>
-                 <div className='item-img'> <img src={main8} alt=''/>
+                 <div className='item-img'> <img src={main8} alt='' onClick={() => handleClick(25)}/>
                  <p>Rings set</p></div>
-                 <div className='item-img'> <img src={main9} alt=''/>
+                 <div className='item-img'> <img src={main9} alt='' onClick={() => handleClick(26)}/>
                   <p>Braclets</p></div> 
                   
                     
