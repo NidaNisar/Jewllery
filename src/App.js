@@ -13,7 +13,13 @@ import Login from './components/login/Login'
 import Signup from './components/signup/Signup';
 import Productcart from './components/productcart/Productcart';
 import Categoryproduct from './components/categoryproduct/Categoryproduct';
+import Cartitem from './components/cartitem/Cartitem';
+import Checkout from './components/checkout/Checkout';
+import { useState } from 'react';
 function App() {
+   
+  
+  
   return (
     <BrowserRouter>
     <div className="App">
@@ -29,7 +35,10 @@ function App() {
     <Route path="/login" element={<Login/>}/>
       <Route path="/signup" element={<Signup/>}/>
        <Route path="/productcart/:id" element={<Productcart/>}/>
-       <Route path="/categoryproduct/:categoryid" element={<Categoryproduct/>}/>
+       <Route path="/categoryproduct/:categoryid" element={<Categoryproduct />}/>
+          <Route path="/cartitem" element={<Cartitem />}/>
+           <Route path="/checkout" element={<Checkout/>}/>
+
 
 </Routes>
     </div>

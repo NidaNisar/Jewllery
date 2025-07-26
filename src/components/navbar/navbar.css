@@ -114,6 +114,60 @@ text-decoration: none;
    z-index: 10;
    border-radius: 10px;
 }
+.homecart{
+    width: 35%;
+   
+    height: fit-content;
+    background-color: white;
+    position: absolute;
+    top:5%;
+    right: 5%;
+   z-index: 10;
+   border-radius: 10px;
+     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.homecart-sub{
+    margin-left:8% ;
+    margin-right: 3%;
+}
+.homecart1 {
+    display: flex;
+    gap: 80%;
+    margin-top: 0.3rem;
+}
+.totall{
+  display: flex;
+  gap: 65%;
+  margin-bottom: 0;
+  line-height: 0.01;
+}
+.homecart-img {
+    margin-top: 1rem;
+    border: 2px solid black;
+    border-radius: 6px;
+    width: 6.5rem;
+    height: 8.5rem;
+    
+}
+.homecart-buttons{
+    margin-left: 3rem;
+    display: flex;
+    gap: 5rem;
+    margin-bottom: 3rem;
+   
+}
+.home-cartp{
+    margin-top: 0;
+}
+.homecart-product{
+    display: flex;
+    gap: 20px;
+    margin-top: 0.6rem;
+}
+.homecart-total{
+    margin-top: 9rem;
+}
+
 
 
 
@@ -137,6 +191,66 @@ text-decoration: none;
 .icons li i{
    font-size: 140%;
 }
+.homecartp-info {
+  padding: 0.8rem 1rem;
+  text-align: center;
+  background-color: #fff;
+  margin-top: 1rem;
+}
+.homecart-total hr{
+    width: 100%;
+}
+
+.homecartp-info h2 {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+
+.homecartp-info h3 {
+  font-size: 16px;
+  color: #1f1d1b; /* Elegant soft gold */
+  margin: 0.4rem 0 0;
+  font-weight: 600;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 300px;
+}
+
+.cart-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cart-details h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.cart-details p {
+  margin: 4px 0 0 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
 
 /* Tablet Devices (max 1100px) */
 @media (max-width: 1100px) {

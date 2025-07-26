@@ -21,7 +21,9 @@ height: 50vh;
     width: 45%;
     justify-content: center;
     align-items: center;
-    padding: 6px;
+    /* padding: 6px; */
+        border: 1px solid rgb(159 143 143);
+        border-radius: 2px;
     
 }
 .addto p{
@@ -74,4 +76,8 @@ hr{
     font-weight: 500;
      height: 30px;
        border-radius: 3px;
+}
+.buttons a{
+    text-decoration: none;
+    color: black;
 }

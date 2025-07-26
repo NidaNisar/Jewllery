@@ -1,0 +1,115 @@
+.cartcontainer{
+    display: flex;
+    margin-left: 4%;
+    margin-top: 4%;
+    gap: 40px;
+    margin-bottom: 4%; 
+    height: fit-content;
+   
+}
+.both-card{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+}
+.product-total{
+    color: black;
+    font-weight: 500;
+}
+.first-part{
+    border: 1px solid grey;
+    width: 85%;
+    height: 20%;
+   
+    display: flex;
+         
+    justify-content: space-between;
+   
+}
+.first-part p{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.cartitem{
+    border: 1px solid grey;
+    width: 85%;
+    height: 70%;
+}
+.card2 a{
+    text-decoration: none;
+    color: black;
+}
+/* p{
+    color:#4a5a7a;
+} */
+.sub-item{
+    display: flex;
+    gap: 35px;
+}
+.name-price{
+    display: flex;
+   font-size: large;
+    gap: 15rem;
+    margin-bottom: 0px;
+    padding-bottom: 0;
+}
+.sub-item img{
+    width: 100px;
+    height: 115px;
+    margin-top:25px;
+    /* border: 1px solid green; */
+    margin-left: 20px;
+    border-radius: 5px;
+}
+.proceed{
+    border: 1px solid grey;
+ width: 20rem;
+ padding: 13px;
+ height: 2.1rem;
+ display: flex;
+ justify-content: center;
+ justify-items: center;
+ margin-top: 10px;
+}
+.proceed:hover{
+    background-color: black;
+    color: white;
+}
+.card2{
+    width: 40%;
+    
+}
+.Estimate{
+    display: flex;
+    gap: 10rem;
+}
+.cart{
+    font-weight: 400;
+    font-size: 45px;
+    margin-left: 6rem;
+}
+.remove{
+    text-decoration: underline;
+     margin-top: 7px;
+     font-size: 14px;
+}
+.rs{
+    margin-top: 13px;
+    margin-bottom: 1px;
+    font-size: large;
+    font-weight: 400;
+}
+.leftin{
+ 
+font-size: 12px;
+border: 2px solid rgb(65, 62, 62);
+ margin-top: 0px;
+ margin-bottom: 2px;
+ padding: 4px;
+ border-radius: 4px;
+
+ 
+
+ 
+}
+

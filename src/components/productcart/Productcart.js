@@ -1,10 +1,42 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Products } from '../../productjson'
 import './productcart.css'
 import main13 from '../../pictures/main3.jpg'
 import Footer from '../footer/Footer'
+import Cartitem from '../cartitem/Cartitem'
 const Productcart = () => {
+      const addToCart = (item) => {
+        
+ const existingItems=JSON.parse(localStorage.getItem('cartItem'))||[]
+       const cartin=existingItems.some(cartItem=>cartItem.id===item.id)
+       if(!cartin)
+       {
+                 existingItems.push(item);
+                 localStorage.setItem('cartItem',JSON.stringify(existingItems))
+                 
+       }
+       else{
+        console.log("item already exist")
+       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+     
+      }
+ 
     const[count,setcount]=useState(0)
     const increment=()=>{
         
@@ -20,8 +52,8 @@ const Productcart = () => {
     }
     const {id}=useParams();
     const product=Products.find((item)=>item.id===id)
-    console.log(id);
-    console.log(product.image)
+    // console.log(id);
+    // console.log(product.image)
   return (
     
     <div>
@@ -42,8 +74,11 @@ const Productcart = () => {
                 <div className='number'>{count}</div>
                 <div className='minus' onClick={decrement}>-</div>
                 </button>
-                <button className='addto'>
-                   <p>Add to Cart</p> </button>
+ {/* <Link to='/cartitem'> <button className='addto'  onClick={()=>addToCart(product)}><p>Add to Cart</p> </button></Link> */}
+               <Link to='/cartitem' className="addto" onClick={()=>addToCart(product)}>
+                         <p>Add to Cart</p>
+                              </Link>
+
             </div>
 
         </div>
