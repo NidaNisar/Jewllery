@@ -106,15 +106,7 @@ const Navbar = () => {
                   <p>{item.price} Rs</p>
                         </div>
                          </div>
-          // <div key={item.id} className='homecart-product'>
-          //   <div className='homecart-img'>
-          //     <img src={item.image} alt='product' />
-          //   </div>
-          //   <div className='homecartp-info'>
-          //     <h2>{item.name}</h2>
-          //     <h3>{item.price}</h3>
-          //   </div>
-          // </div>
+          
         ))
       ) : (
         <p className='empty-cart'>Cart is empty</p>
@@ -129,8 +121,8 @@ const Navbar = () => {
                 </div>
               <p className='home-cartp'>Taxes and shiiping calculated at checkout</p>
               <div className='homecart-buttons'>
-                <button>Go to Cart</button>
-                <button>Checkout</button>
+            <Link to='/cartitem'> <button>Go to Cart</button></Link>   
+              <Link to='/checkout'><button>Checkout</button></Link>  
               </div>
               </div>
               </div>

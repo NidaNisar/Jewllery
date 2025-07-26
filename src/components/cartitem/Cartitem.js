@@ -31,7 +31,7 @@ const Cartitem = () => {
   return (
     <div>
         <p className='cart'>Cart</p>
-        <dsiv className='cartcontainer'>
+        <div className='cartcontainer'>
         <div className='both-card'>
         <div className='first-part'>
             <p className='product-total'>Product</p>
@@ -75,8 +75,8 @@ const Cartitem = () => {
              <p>Shipping will be calculated after checkout</p>
           <Link to='/checkout'><h4 className='proceed'>Proceed to checkout</h4></Link>  
                </div>
-               </dsiv>
-               {/* <Footer/> */}
+               </div>
+               <Footer/>
     </div>
   )
 }
