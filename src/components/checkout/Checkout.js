@@ -18,10 +18,10 @@ const Checkout = () => {
 
           <h3 className='heading-check'>Payment Method</h3>
           <label>
-            <input type="radio" name="payment" defaultChecked /> Cash on Delivery
+            <input type="radio" name="payment" /> Cash on Delivery
           </label>
 
-          <button type="submit">Place Order</button>
+          <button className='chek-btn' type="submit">Place Order</button>
         </form>
       </div>
            

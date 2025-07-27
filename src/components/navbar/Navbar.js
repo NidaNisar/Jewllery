@@ -24,7 +24,7 @@ const Navbar = () => {
           const allcarts =JSON.parse( localStorage.getItem('cartItem'))||[]
         console.log("shoppping",allcarts)
           setCartItems(allcarts);
-  },[])
+  },cartItems)
   
   return (
     <div className='container'>
@@ -119,7 +119,7 @@ const Navbar = () => {
                   <h2>Total</h2>
                       <h3>Rs.5,000</h3>
                 </div>
-              <p className='home-cartp'>Taxes and shiiping calculated at checkout</p>
+              <p className='home-cartp'>Taxes and shipping calculated at checkout</p>
               <div className='homecart-buttons'>
             <Link to='/cartitem'> <button>Go to Cart</button></Link>   
               <Link to='/checkout'><button>Checkout</button></Link>  

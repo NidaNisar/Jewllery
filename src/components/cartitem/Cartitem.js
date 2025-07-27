@@ -27,9 +27,21 @@ const Cartitem = () => {
                            
                           
                        }
+                        if (cartItems.length ===0) {
+    return (
+      <div className="empty-cart">
+        <h2>🛒 Your cart is empty</h2>
+       <span><Link to="/">Go back to shopping</Link></span>  
+       
+      </div>
+    );
+  }
  
   return (
+
+ 
     <div>
+    
         <p className='cart'>Cart</p>
         <div className='cartcontainer'>
         <div className='both-card'>
@@ -37,7 +49,10 @@ const Cartitem = () => {
             <p className='product-total'>Product</p>
             <p className='product-total'>Total</p>
         </div>
-                      {cartItems.map((item,index)=>{
+                       
+                      
+                     {
+                      cartItems.map((item,index)=>{
                         return(
                            <div key={index} className='cartitem'>
                 <div className='sub-item'>
@@ -59,7 +74,8 @@ const Cartitem = () => {
                
                </div>
                         )
-                      })}
+                      }) 
+                      }
                
                
                </div>
@@ -77,7 +93,9 @@ const Cartitem = () => {
                </div>
                </div>
                <Footer/>
+                                   
     </div>
+                    
   )
 }
 

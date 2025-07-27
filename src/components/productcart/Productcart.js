@@ -69,7 +69,7 @@ const Productcart = () => {
             <hr/>
             <h3>PKR {product.price}</h3>
             <div className='buttons'>
-                <button>
+                <button className='increm'>
                 <div className='plus' onClick={increment}>+</div>
                 <div className='number'>{count}</div>
                 <div className='minus' onClick={decrement}>-</div>

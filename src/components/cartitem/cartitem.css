@@ -13,6 +13,26 @@
     flex-wrap: wrap;
     width: 60%;
 }
+.empty-cart h2 {
+    text-align: center;
+    margin-top: 10%;
+}
+.empty-cart a{
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    padding: 15px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    top: 70%;
+       left: 41%;
+       width: 15rem;
+       border-radius:10px ;
+       background-color: black;
+       color: white;
+}
 .product-total{
     color: black;
     font-weight: 500;
