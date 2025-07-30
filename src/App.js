@@ -15,6 +15,7 @@ import Productcart from './components/productcart/Productcart';
 import Categoryproduct from './components/categoryproduct/Categoryproduct';
 import Cartitem from './components/cartitem/Cartitem';
 import Checkout from './components/checkout/Checkout';
+import Forget from './components/forget/Forget';
 import { useState } from 'react';
 function App() {
    
@@ -38,6 +39,7 @@ function App() {
        <Route path="/categoryproduct/:categoryid" element={<Categoryproduct />}/>
           <Route path="/cartitem" element={<Cartitem />}/>
            <Route path="/checkout" element={<Checkout/>}/>
+           <Route path="/forget" element={<Forget/>}/>
 
 
 </Routes>

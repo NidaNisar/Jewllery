@@ -24,7 +24,7 @@ const Navbar = () => {
           const allcarts =JSON.parse( localStorage.getItem('cartItem'))||[]
         console.log("shoppping",allcarts)
           setCartItems(allcarts);
-  },cartItems)
+  },[])
   
   return (
     <div className='container'>
@@ -99,7 +99,7 @@ const Navbar = () => {
 
               {cartItems.length > 0 ? (
         cartItems.map((item, index) => (
-          <div class="cart-item">
+          <div class="cart-item" key={item.id}>
            <img src={item.image} alt="Necklace" class="cart-image" />
                 <div class="cart-details">
                 <h3>{item.name} </h3>
@@ -121,8 +121,8 @@ const Navbar = () => {
                 </div>
               <p className='home-cartp'>Taxes and shipping calculated at checkout</p>
               <div className='homecart-buttons'>
-            <Link to='/cartitem'> <button>Go to Cart</button></Link>   
-              <Link to='/checkout'><button>Checkout</button></Link>  
+            <Link to='/cartitem'> <button className='shop-b'>Go to Cart</button></Link>   
+              <Link to='/checkout'><button className='shop-b'>Checkout</button></Link>  
               </div>
               </div>
               </div>

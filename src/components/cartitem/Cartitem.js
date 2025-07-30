@@ -10,13 +10,18 @@ const Cartitem = () => {
  
   const{id}=useParams()
   const product=Products.filter((item)=>item.id===id)
-  
+    const[total,settotal]=useState(0)
        
         const [cartItems, setCartItems] = useState([]);
+      
 
         useEffect(()=>{
         const allcarts =JSON.parse( localStorage.getItem('cartItem'))||[]
-     
+                // const calculatedTotal= allcarts.reduce((sum,item)=>{
+                //            return sum +(item.price*item.quantity)
+                //  })
+                 
+                //  settotal(calculatedTotal);
         setCartItems(allcarts);
 },[])
                        const removeproduct=(reitem)=>{
@@ -62,9 +67,10 @@ const Cartitem = () => {
                             <p className='product-total'>{item.name}</p>
                             
                 
-                            <p>Rs{item.price}</p>
+                            <p>Rs {item.price*item.quantity}</p>
                         </div>
                         <span className='leftin'> 2 LEFT IN STOCK</span>
+                        {/* <p className='quant'>Quantity {item.quantity}</p> */}
                         <p className='rs'>Rs{item.price}</p>
                         <p className='remove' onClick={()=>{removeproduct(item)}}>Remove an item</p>
                         
@@ -84,7 +90,7 @@ const Cartitem = () => {
              <hr/>
              <div className='Estimate'>
                  <h3>Estimate total</h3>
-                 <h3>Rs{product.price}</h3>
+                 <h3>Rs{} </h3>
                  
              </div>
              <hr/>

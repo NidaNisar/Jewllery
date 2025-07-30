@@ -14,7 +14,7 @@ const Checkout = () => {
           <input type="text" placeholder="Full Name" required />
           <input type="email" placeholder="Email" required />
           <input type="tel" placeholder="Phone Number" required />
-          <textarea placeholder="Address" required></textarea>
+          <textarea placeholder="Address" required className='text-check'/> 
 
           <h3 className='heading-check'>Payment Method</h3>
           <label>
@@ -32,8 +32,8 @@ const Checkout = () => {
                   {allcarts.map((item,index)=>{
           return(
              <li key={item.id}>
-            <span>{item.name} x1</span>
-            <span>Rs. {item.price}</span>
+            <span>{item.name} x{item.quantity}</span>
+            <span>Rs. {item.price*item.quantity}</span>
           </li>
           )
         })}

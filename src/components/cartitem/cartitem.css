@@ -70,7 +70,7 @@
 .name-price{
     display: flex;
    font-size: large;
-    gap: 15rem;
+    gap: 21rem;
     margin-bottom: 0px;
     padding-bottom: 0;
 }
@@ -81,6 +81,9 @@
     /* border: 1px solid green; */
     margin-left: 20px;
     border-radius: 5px;
+}
+.quant{
+    line-height: 1;
 }
 .proceed{
     border: 1px solid grey;

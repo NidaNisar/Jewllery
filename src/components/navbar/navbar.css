@@ -152,9 +152,18 @@ text-decoration: none;
 .homecart-buttons{
     margin-left: 3rem;
     display: flex;
-    gap: 5rem;
+    gap: 2rem;
     margin-bottom: 3rem;
    
+}
+.shop-b{
+    padding: 15px;
+    width: 9rem;
+    border-radius: 10px;
+    background-color: #0a0909;
+    color: white;
+    margin-top: 1rem;
+    border: none;
 }
 .home-cartp{
     margin-top: 0;
