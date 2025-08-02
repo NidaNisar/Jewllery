@@ -13,18 +13,30 @@ const Navbar = () => {
     const searchin =(event)=>{
             console.log("clicked on input")
                  setsearchinput(event.target.value)
+       
                  console.log(event.target.value)
+    }
+    const[cartItems,setCartItems]=useState([])
+    const deleteitems=(reitem)=>{
+                               
+                         
+                          const updatecart= allcarts.filter(item=>item.id!==reitem.id)
+                      setCartItems(updatecart);
+                          localStorage.setItem('cartItem',JSON.stringify(updatecart))
+                           
+                          
+     
     }
     const filteredCategories = categories.filter((category) =>
     category.name.toLowerCase().includes(searchinput.toLowerCase())
   );
-  const [cartItems, setCartItems] = useState([]);
+  // const [cartItems, setCartItems] = useState([]);
   
-          useEffect(()=>{
+        
           const allcarts =JSON.parse( localStorage.getItem('cartItem'))||[]
         console.log("shoppping",allcarts)
-          setCartItems(allcarts);
-  },[])
+          // setCartItems(allcarts);
+ 
   
   return (
     <div className='container'>
@@ -97,13 +109,17 @@ const Navbar = () => {
                 <div className='close' onClick={()=>setshopping(false)}>X</div>
               </div>
 
-              {cartItems.length > 0 ? (
-        cartItems.map((item, index) => (
+              {allcarts.length > 0 ? (
+        allcarts.map((item, index) => (
           <div class="cart-item" key={item.id}>
            <img src={item.image} alt="Necklace" class="cart-image" />
                 <div class="cart-details">
-                <h3>{item.name} </h3>
-                  <p>{item.price} Rs</p>
+                  <div className='name-del'>
+                    <h3 className='shopping-name'>{item.name} </h3>
+                   <i  onClick={()=>{deleteitems(item)}}class="fa-solid fa-trash"></i>
+                  </div>
+                {/* <h3 className='shopping-name'>{item.name} </h3> */}
+                  <p className='shopping-price'> Rs.{item.price} </p>
                         </div>
                          </div>
           

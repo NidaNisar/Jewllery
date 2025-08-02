@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './forget.css'
 const Forget = () => {
   return (
     <div>
