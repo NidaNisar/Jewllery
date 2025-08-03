@@ -15,18 +15,13 @@ const Cartitem = () => {
   const product=Products.filter((item)=>item.id===id)
  
          
-        // const [cartItems, setCartItems] = useState([]);
+        
               useEffect(()=>{
          const allcarts =JSON.parse( localStorage.getItem('cartItem'))||[]
                
         setCartItems(allcarts);
                        },[])
-        //                const removeproduct=(reitem)=>{
-        //                    const updatecart= cartItems.filter(item=>item.id!==reitem.id)
-        //                   setCartItems(updatecart);
-        //                   localStorage.setItem('cartItem',JSON.stringify(updatecart))
-  
-        //                }
+        
                         if (cartItems.length ===0) {
     return (
       <div className="empty-cart">

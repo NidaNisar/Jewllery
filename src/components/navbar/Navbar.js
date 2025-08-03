@@ -1,44 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo1 from "../../pictures/logo1.png" 
 import './navbar.css'
 import { Link } from 'react-router-dom';
 import { categories } from '../../productjson';
 import { Products} from '../../productjson';
 import { useEffect } from 'react';
+import { Cartcontext } from '../context/Cartcontext';
 const Navbar = () => {
-  const[search,setsearch]=useState(false)
-   const[shopping,setshopping]=useState(false)
-  
-    const[searchinput,setsearchinput]=useState('')
-    const searchin =(event)=>{
-            console.log("clicked on input")
-                 setsearchinput(event.target.value)
-       
-                 console.log(event.target.value)
-    }
-        const [cartItems, setCartItems] = useState([]);
-            
-              
-
-        const allcarts= JSON.parse( localStorage.getItem('cartItem'))||[]
-        
-    const deleteitems=(reitem)=>{
-                               
-                         
-                          const updatecart= allcarts.filter(item=>item.id!==reitem.id)
-                            setCartItems(updatecart)
-                    localStorage.setItem('cartItem',JSON.stringify(updatecart))
- 
-    }
-    const filteredCategories = categories.filter((category) =>
+  const{removeproduct,searchin,searchinput,allcarts,setsearch,setshopping,search}=useContext(Cartcontext)
+   const filteredCategories = categories.filter((category) =>
     category.name.toLowerCase().includes(searchinput.toLowerCase())
   );
- 
-  
-        
-          
-        console.log("shoppping",allcarts)
-          // setCartItems(allcarts);
+      
  
   
   return (
@@ -119,7 +92,7 @@ const Navbar = () => {
                 <div class="cart-details">
                   <div className='name-del'>
                     <h3 className='shopping-name'>{item.name} </h3>
-                   <i  onClick={()=>{deleteitems(item)}}class="fa-solid fa-trash"></i>
+                   <i  onClick={()=>{removeproduct(item)}}class="fa-solid fa-trash"></i>
                   </div>
                 {/* <h3 className='shopping-name'>{item.name} </h3> */}
                   <p className='shopping-price'> Rs.{item.price} </p>
