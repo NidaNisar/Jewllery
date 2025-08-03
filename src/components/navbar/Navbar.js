@@ -7,7 +7,7 @@ import { Products} from '../../productjson';
 import { useEffect } from 'react';
 import { Cartcontext } from '../context/Cartcontext';
 const Navbar = () => {
-  const{removeproduct,searchin,searchinput,allcarts,setsearch,setshopping,search}=useContext(Cartcontext)
+  const{removeproduct,searchin,searchinput,allcarts,setsearch,setshopping,search,shopping}=useContext(Cartcontext)
    const filteredCategories = categories.filter((category) =>
     category.name.toLowerCase().includes(searchinput.toLowerCase())
   );

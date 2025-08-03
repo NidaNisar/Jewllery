@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './checkout.css'
+import { Cartcontext } from '../context/Cartcontext'
 const Checkout = () => {
-
-   const allcarts=JSON.parse(localStorage.getItem('cartItem'))||[]
-   console.log("checkouts",allcarts)
+      const{allcarts}=useContext(Cartcontext)
+  
+ 
   return (
         <div className="checkout-container">
       <h1 className='heading-check'>Checkout</h1>

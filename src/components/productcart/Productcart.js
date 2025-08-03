@@ -1,50 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Products } from '../../productjson'
 import './productcart.css'
 import main13 from '../../pictures/main3.jpg'
 import Footer from '../footer/Footer'
 import Cartitem from '../cartitem/Cartitem'
+import { Cartcontext } from '../context/Cartcontext'
 const Productcart = () => {
-  
-      const addToCart = (item) => {
-        
- const existingItems=JSON.parse(localStorage.getItem('cartItem'))||[]
-       const cartin=existingItems.some(cartItem=>cartItem.id===item.id)
-      
-       if(!cartin)
-       {
-                   
-                            
-                 const itemWithQuantity = { ...item, quantity: count  };
-                        existingItems.push(itemWithQuantity);
-                 console.log("product quanttiy",count);
-                 localStorage.setItem('cartItem',JSON.stringify(existingItems))
-             
-                 
-       }
-       else{
-        console.log("item already exist")
-       } 
-      }
+  const{addToCart,count,increment,decrement,setcount}=useContext(Cartcontext)
 
-    const[count,setcount]=useState(1)
-    const increment=()=>{
-        
-        setcount(prev=> prev+1);
-    }
-     const decrement=()=>{
-        if(count<=1)
-        {
-            setcount(1)
-            return
-        }
-        setcount(prev=> prev-1);
-    }
     const {id}=useParams();
     const product=Products.find((item)=>item.id===id)
-    // console.log(id);
-    // console.log(product.image)
+ 
   return (
     
     <div>
@@ -65,7 +32,7 @@ const Productcart = () => {
                 <div className='number'>{count}</div>
                 <div className='minus' onClick={decrement}>-</div>
                 </button>
- {/*<Link to='/cartitem'> <button className='addto'  onClick={()=>addToCart(product)}><p>Add to Cart</p></button></Link>*/}
+ 
                <Link to='/cartitem' className="addto" onClick={()=>addToCart(product)}>
                          <p>Add to Cart</p>
                               </Link>
@@ -74,7 +41,7 @@ const Productcart = () => {
 
         </div>
        </div>
-<Footer/>
+                  <Footer/>
     </div>
   )
 }

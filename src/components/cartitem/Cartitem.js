@@ -13,13 +13,9 @@ const Cartitem = () => {
   const{removeproduct,setCartItems,cartItems} =useContext(Cartcontext)
   const{id}=useParams()
   const product=Products.filter((item)=>item.id===id)
- 
-         
-        
-              useEffect(()=>{
+   useEffect(()=>{
          const allcarts =JSON.parse( localStorage.getItem('cartItem'))||[]
-               
-        setCartItems(allcarts);
+               setCartItems(allcarts);
                        },[])
         
                         if (cartItems.length ===0) {
