@@ -6,32 +6,27 @@ import { useParams } from 'react-router-dom'
 import { Products } from '../../productjson'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+
+import { Cartcontext } from '../context/Cartcontext'
 const Cartitem = () => {
- 
+  const{removeproduct,setCartItems,cartItems} =useContext(Cartcontext)
   const{id}=useParams()
   const product=Products.filter((item)=>item.id===id)
-    const[total,settotal]=useState(0)
-       
-        const [cartItems, setCartItems] = useState([]);
-      
-
-        useEffect(()=>{
-        const allcarts =JSON.parse( localStorage.getItem('cartItem'))||[]
-                // const calculatedTotal= allcarts.reduce((sum,item)=>{
-                //            return sum +(item.price*item.quantity)
-                //  })
-                 
-                //  settotal(calculatedTotal);
+ 
+         
+        // const [cartItems, setCartItems] = useState([]);
+              useEffect(()=>{
+         const allcarts =JSON.parse( localStorage.getItem('cartItem'))||[]
+               
         setCartItems(allcarts);
-},[])
-                       const removeproduct=(reitem)=>{
-                         
-                          const updatecart= cartItems.filter(item=>item.id!==reitem.id)
-                          setCartItems(updatecart);
-                          localStorage.setItem('cartItem',JSON.stringify(updatecart))
-                           
-                          
-                       }
+                       },[])
+        //                const removeproduct=(reitem)=>{
+        //                    const updatecart= cartItems.filter(item=>item.id!==reitem.id)
+        //                   setCartItems(updatecart);
+        //                   localStorage.setItem('cartItem',JSON.stringify(updatecart))
+  
+        //                }
                         if (cartItems.length ===0) {
     return (
       <div className="empty-cart">

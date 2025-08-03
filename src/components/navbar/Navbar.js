@@ -16,24 +16,27 @@ const Navbar = () => {
        
                  console.log(event.target.value)
     }
-    const[cartItems,setCartItems]=useState([])
+        const [cartItems, setCartItems] = useState([]);
+            
+              
+
+        const allcarts= JSON.parse( localStorage.getItem('cartItem'))||[]
+        
     const deleteitems=(reitem)=>{
                                
                          
                           const updatecart= allcarts.filter(item=>item.id!==reitem.id)
-                      setCartItems(updatecart);
-                          localStorage.setItem('cartItem',JSON.stringify(updatecart))
-                           
-                          
-     
+                            setCartItems(updatecart)
+                    localStorage.setItem('cartItem',JSON.stringify(updatecart))
+ 
     }
     const filteredCategories = categories.filter((category) =>
     category.name.toLowerCase().includes(searchinput.toLowerCase())
   );
-  // const [cartItems, setCartItems] = useState([]);
+ 
   
         
-          const allcarts =JSON.parse( localStorage.getItem('cartItem'))||[]
+          
         console.log("shoppping",allcarts)
           // setCartItems(allcarts);
  
@@ -148,39 +151,7 @@ const Navbar = () => {
                     
                 
                    </div>
-            {/* <div className={shopping?"homecart":"hidden"}>
-              <div className='homecart-sub'>
-                   <div className='homecart1'>
-                <h3>Cart</h3>
-                <div className='close' onClick={()=>setshopping(false)}>X</div>
-              </div>
-              <div className='homecart-product'>
-                <div className='homecart-img'>
-                  <img src='' alt='image'/>
-                </div>
-                
-                <div className='homecartp-info'>
-                  <h2>Rings</h2>
-                  <h3>Rs 5000</h3>
-                </div>
-              </div>
-              <div className='homecart-total'>
-                 <hr/>
-                <div className='totall'>
-                 
-                  <h2>Total</h2>
-                      <h3>Rs.5,000</h3>
-                </div>
-              <p className='home-cartp'>Taxes and shiiping calculated at checkout</p>
-              <div className='homecart-buttons'>
-                <button>Go to Cart</button>
-                <button>Checkout</button>
-              </div>
-              </div>
-              </div>
-           
-            </div>
-            </div> */}
+         
            
          <Link to='/login'> <li>  <i class="fa-regular fa-user"></i></li></Link> 
            </div>
