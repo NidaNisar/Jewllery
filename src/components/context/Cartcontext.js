@@ -7,18 +7,29 @@ const Cartprovider = ({children}) => {
        const[quant,setquant]=useState(0)
        
            const[count,setcount]=useState(1)
-           const increment=()=>{
-               
-               setcount(prev=> prev+1);
+           const increment=(id)=>{
+                 setcount(prev=> prev+1);
+               const updatedCart = cartItems.map(item =>
+    item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+  );
+         setCartItems(updatedCart);
+             localStorage.setItem('cartItem', JSON.stringify(updatedCart));
+          
             //    setquant(item.price*item.quantity)
            }
-            const decrement=()=>{
+            const decrement=(id)=>{
                if(count<=1)
                {
                    setcount(1)
                    return
                }
                setcount(prev=> prev-1);
+                const updatedCart = cartItems.map(item =>
+    item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+  );
+         setCartItems(updatedCart);
+             localStorage.setItem('cartItem', JSON.stringify(updatedCart));
+          
            }
            const addToCart = (item) => {
         

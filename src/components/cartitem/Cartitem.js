@@ -56,10 +56,10 @@ const Cartitem = () => {
                         </div>
                         {/* <span className='leftin'> 2 LEFT IN STOCK</span> */}
                         <div className="quantity-control">
-  <button onClick={decrement} className="qty-btn">−</button>
-  <span className="qty-value">{count}</span>
-  <button onClick={increment} className="qty-btn">+</button>
-</div>
+             <button onClick={()=>decrement(item.id)} className="qty-btn">−</button>
+               <span className="qty-value">{count}</span>
+                    <button onClick={()=>increment(item.id)} className="qty-btn">+</button>
+                        </div>
                             
                       
                         {/* <p className='quant'>Quantity {item.quantity}</p> */}
