@@ -10,7 +10,7 @@ import { useContext } from 'react'
 
 import { Cartcontext } from '../context/Cartcontext'
 const Cartitem = () => {
-  const{removeproduct,setCartItems,cartItems} =useContext(Cartcontext)
+  const{removeproduct,setCartItems,cartItems,total,increment,decrement,count} =useContext(Cartcontext)
   const{id}=useParams()
   const product=Products.filter((item)=>item.id===id)
    useEffect(()=>{
@@ -51,42 +51,64 @@ const Cartitem = () => {
                      <div className='item-info'>
                         <div className='name-price'>
                             <p className='product-total'>{item.name}</p>
-                            
-                
-                            <p>Rs {item.price*item.quantity}</p>
+                         
+                            <p>Rs. {item.price*item.quantity}</p>
                         </div>
-                        <span className='leftin'> 2 LEFT IN STOCK</span>
+                        {/* <span className='leftin'> 2 LEFT IN STOCK</span> */}
+                        <div className="quantity-control">
+  <button onClick={decrement} className="qty-btn">−</button>
+  <span className="qty-value">{count}</span>
+  <button onClick={increment} className="qty-btn">+</button>
+</div>
+                            
+                      
                         {/* <p className='quant'>Quantity {item.quantity}</p> */}
-                        <p className='rs'>Rs{item.price}</p>
+                        <p className='rs'>Rs. {item.price}</p>
                         <p className='remove' onClick={()=>{removeproduct(item)}}>Remove an item</p>
-                        
-                     </div>
+                          {/* <span className='buttons'>
+                             <button className='increm'>
+                <div className='plus' onClick={increment}>+</div>
+                <div className='number'>{count}</div>
+                <div className='minus' onClick={decrement}>-</div>
+                </button>
+                             </span>
+                         */}
+                         {/* <div className="quantity-control">
+  <button onClick={decrement} className="qty-btn">−</button>
+  <span className="qty-value">{count}</span>
+  <button onClick={increment} className="qty-btn">+</button>
+</div> */}
+
+                     
 
                 </div>
                
                </div>
-                        )
+                    </div>    )
                       }) 
                       }
                
+                </div> 
                
-               </div>
                <div className='card2'>
              <p className='product-total'>Cart total</p>
              <hr/>
              <div className='Estimate'>
                  <h3>Estimate total</h3>
-                 <h3>Rs{} </h3>
+                 <h3>Rs. {total} </h3>
                  
              </div>
              <hr/>
              <p>Shipping will be calculated after checkout</p>
           <Link to='/checkout'><h4 className='proceed'>Proceed to checkout</h4></Link>  
                </div>
-               </div>
-               <Footer/>
-                                   
+               {/* </div>  */}
+               
+                                 
     </div>
+    <Footer/>
+    </div>
+    
                     
   )
 }

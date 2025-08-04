@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import './checkout.css'
 import { Cartcontext } from '../context/Cartcontext'
 const Checkout = () => {
-      const{allcarts}=useContext(Cartcontext)
+      const{allcarts,total}=useContext(Cartcontext)
   
  
   return (
@@ -42,7 +42,7 @@ const Checkout = () => {
          
           <li className="total">
             <strong>Total</strong>
-            <strong>Rs. 45,000</strong>
+            <strong>Rs. {total}</strong>
           </li>
         </ul>
       </div>

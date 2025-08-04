@@ -4,11 +4,13 @@ const Cartprovider = ({children}) => {
     const [cartItems, setCartItems] = useState([]);
     const[search,setsearch]=useState(false)
        const[shopping,setshopping]=useState(false)
+       const[quant,setquant]=useState(0)
        
            const[count,setcount]=useState(1)
            const increment=()=>{
                
                setcount(prev=> prev+1);
+            //    setquant(item.price*item.quantity)
            }
             const decrement=()=>{
                if(count<=1)
@@ -58,8 +60,10 @@ const Cartprovider = ({children}) => {
                  
     }
      const allcarts= JSON.parse( localStorage.getItem('cartItem'))||[]
+     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
   return (
-  <Cartcontext.Provider value={{cartItems,setCartItems,removeproduct,searchin,searchinput,setsearchinput,allcarts,setsearch,setshopping,search,addToCart,count,setcount,increment,decrement,shopping}} >
+  <Cartcontext.Provider value={{cartItems,setCartItems,removeproduct,searchin,searchinput,setsearchinput,allcarts,setsearch,setshopping,search,addToCart,count,setcount,increment,decrement,shopping,total}} >
     {children}
   </Cartcontext.Provider>)
 }

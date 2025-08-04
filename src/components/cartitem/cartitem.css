@@ -70,7 +70,7 @@
 .name-price{
     display: flex;
    font-size: large;
-    gap: 21rem;
+    gap: 19rem;
     margin-bottom: 0px;
     padding-bottom: 0;
 }
@@ -105,7 +105,7 @@
 }
 .Estimate{
     display: flex;
-    gap: 10rem;
+    gap: 8.5rem;
 }
 .cart{
     font-weight: 400;
@@ -135,5 +135,35 @@ border: 2px solid rgb(65, 62, 62);
  
 
  
+}
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* margin-top: 10px;
+  margin-bottom: 10px; */
+}
+
+.qty-btn {
+  width: 25px;
+  height: 25px;
+  font-size: 15px;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.qty-btn:hover {
+  background-color: #555;
+}
+
+.qty-value {
+  font-size: 15px;
+  font-weight: bold;
+  width: 40px;
+  text-align: center;
 }
 
