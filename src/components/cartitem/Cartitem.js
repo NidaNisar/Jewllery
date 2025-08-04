@@ -10,13 +10,18 @@ import { useContext } from 'react'
 
 import { Cartcontext } from '../context/Cartcontext'
 const Cartitem = () => {
-  const{removeproduct,setCartItems,cartItems,total,increment,decrement,count} =useContext(Cartcontext)
+  const{removeproduct,setCartItems,cartItems,total,increment,decrement,count,setcount} =useContext(Cartcontext)
   const{id}=useParams()
   const product=Products.filter((item)=>item.id===id)
    useEffect(()=>{
          const allcarts =JSON.parse( localStorage.getItem('cartItem'))||[]
                setCartItems(allcarts);
+           
+                   
                        },[])
+                       useEffect(()=>{
+                             localStorage.setItem('cartItem-count', JSON.stringify(count));
+                       },[count])
         
                         if (cartItems.length ===0) {
     return (
@@ -65,19 +70,7 @@ const Cartitem = () => {
                         {/* <p className='quant'>Quantity {item.quantity}</p> */}
                         <p className='rs'>Rs. {item.price}</p>
                         <p className='remove' onClick={()=>{removeproduct(item)}}>Remove an item</p>
-                          {/* <span className='buttons'>
-                             <button className='increm'>
-                <div className='plus' onClick={increment}>+</div>
-                <div className='number'>{count}</div>
-                <div className='minus' onClick={decrement}>-</div>
-                </button>
-                             </span>
-                         */}
-                         {/* <div className="quantity-control">
-  <button onClick={decrement} className="qty-btn">−</button>
-  <span className="qty-value">{count}</span>
-  <button onClick={increment} className="qty-btn">+</button>
-</div> */}
+                          
 
                      
 

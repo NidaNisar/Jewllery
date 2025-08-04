@@ -7,7 +7,7 @@ import { Products} from '../../productjson';
 import { useEffect } from 'react';
 import { Cartcontext } from '../context/Cartcontext';
 const Navbar = () => {
-  const{removeproduct,searchin,searchinput,allcarts,setsearch,setshopping,search,shopping}=useContext(Cartcontext)
+  const{removeproduct,searchin,searchinput,allcarts,setsearch,setshopping,search,shopping,total}=useContext(Cartcontext)
    const filteredCategories = categories.filter((category) =>
     category.name.toLowerCase().includes(searchinput.toLowerCase())
   );
@@ -109,7 +109,7 @@ const Navbar = () => {
                 <div className='totall'>
                  
                   <h2>Total</h2>
-                      <h3>Rs.5,000</h3>
+                      <h3>Rs. {total}</h3>
                 </div>
               <p className='home-cartp'>Taxes and shipping calculated at checkout</p>
               <div className='homecart-buttons'>

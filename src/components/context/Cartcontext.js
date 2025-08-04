@@ -5,10 +5,17 @@ const Cartprovider = ({children}) => {
     const[search,setsearch]=useState(false)
        const[shopping,setshopping]=useState(false)
        const[quant,setquant]=useState(0)
-       
-           const[count,setcount]=useState(1)
+      
+           const[count,setcount]=useState(()=>{
+            return JSON.parse(localStorage.getItem('cartItem-count'));
+           })
            const increment=(id)=>{
-                 setcount(prev=> prev+1);
+           
+            
+             setcount(prev=> prev+1);
+             
+              
+                 
                const updatedCart = cartItems.map(item =>
     item.id === id ? { ...item, quantity: item.quantity + 1 } : item
   );
@@ -24,8 +31,9 @@ const Cartprovider = ({children}) => {
                    return
                }
                setcount(prev=> prev-1);
+                localStorage.setItem('cartItem-count',JSON.stringify(count))
                 const updatedCart = cartItems.map(item =>
-    item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+    item.id === id ? { ...item, quantity: item.quantity - 1 } : item
   );
          setCartItems(updatedCart);
              localStorage.setItem('cartItem', JSON.stringify(updatedCart));
