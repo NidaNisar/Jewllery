@@ -11,15 +11,20 @@ const Navbar = () => {
    const filteredCategories = categories.filter((category) =>
     category.name.toLowerCase().includes(searchinput.toLowerCase())
   );
-      
+      const[menu,setmenu]=useState(false);
  
   
   return (
     <div className='container'>
-      <nav>
+      <nav className='navbar'>
           <div className='logo'>
             <img src={logo1} alt=''/>
-             <div className='mid-part'>
+           
+          </div>
+          <div className='menutoggle' onClick={()=>{setmenu(prev=>!prev)}}>
+            <i class="fa-solid fa-bars"></i>
+          </div>
+           <div className={`mid-part${menu?'open':''}`}>
                   <ul>
               <li><Link to='/'>Home</Link></li> 
                <li><Link to='/product'>Product</Link></li> 
@@ -31,7 +36,6 @@ const Navbar = () => {
              
                 </ul>
   
-          </div>
           </div>
          
           <div className='icons'>

@@ -7,11 +7,14 @@ import Footer from '../footer/Footer'
 import Cartitem from '../cartitem/Cartitem'
 import { Cartcontext } from '../context/Cartcontext'
 const Productcart = () => {
-  const{addToCart,count,increment,decrement,setcount}=useContext(Cartcontext)
+  const{addToCart,count,increment,decrement,setcount,cartItems}=useContext(Cartcontext)
 
     const {id}=useParams();
     const product=Products.find((item)=>item.id===id)
- 
+    const cartproduct = cartItems.find((item)=> item.id===id)
+    const quantity=cartproduct?.quantity||1
+    console.log("productcart",cartproduct)
+   
   return (
     
     <div>
@@ -26,11 +29,12 @@ const Productcart = () => {
             <p>category: Necklace</p>
             <hr/>
             <h3>PKR {product.price}</h3>
+
             <div className='buttons'>
                 <button className='increm'>
-                <div className='plus' onClick={increment}>+</div>
-                <div className='number'>{count}</div>
-                <div className='minus' onClick={decrement}>-</div>
+                <div className='plus' onClick={()=>increment(product.id)}>+</div>
+                <div className='number'> {cartItems.find(item => item.id === product.id)?.quantity || 1}</div>
+                <div className='minus' onClick={()=>decrement(product.id)}>-</div>
                 </button>
  
                <Link to='/cartitem' className="addto" onClick={()=>addToCart(product)}>

@@ -4,36 +4,32 @@ const Cartprovider = ({children}) => {
     const [cartItems, setCartItems] = useState([]);
     const[search,setsearch]=useState(false)
        const[shopping,setshopping]=useState(false)
-       const[quant,setquant]=useState(0)
+       
       
-           const[count,setcount]=useState(()=>{
-            return JSON.parse(localStorage.getItem('cartItem-count'));
-           })
-           const increment=(id)=>{
-           
-            
-             setcount(prev=> prev+1);
-             
-              
-                 
+           const[count,setcount]=useState();
+           const increment=(id)=>{   
+                           
                const updatedCart = cartItems.map(item =>
-    item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === id ? { ...item,   quantity: item.quantity + 1  } : item
+         
   );
          setCartItems(updatedCart);
              localStorage.setItem('cartItem', JSON.stringify(updatedCart));
+            //  setcount(item.quantity)
+            // setcount(prev=> prev+1);
           
-            //    setquant(item.price*item.quantity)
            }
+
             const decrement=(id)=>{
-               if(count<=1)
-               {
-                   setcount(1)
-                   return
-               }
-               setcount(prev=> prev-1);
-                localStorage.setItem('cartItem-count',JSON.stringify(count))
+            //    if(count<=1)
+            //    {
+            //        setcount(1)
+            //        return
+            //    }
+            //    setcount(prev=> prev-1);
+               
                 const updatedCart = cartItems.map(item =>
-    item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+    item.id === id ? { ...item,  quantity: item.quantity > 1 ? item.quantity-1:1   }:item
   );
          setCartItems(updatedCart);
              localStorage.setItem('cartItem', JSON.stringify(updatedCart));
@@ -48,9 +44,9 @@ const Cartprovider = ({children}) => {
        {
                    
                             
-                 const itemWithQuantity = { ...item, quantity: count  };
+                 const itemWithQuantity = { ...item, quantity: item.quantity  };
                         existingItems.push(itemWithQuantity);
-                 console.log("product quanttiy",count);
+                 
                  localStorage.setItem('cartItem',JSON.stringify(existingItems))
              
                  
@@ -82,7 +78,7 @@ const Cartprovider = ({children}) => {
      const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-  <Cartcontext.Provider value={{cartItems,setCartItems,removeproduct,searchin,searchinput,setsearchinput,allcarts,setsearch,setshopping,search,addToCart,count,setcount,increment,decrement,shopping,total}} >
+  <Cartcontext.Provider value={{cartItems,setCartItems,removeproduct,searchin,searchinput,setsearchinput,allcarts,setsearch,setshopping,search,addToCart,increment,decrement,shopping,total,count}} >
     {children}
   </Cartcontext.Provider>)
 }
