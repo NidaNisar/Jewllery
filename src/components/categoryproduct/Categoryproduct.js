@@ -8,7 +8,7 @@ const Categoryproduct = () => {
   const{categoryid}=useParams()
   return (
     <div>
-     
+      
         
             <div className='forproducts'>
           {Products.map(product=> {

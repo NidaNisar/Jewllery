@@ -12,7 +12,7 @@
     display: flex;
       gap: 24px;
       margin-left:7%;
-      /* margin-right: 7%; */
+      margin-right: 7%;
 }
 .item-img{
     display: flex;
@@ -22,3 +22,10 @@
     font-weight: bolder;
     margin-left: 3.5rem;
 }
+ @media (max-width:1067px){
+.heading-main{
+    font-size: 11px;
+}
+
+}
+

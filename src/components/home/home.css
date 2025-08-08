@@ -36,6 +36,10 @@
 .main-pic img{
     height: 50vh;
     width: 90vw;
+    margin-bottom: 5px;
+}
+.main-pic{
+    height: 50vh;
 }
 .pic-text{
     font-size: 2rem;
