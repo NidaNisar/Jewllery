@@ -13,6 +13,7 @@ import "./items.css"
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Products } from '../../productjson';
+import DragScroll from 'react-indiana-drag-scroll'
 const Items = () => {
   const navigate = useNavigate();
   
@@ -27,7 +28,10 @@ const Items = () => {
                   <h1>Elevate Your Look - Our Artifical Collection Has Arrived</h1>
         </div>
         <div className='itemss'>
-            
+            <DragScroll className='itemss'
+                       horizontal={true}
+                       vertical={true}
+                       style={{cursor:'gr'}}>
             <div className='item-img'>
                   <img src={main2} alt='' onClick={() => handleClick(21)}  /> 
                    <p>Earrings</p>
@@ -52,7 +56,7 @@ const Items = () => {
                   <img src={main1} alt=''/>
                   <img src={main3} alt=''/>
             */}
-           
+           </DragScroll>
              
         </div>
 
