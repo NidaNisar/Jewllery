@@ -9,7 +9,7 @@ const Home = () => {
          <div>
             <img alt='' src={home1}/>
          </div>
-      
+       
       <div className='pic-text'>
             <p>Jewellery that <br></br> tells your
             <br></br> story</p>

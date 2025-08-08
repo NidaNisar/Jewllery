@@ -30,5 +30,16 @@
    height: 85vh;
    width: 94vw;
    border-radius: 15px;
-    
+     
+}
+ @media (max-width:786px){
+.main-pic img{
+    height: 50vh;
+    width: 90vw;
+}
+.pic-text{
+    font-size: 2rem;
+    line-height: 2;
+}
+
 }
