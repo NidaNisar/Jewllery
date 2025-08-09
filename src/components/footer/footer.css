@@ -4,7 +4,7 @@
 }
 .nameicon{
     display: flex;
-   
+    
 }
 .name-icons{
     margin-left: 10%;
@@ -62,3 +62,44 @@
   text-decoration: underline;
 }
 
+@media (max-width: 748px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 5%;
+    text-align: center;
+  }
+
+  .nameicon {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nameicon img {
+    width: 30vw; /* bigger on small screens */
+  }
+
+  .name-icons {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .footer-icon {
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .quickp,
+  .collectionp,
+  .letsp,
+  .footer-name {
+    font-size: 18px;
+  }
+
+  .quick-links a,
+  .collections a {
+    display: block;
+    margin: 5px 0;
+  }
+}

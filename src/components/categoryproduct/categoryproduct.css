@@ -71,7 +71,7 @@
         justify-content: center;
     }
     .home-product img{
-       width: 30vh;
+       width: 20vh;
        height: 25vw;
        border-radius: 10px;
 }
@@ -80,11 +80,11 @@
     font-size: 27px;
 }
  }
- @media(max-width:499px)
+ @media(max-width:548px)
  {
     
     .home-product img{
-       width: 25vh;
+       width: 18vh;
        height: 30vw;
        border-radius: 10px;
 }
@@ -94,7 +94,7 @@
  {
     
     .home-product img{
-       width: 20vh;
+       width: 15vh;
        height: 30vw;
        border-radius: 10px;
 }
