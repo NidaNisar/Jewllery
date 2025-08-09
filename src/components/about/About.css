@@ -28,3 +28,33 @@
     margin-bottom: 3%;
     line-height: 1.5;
 }
+
+@media (max-width: 854px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    margin-top: 5%;
+  }
+
+  .about-container img {
+    margin-left: 0;
+    width: 50vw;
+    height: 50vh;
+    padding: 10px;
+  }
+
+  .para1 {
+    width: 80%;
+  }
+
+  .para1 p {
+    font-size: 28px; 
+  }
+
+  .para2 {
+    margin: 0 10% 5% 10%;
+    font-size: 18px;
+  }
+}
