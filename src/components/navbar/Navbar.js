@@ -51,7 +51,7 @@ const Navbar = () => {
                     <li > <i className="fa fa-search"  ></i></li>
                     
                      </div>
-                    
+                     </div>
                     <div className='searched-most'>
                             
                              
@@ -68,17 +68,17 @@ const Navbar = () => {
               </p>
             ))
           ) : (
-            <p>No matches found</p>
+            <p >No matches found</p>
           )}
         </ul>
-      ):<p>No matches found</p>} 
+      ):<p className='no-match'>No matches found</p>} 
     
                             
                              
                     </div>
                
               
-              </div>
+              {/* </div> */}
                </div>
             <div><li><i class="fa fa-cart-shopping" onClick={()=>setshopping(prev=>!prev)}></i></li>
                 
