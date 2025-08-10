@@ -1,20 +1,26 @@
 import React, { useContext, useState } from 'react';
 import logo1 from "../../pictures/logo1.png" 
 import './navbar.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { categories } from '../../productjson';
 import { Products} from '../../productjson';
 import { useEffect } from 'react';
 import { Cartcontext } from '../context/Cartcontext';
+
 const Navbar = () => {
   const{removeproduct,searchin,searchinput,allcarts,setsearch,setshopping,search,shopping,total}=useContext(Cartcontext)
    const filteredCategories = categories.filter((category) =>
     category.name.toLowerCase().includes(searchinput.toLowerCase())
   );
+  const navigate=useNavigate()
+  
+ 
+
       const[menu,setmenu]=useState(false);
  
   
   return (
+    
     <div className='container'>
       <nav className='navbar'>
           <div className='logo'>
@@ -80,13 +86,13 @@ const Navbar = () => {
               
               {/* </div> */}
                </div>
-            <div><li><i class="fa fa-cart-shopping" onClick={()=>setshopping(prev=>!prev)}></i></li>
+            <div><li><i class="fa fa-cart-shopping" onClick={()=>{ setshopping(prev => !prev)}}></i></li>
                 
                       <div className={shopping?"homecart":"hidden"}>
               <div className='homecart-sub'>
                    <div className='homecart1'>
                 <h3>Cart</h3>
-                <div className='close' onClick={()=>setshopping(false)}>X</div>
+                <div className='cart-close' onClick={()=>setshopping(false)}>X</div>
               </div>
 
               {allcarts.length > 0 ? (
