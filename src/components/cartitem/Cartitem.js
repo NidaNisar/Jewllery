@@ -88,7 +88,7 @@ const Cartitem = () => {
              <hr/>
              <div className='Estimate'>
                  <h3>Estimate total</h3>
-                 <h3>Rs. {total} </h3>
+                 <h3  className='estimate'>Rs. {total} </h3>
                  
              </div>
              <hr/>
