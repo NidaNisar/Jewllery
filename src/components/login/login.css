@@ -17,7 +17,7 @@
     margin-top: 10px;
     background-color: black;
     color: white;
-    width: 70%;
+    width: 73%;
     padding: 17px;
     text-align: center;
     border-radius: 12px;
@@ -25,15 +25,16 @@
  .forget{
     color: grey;
     text-decoration: underline;
-    /* text-align: end; */
-    margin-left: 50%;
+  margin-left: 50%;
    
  }
+
+
  .sign-up{
     color: grey;
    display: flex;
    margin-top: 15px;
-    margin-left: 18%;
+    margin-left: 10%;
     margin-bottom: 5%;
   
  }
@@ -51,3 +52,37 @@
  /* .login-email i{
     width: 20%;
  } */
+
+@media(max-width:1120px)
+{
+  .forget {
+
+    margin-left: 45%;
+}
+}
+
+@media(max-width:896px)
+{
+  .forget {
+
+    margin-left: 39%;
+}
+}
+@media(max-width:695px)
+{
+  .forget {
+
+    margin-left: 30%;
+}
+}
+@media(max-width:642px)
+{
+  .forget {
+
+   margin-left: 0px;
+}
+}
+
+
+
+

@@ -22,12 +22,12 @@
     text-align: center;
     border-radius: 12px;
  }
- .forget{
+ /* .forget{
     color: grey;
     text-decoration: underline;
-    /* text-align: end; */
+ 
     margin-left: 50%;
- }
+ } */
  .firstname{
      width: 65%;
     margin-top: 5px;
