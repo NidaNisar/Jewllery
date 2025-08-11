@@ -26,18 +26,24 @@
     color: grey;
     text-decoration: underline;
   margin-left: 50%;
+  font-size: 14px;
    
  }
 
 
  .sign-up{
     color: grey;
-   display: flex;
+  
    margin-top: 15px;
     margin-left: 10%;
     margin-bottom: 5%;
+    font-size:14px;
   
  }
+ .sign-up p {
+  display: inline; /* keeps both p tags in one line */
+  margin: 0;
+}
  .account{
     text-decoration: underline;
       text-decoration: none;
@@ -53,11 +59,31 @@
     width: 20%;
  } */
 
+
+
+/* Extra adjustments for very small screens */
+
+
+
+
+
+
+
 @media(max-width:1120px)
 {
   .forget {
 
     margin-left: 45%;
+}
+}
+@media(max-width:936px)
+{
+  .forget {
+
+    margin-left: 39%;
+}
+.sign-up{
+margin-left: 8%;
 }
 }
 
@@ -68,11 +94,15 @@
     margin-left: 39%;
 }
 }
-@media(max-width:695px)
+
+@media(max-width:700px)
 {
   .forget {
 
     margin-left: 30%;
+}
+.sign-up{
+  margin-left: 2%;
 }
 }
 @media(max-width:642px)
@@ -80,6 +110,10 @@
   .forget {
 
    margin-left: 0px;
+}
+.sign-up p{
+   display: block;
+   margin-top: 4px;
 }
 }
 
