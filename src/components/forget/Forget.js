@@ -1,7 +1,13 @@
 import React from 'react'
 import './forget.css'
 import Footer from '../../components/footer/Footer'
+import { Link, useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 const Forget = () => {
+  const navigate=useNavigate()
+  const tologin=()=>{
+    navigate('/login')
+  }
   return (
     <div>
         <div className='forget-container'>
@@ -19,7 +25,7 @@ const Forget = () => {
                    </div>
                      <div className='forget-buttons'>
                    <button className='forgot'>Submit</button>
-                   <button className='forgot'>Cancel</button>
+            <button className='forgot' onClick={tologin}>Cancel</button>  
                               </div>
                               <Footer/>
     </div>
