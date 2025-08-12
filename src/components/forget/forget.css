@@ -20,11 +20,7 @@
     border: 1px solid black;
     margin-bottom: 10%;
 }
-a {
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-}
+
 
 .forgetp{
     text-align: center;
@@ -47,4 +43,39 @@ a {
         width: 23rem;
         padding: 17px;
         
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 465px) {
+  .forget-buttons {
+    flex-direction: row; /* stack buttons on small screens */
+    gap: 10px;
+  }
+
+  .forgot {
+    width: 100%;        /* take full width of container */
+    margin-top: 20px;
+    padding: 14px;
+  }
+
+  .forget-form input[type='email'] {
+    width: 100%;        /* adapt to screen size */
+    padding: 14px;
+  }
+
+  .forget-pass {
+    font-size: 22px;    /* slightly smaller heading */
+  }
+
+  .forgetp {
+    margin-bottom: 20px;
+    font-size: 14px;    /* smaller text for mobile */
+  }
 }
