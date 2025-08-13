@@ -17,26 +17,34 @@ const Navbar = () => {
  
 
       const[menu,setmenu]=useState(false);
+       
  
-  
+  const toggle=()=>{
+    setmenu(prev=>!prev);
+   
+  }
   return (
     
     <div className='container'>
       <nav className='navbar'>
           <div className='logo'>
             <img src={logo1} alt=''/>
-           
+            {/* onClick={()=>{setmenu(prev=>!prev)}} */}
           </div>
-          <div className='menutoggle' onClick={()=>{setmenu(prev=>!prev)}}>
-            <i class="fa-solid fa-bars"></i>
+          <div className='menutoggle' onClick={toggle}>
+            { menu?'x':<i class="fa-solid fa-bars"></i>}
+           
           </div>
            <div className={`mid-part${menu?'open':''}`}>
                   <ul>
-              <li><Link to='/'>Home</Link></li> 
-               <li><Link to='/product'>Product</Link></li> 
-              <li><Link to='/contact'>Contact</Link></li> 
-               <li><Link to='/about'>About</Link></li> 
-                <li><Link to='/newarrivals'>New Arrivals</Link></li> 
+              <li><Link to='/'>Home</Link>
+              <hr/>
+              </li> 
+               <li><Link to='/product'>Product</Link>
+                  <hr/></li> 
+              <li><Link to='/contact'>Contact</Link>   <hr/></li> 
+               <li><Link to='/about'>About</Link>   <hr/></li> 
+                <li><Link to='/newarrivals'>New Arrivals</Link>   <hr/></li> 
                
               
              

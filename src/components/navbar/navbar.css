@@ -388,21 +388,22 @@ margin: 4px 0 0 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
     z-index: 1;
-    height: 94%;
+    height: 48%;
         width: 19rem;
   }
    .mid-partopen ul{
         list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 6px;
       
     }
     .mid-partopen a{
       text-decoration: none;
       color: #0a0909;
-      font-size: 20px;
+      font-size: 15px;
     }
+ 
 
  
   .mid-part.open {
