@@ -32,7 +32,7 @@ const Navbar = () => {
             {/* onClick={()=>{setmenu(prev=>!prev)}} */}
           </div>
           <div className='menutoggle' onClick={toggle}>
-            { menu?'x':<i class="fa-solid fa-bars"></i>}
+            { menu?<i class="fa-solid fa-circle-xmark"></i>:<i class="fa-solid fa-bars"></i>}
            
           </div>
            <div className={`mid-part${menu?'open':''}`}>
