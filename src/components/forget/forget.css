@@ -55,27 +55,26 @@
 
 @media (max-width: 465px) {
   .forget-buttons {
-    flex-direction: row; /* stack buttons on small screens */
+    flex-direction: row;
     gap: 10px;
   }
 
   .forgot {
-    width: 100%;        /* take full width of container */
+    width: 100%;        
     margin-top: 20px;
     padding: 14px;
   }
 
   .forget-form input[type='email'] {
-    width: 100%;        /* adapt to screen size */
+    width: 100%;        
     padding: 14px;
   }
 
   .forget-pass {
-    font-size: 22px;    /* slightly smaller heading */
-  }
+    font-size: 22px;    }
 
   .forgetp {
     margin-bottom: 20px;
-    font-size: 14px;    /* smaller text for mobile */
+    font-size: 14px;   
   }
 }
