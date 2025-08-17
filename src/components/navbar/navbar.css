@@ -278,7 +278,9 @@ text-decoration: none;
     display: flex;
     gap: 6rem;
 }
-
+.mid-part hr{
+  display: none;
+}
 .shopping-name {
   margin: 4px 0 0 0;
   font-size: 16px;
@@ -336,6 +338,7 @@ margin: 4px 0 0 0;
     right: 1%;
     /* z-index: 10; */
   }
+  
 } 
 
 
@@ -367,14 +370,7 @@ margin: 4px 0 0 0;
 }
   .mid-part {
     display: none;
-    /* position: absolute;
-    top: 60px;
-    right: 2rem;
-    flex-direction: column;
-    background: #fff;
-    padding: 1rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 8px; */
+   
 
   }
   .mid-partopen {

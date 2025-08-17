@@ -9,17 +9,20 @@ const Signup = () => {
         <h1>Create New Account</h1>
         <form>
              <label for="First name">First Name</label>
-                   <input type="text" id="firstname" name="firstname" className='firstname' placeholder='First Name'/>
+                   <input type="text" id="firstname" name="firstname" className='firstname' placeholder='First Name'
+                   required/>
                       <label for="Last name">Last Name</label>
-                   <input type="text" id="lastname" name="lastname" className='lastname' placeholder='Last Name'/>
+                   <input type="text" id="lastname" name="lastname" className='lastname' placeholder='Last Name'
+                   required/>
                 <label for="email">Email</label>
 
-                   <input type="email" id="email" name="email" className='login-email' placeholder='Enter your e-mail'/>
+                   <input type="email" id="email" name="email" className='login-email' placeholder='Enter your e-mail'
+                   required/>
                    <label for="password">Password</label>
-                   <input type="text" id="password" name="password" className='login-text' placeholder='Enter your password'/>
+                   <input type="text" id="password" name="password" className='login-text' placeholder='Enter your password' required/>
 
                    
-                     <button className='sign-button' >Create Account</button>
+                     <button className='sign-button' type='submit' >Create Account</button>
                      
                      <div className='sign-up'>
                         <p>Returning Customer?</p>

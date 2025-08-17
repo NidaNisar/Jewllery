@@ -20,13 +20,15 @@ const Forget = () => {
                 <label for="email">Email</label>
                    <input type="email" id="email" name="email" className='forget-email' placeholder='Enter your e-mail'
                    required />
+
+                    <div className='forget-buttons'>
+                   <button className='forgot' type='submit'>Submit</button>
+            <button className='forgot' type='button' onClick={tologin}>Cancel</button>  
+                              </div>
                    </form>
                  
                    </div>
-                     <div className='forget-buttons'>
-                   <button className='forgot'>Submit</button>
-            <button className='forgot' onClick={tologin}>Cancel</button>  
-                              </div>
+                    
                               <Footer/>
     </div>
   )
