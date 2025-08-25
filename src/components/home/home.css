@@ -1,14 +1,14 @@
 .main-pic{
     /* margin-left: 20px;
     margin-right: 20px; */
-     margin-left: 2%;
+     margin-left: 1%;
     margin-bottom: 5%;
    
     margin-right: 3%;
      height: 85vh;
      margin-top: 3%;
      display: flex;
-     flex-wrap: wrap-reverse;
+  
  
 }
 .pic-text{
@@ -35,8 +35,26 @@
  @media (max-width:786px){
 .main-pic img{
     height: 50vh;
-    width: 90vw;
+    width: 95vw;
     margin-bottom: 5px;
+ 
+}
+.main-pic{
+    height: 50vh;
+}
+.pic-text{
+    font-size: 2rem;
+    line-height: 2;
+}
+
+}
+
+ @media (max-width:566px){
+.main-pic img{
+    height: 50vh;
+    width: 92vw;
+    margin-bottom: 5px;
+ 
 }
 .main-pic{
     height: 50vh;

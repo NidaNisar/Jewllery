@@ -89,6 +89,10 @@
        border-radius: 10px;
 }
 
+    .main-home h3 {
+    
+        font-size: 20px;
+    }
  }
  @media(max-width:430px)
  {
@@ -98,6 +102,10 @@
        height: 30vw;
        border-radius: 10px;
 }
+ .main-home h3 {
+    
+        font-size: 17px;
+    }
 
  }
  @media(max-width:361px)
@@ -108,5 +116,10 @@
        height: 40vw;
        border-radius: 10px;
 }
+.main-home h3 {
+    
+        font-size: 14px;
+    }
+
 
  }
