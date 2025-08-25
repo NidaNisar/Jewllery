@@ -162,4 +162,9 @@
 }
 
 }
+@media(max-width:430px){
+    .heading-main{
+        margin-left: 9%;
+    }
+}
 
