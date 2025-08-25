@@ -27,14 +27,16 @@ const Navbar = () => {
     
     <div className='container'>
       <nav className='navbar'>
+          
           <div className='logo'>
-            <img src={logo1} alt=''/>
-            {/* onClick={()=>{setmenu(prev=>!prev)}} */}
-          </div>
-          <div className='menutoggle' onClick={toggle}>
+            <div className='menutoggle' onClick={toggle}>
             { menu?<i class="fa-regular fa-circle-xmark"></i>:<i class="fa-solid fa-bars"></i>}
            
           </div>
+            <img src={logo1} alt=''/>
+            {/* onClick={()=>{setmenu(prev=>!prev)}} */}
+          </div>
+        
            <div className={`mid-part${menu ?'open' : ''}`}>
                   <ul>
               <li><Link to='/'>Home</Link>
