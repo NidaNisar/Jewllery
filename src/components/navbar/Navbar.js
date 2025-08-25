@@ -35,7 +35,7 @@ const Navbar = () => {
             { menu?<i class="fa-regular fa-circle-xmark"></i>:<i class="fa-solid fa-bars"></i>}
            
           </div>
-           <div className={`mid-part${menu?'open':''}`}>
+           <div className={`mid-part${menu ?'open' : ''}`}>
                   <ul>
               <li><Link to='/'>Home</Link>
               <hr/>

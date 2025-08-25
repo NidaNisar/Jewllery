@@ -28,6 +28,8 @@
 
     
 }
+
+
 .mid-part a {
   text-decoration: none; 
   color: black; 
@@ -42,10 +44,11 @@ text-decoration: none;
 .icons{
  margin-left: 12rem;
 }
-
-.hidden{
+ .hidden{
     display: none;
-}
+} 
+
+
 .search-main{
     display: flex;
    justify-content: space-between;
@@ -296,10 +299,10 @@ margin: 4px 0 0 0;
 
 
 
-@media(min-width:930px)
+ @media(min-width:930px)
 {
  
-.mid-partopen ul {
+  .mid-partopen  ul {
   display: flex;
         gap: 18px;
         font-size: 18px;
@@ -308,15 +311,15 @@ margin: 4px 0 0 0;
         margin-left: 3rem;
         list-style: none;
     }
-.mid-partopen a {
+  .mid-partopen a {
   text-decoration: none; 
   color: black; 
   font-weight: 500; 
  
 }
-.mid-partopen hr{
+  .mid-partopen  hr{
   display: none;
-}
+} 
     .icons {
         margin-top: 40px;
         gap: 20px;
@@ -402,15 +405,14 @@ margin: 4px 0 0 0;
   background: #fff; /* optional for visibility */
   
 }
-  .mid-part {
-    display: none;
-   
-
-  }
-  .mid-partopen {
+.mid-part{
+  display: none;
+}
+  
+  .mid-partopen{
     list-style: none;
      position: absolute;
-    top: 30%;
+    top: 25%;
     left: 2rem;
     flex-direction: column;
     background: #fff;
@@ -418,17 +420,30 @@ margin: 4px 0 0 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
     z-index: 1;
-    height: 48%;
-        width: 19rem;
+    height: 36%;
+        width: 12rem;
+         
   }
-   .mid-partopen ul{
+  .mid-partopen {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+
+    display: flex; /* now visible */
+    flex-direction: column;
+  }
+
+ 
+  
+  
+    .mid-partopen  ul{
         list-style: none;
         display: flex;
         flex-direction: column;
         gap: 6px;
       
     }
-    .mid-partopen a{
+     .mid-partopen  a{
       text-decoration: none;
       color: #0a0909;
       font-size: 15px;
