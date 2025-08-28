@@ -10,7 +10,7 @@ import { useContext } from 'react'
 
 import { Cartcontext } from '../context/Cartcontext'
 const Cartitem = () => {
-  const{removeproduct,setCartItems,cartItems,total,increment,decrement} =useContext(Cartcontext)
+  const{removeproduct,setCartItems,cartItems,total,increment,decrement,getQuantity} =useContext(Cartcontext)
   const{id}=useParams()
   const product=Products.filter((item)=>item.id===id)
    useEffect(()=>{
@@ -62,7 +62,7 @@ const Cartitem = () => {
                         {/* <span className='leftin'> 2 LEFT IN STOCK</span> */}
                         <div className="quantity-control">
              <button onClick={()=>decrement(item.id)} className="qty-btn">−</button>
-               <span className="qty-value">{item.quantity}</span>
+               <span className="qty-value">{ item.quantity }</span>
                     <button onClick={()=>increment(item.id)} className="qty-btn">+</button>
                         </div>
                             
@@ -80,7 +80,7 @@ const Cartitem = () => {
                     </div>    )
                       }) 
                       }
-               
+                
                 </div> 
                
                <div className='card2'>

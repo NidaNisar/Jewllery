@@ -1,8 +1,4 @@
-/* body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fdfaf6;
-  color: #333;
-} */
+
 
 .checkout-container {
   max-width: 900px;
@@ -77,6 +73,26 @@ form label {
   margin-top: 10px;
 }
 
-
-
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.payment-option input[type="radio"] {
+  
+  width: 18px;
+  height: 18px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+.payment-option span {
+  font-weight: 500;
+}
 

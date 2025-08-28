@@ -6,12 +6,14 @@ import { categories } from '../../productjson';
 import { Products} from '../../productjson';
 import { useEffect } from 'react';
 import { Cartcontext } from '../context/Cartcontext';
+import Cartitem from '../cartitem/Cartitem';
 
 const Navbar = () => {
-  const{removeproduct,searchin,searchinput,allcarts,setsearch,setshopping,search,shopping,total}=useContext(Cartcontext)
+  const{removeproduct,searchin,searchinput,allcarts,setsearch,setshopping,search,shopping,total,cartItems}=useContext(Cartcontext)
    const filteredCategories = categories.filter((category) =>
     category.name.toLowerCase().includes(searchinput.toLowerCase())
   );
+  
   const navigate=useNavigate()
   
  
@@ -105,8 +107,8 @@ const Navbar = () => {
                 <div className='cart-close' onClick={()=>setshopping(false)}>X</div>
               </div>
 
-              {allcarts.length > 0 ? (
-        allcarts.map((item, index) => (
+              {cartItems.length > 0 ? (
+        cartItems.map((item, index) => (
           <div class="cart-item" key={item.id}>
            <img src={item.image} alt="Necklace" class="cart-image" />
                 <div class="cart-details">

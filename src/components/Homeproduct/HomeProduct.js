@@ -29,7 +29,7 @@ const HomeProduct = () => {
                <i class="fa-regular fa-star"></i>
                <i class="fa-regular fa-star"></i>
                <i class="fa-regular fa-star"></i>
-                <p>{product.price}</p>   
+                <p> Rs. {product.price}</p>   
       </div>
       </div></Link>
       

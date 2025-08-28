@@ -18,9 +18,12 @@ const Checkout = () => {
           <textarea placeholder="Address" required className='text-check'/> 
 
           <h3 className='heading-check'>Payment Method</h3>
-          <label>
-            <input type="radio" name="payment" /> Cash on Delivery
-          </label>
+          <label class="payment-option">
+  <input type="radio" name="payment" />
+  <span>Cash on Delivery</span>
+</label>
+
+
 
           <button className='chek-btn' type="submit">Place Order</button>
         </form>

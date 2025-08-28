@@ -14,10 +14,10 @@ const Categoryproduct = () => {
           {Products.map(product=> {
             if(product.categoryid==categoryid)
         return(
-            <Link to={`/productcart/${product.id}`}>
-              <div  key={product.id} className='all'>
-           < div className='home-product'>
-               <img alt='' src={product.image}/>
+           
+              <div   className='all'>
+           <div  key={product.id} className='home-product'>
+             <Link to={`/productcart/${product.id}`}>   <img alt='' src={product.image}/> </Link>
       </div>
       <div className='homep-name'>
                <p>{product.name}</p>
@@ -25,9 +25,9 @@ const Categoryproduct = () => {
                <i class="fa-regular fa-star"></i>
                <i class="fa-regular fa-star"></i>
                <i class="fa-regular fa-star"></i>
-                <p>{product.price}</p>   
+                <p>Rs. {product.price}</p>   
       </div>
-      </div></Link>
+      </div>
       
         )
     

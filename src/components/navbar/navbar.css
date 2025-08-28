@@ -131,7 +131,7 @@ text-decoration: none;
 }
 .searchicon{
     width: 25rem;
-    height: 90%;
+    height: 80%;
     background-color: white;
     position: absolute;
     top:5%;
@@ -469,7 +469,7 @@ margin: 4px 0 0 0;
   } */
    .searchicon {
     width: 25rem;
-    height: 100%;
+    height: 80%;
   
     position: absolute;
     top: 1%;
@@ -482,7 +482,7 @@ margin: 4px 0 0 0;
 {
   .searchicon {
     width: 20rem;
-    height: 100%;
+    height: 80%;
   
     position: absolute;
     top: 1%;
@@ -546,21 +546,28 @@ margin: 4px 0 0 0;
    .logo img{
     width: 5rem;
    }
-  .searchicon {
+  /* .searchicon {
     width: 17rem;
-    height: 100%;
+    height: 80%;
   
     position: absolute;
     top: 1%;
     right: 1px;
    
-  }
+  } */
+   .searchicon {
+        width: 17rem;
+        height: 69%;
+        position: absolute;
+        top: 17%;
+        right: 73px;
+    }
   .homecart {
     width: 16rem;
      position: absolute;
     top: 5%;
     right: 1%;
-    /* z-index: 10; */
+   
   }
   .name-del {
     display: flex;
@@ -591,9 +598,9 @@ margin: 4px 0 0 0;
     gap: 60%;
   
 }
-
-
 }
+
+
 
 
 @media(max-width:400px)
@@ -619,15 +626,23 @@ margin: 4px 0 0 0;
    .logo img{
     width: 5rem;
    }
-   .searchicon {
+   /* .searchicon {
     width: 15rem;
-    height: 100%;
+    height: 80%;
   
     position: absolute;
     top: 1%;
     right: 1px;
    
-  }
+  } */
+  .searchicon {
+        width: 17rem;
+        height: 69%;
+        position: absolute;
+        top: 17%;
+        right: 25px;
+    }
+
   .homecart {
     width: 15rem;
      position: absolute;
@@ -667,15 +682,23 @@ margin: 4px 0 0 0;
     width: 5rem;
     margin-right: 1px;
    }
- .searchicon {
+ /* .searchicon {
     width: 13rem;
-    height: 100%;
+    height: 80%;
   
     position: absolute;
     top: 1%;
     right: 1px;
    
-  }  
+  }   */
+     .searchicon {
+        width: 17rem;
+        height: 69%;
+        position: absolute;
+        top: 17%;
+        right: 15px;
+    }
+
   .homecart {
     width: 15rem;
      position: absolute;
@@ -712,14 +735,22 @@ margin: 4px 0 0 0;
     gap: 6rem;
    }
    
-.searchicon {
+/* .searchicon {
     width: 9rem;
-    height: 100%;
+    height: 80%;
   
     position: absolute;
     top: 1%;
     right: 1px;
+    } */
+     .searchicon {
+        width: 14rem;
+        height: 69%;
+        position: absolute;
+        top: 17%;
+        right: 11px;
     }
+
     .close{
    
     font-size: 10px;
