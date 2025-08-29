@@ -14,7 +14,7 @@ const Navbar = () => {
     category.name.toLowerCase().includes(searchinput.toLowerCase())
   );
   
-  const navigate=useNavigate()
+  // const navigate=useNavigate()
   
  
 

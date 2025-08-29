@@ -8,6 +8,7 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { Products } from '../../productjson';
 
+
 export const Cartcontext = createContext();
 
 const Cartprovider = ({ children }) => {
@@ -16,15 +17,18 @@ const Cartprovider = ({ children }) => {
   const [shopping, setshopping] = useState(false);
   const [count, setcount] = useState(0);
   const [searchinput, setsearchinput] = useState('');
-  const[product,setproduct]=useState(()=>{
-   return  Products.map((p)=> ({...p}))
+
+  const[product,setproduct]=useState(()=>
+   Products.map((p)=> ({...p}))
  
-  })
+  )
+ 
   const getQuantity=(id)=>{
       const pro= product.find((p)=>p.id===id)
-       return    pro.quantity;
+       return  pro?  pro.quantity:1;
   }
-  console.log("cartcontext",product)
+   console.log("cartproduct",product)
+  // console.log("cartcontext",cartItems)
 
   const getCartFromStorage = () => {
     const savedCart = localStorage.getItem('cartItem');
@@ -47,24 +51,26 @@ const Cartprovider = ({ children }) => {
     const cartin = existingItems.some(cartItem => cartItem.id === item.id);
 
     if (!cartin) {
-      const itemWithQuantity = { ...item, quantity: item.quantity || 1 };
+      const itemWithQuantity = { ...item,item };
+        // console.log("addtocart",item)
       existingItems.push(itemWithQuantity);
       saveCartToStorage(existingItems);
       setCartItems(existingItems);
     } else {
       console.log("item already exists");
+     
     }
+    ;
   };
 
 
   const increment = (id) => {
 
-   setproduct((prev) => {
-  return prev.map(p =>
-    p.id === id ? { ...p, quantity: p.quantity + 1 } : p
-  );
-});
-
+  setproduct(prev =>{
+    return prev.map(p =>
+      p.id === id ? { ...p, quantity: p.quantity + 1 } : p
+    )
+  });
     const updatedCart = cartItems.map(item =>
       item.id === id ? { ...item, quantity: item.quantity  + 1 } : item
     );
@@ -79,7 +85,8 @@ const Cartprovider = ({ children }) => {
   return prev.map(p =>
     p.id === id ? { ...p, quantity:p.quantity>1? p.quantity - 1:1 } : p
   );
-});
+ });
+//                setCartItems(product);
     const updatedCart = cartItems.map(item =>
       item.id === id
         ? { ...item, quantity: item.quantity > 1 ? item.quantity - 1 : 1 }
@@ -91,7 +98,11 @@ const Cartprovider = ({ children }) => {
 
   
   const removeproduct = (reitem) => {
+ 
     const updatecart = cartItems.filter(item => item.id !== reitem.id);
+         setproduct(()=>{
+          return  Products.map((p)=> ({...p,quantity:1}))
+         }) 
     setCartItems(updatecart);
     saveCartToStorage(updatecart);
   };
@@ -132,7 +143,8 @@ const Cartprovider = ({ children }) => {
         shopping,
         total,
         count,
-        getQuantity
+        getQuantity,
+        product
       }}
     >
       {children}

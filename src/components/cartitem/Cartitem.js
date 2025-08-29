@@ -22,6 +22,7 @@ const Cartitem = () => {
                       //  useEffect(()=>{
                       //        localStorage.setItem('cartItem-count', JSON.stringify(count));
                       //  },[count])
+                      console.log(cartItems)
         
                         if (cartItems.length ===0) {
     return (
@@ -62,7 +63,8 @@ const Cartitem = () => {
                         {/* <span className='leftin'> 2 LEFT IN STOCK</span> */}
                         <div className="quantity-control">
              <button onClick={()=>decrement(item.id)} className="qty-btn">−</button>
-               <span className="qty-value">{ item.quantity }</span>
+               <span className="qty-value">{item.quantity}</span>
+               
                     <button onClick={()=>increment(item.id)} className="qty-btn">+</button>
                         </div>
                             
