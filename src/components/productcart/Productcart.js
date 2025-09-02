@@ -1,6 +1,6 @@
 import React, { useContext, useState,useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Products } from '../../productjson'
+import { Products ,categories} from '../../productjson'
 import './productcart.css'
 import main13 from '../../pictures/main3.jpg'
 import Footer from '../footer/Footer'
@@ -13,9 +13,11 @@ const Productcart = () => {
   const navigate = useNavigate();
     const {id}=useParams();
     const products=Products.find((item)=>item.id===id)
-  
+           
 
     const productupadte=product.find((item)=>item.id===id)
+    const category=categories.find((item)=>item.id== products.categoryid)
+    console.log("category",category)
    
   return (
     
@@ -28,7 +30,7 @@ const Productcart = () => {
         <div className='cart-info'>
             <h1>{products.name}</h1>
             <hr/>
-            <p>category: Necklace</p>
+            <p>Category : {category.name}</p>
             <hr/>
             <h3>PKR {products.price}</h3>
 

@@ -77,13 +77,13 @@ const Navbar = () => {
         <ul>
           {filteredCategories.length > 0 ? (
             filteredCategories.map((category) => (
-              <p key={category.id}>
+              <div key={category.id}>
                 <div className='search-category'>
                     <li > <i className="fa fa-search"  ></i></li>
                    <Link to={`/categoryproduct/${category.id}`}><p>{category.name}</p></Link>
                 </div>
              
-              </p>
+              </div>
             ))
           ) : (
             <p >No matches found</p>

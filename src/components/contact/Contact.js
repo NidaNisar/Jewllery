@@ -30,7 +30,8 @@ const Contact = () => {
                  <label for="email">Email:</label>
                    <input type="email" id="email" name="email"/>
                       <label for="help">I Need Help Regarding</label>
-                      <select>
+                      <select >
+                         <option value="" disabled selected>Select an option</option>
                         <option value='refund'>Refund</option>
                           <option value='purchase'>Purchase</option>
                           <option value='repair'>Repair</option>           
