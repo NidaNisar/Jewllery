@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const{model,Schema}=require('mongoose');
 const validator = require("validator");
+const bycrypt=require("bcryptjs");
 const userSchema=new Schema ({
     Firstname:{
         type:String,
@@ -15,9 +16,9 @@ const userSchema=new Schema ({
     email:{
         type:String,
         require:[true,"Please enter your email"],
-        unique:[true,"Enter the another e-mail"],
+        unique:[true,"Email already exist! Enter the another e-mail"],
         lowercase:true,
-        validator:[validator.isEmail,"Please enter a valid e-mail"]
+        validate:[validator.isEmail,"Please enter a valid e-mail"]
     },
 
     password:{
@@ -26,6 +27,12 @@ const userSchema=new Schema ({
           minlength:8
     }
 
+})
+
+userSchema.pre('save', async function(next){
+    if(!this.isModified('password')) return next();
+    this.password= await bycrypt.hash(this.password,12)
+    next();
 })
 
 

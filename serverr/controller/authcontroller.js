@@ -13,9 +13,11 @@ const createuser= async(req,res,next)=>{
             }
         })
     } catch (error) {
+        
           res.status(400).json({
             success:false,
-            err:error,
+            message: error.message ,
+            err:error
            
         })
     }
