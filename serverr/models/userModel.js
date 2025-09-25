@@ -26,15 +26,30 @@ const userSchema=new Schema ({
           require:[true,"Please enter your Password"],
           minlength:8,
           select:false
-    }
+    },
+     passwordChangedAt: {
+    type: Date   
+  }
 
 })
 
 userSchema.pre('save', async function(next){
     if(!this.isModified('password')) return next();
     this.password= await bycrypt.hash(this.password,12)
+      this.passwordChangedAt = Date.now() - 1000
     next();
 })
+userSchema.methods.passwordchanged= async function(JWTtimestamp){
+    if(this.passwordchangedat)
+    {
+        const passwordchangedtimestamp=parseInt(this.passwordchanged.gettime()/1000,10);
+        console.log(passwordchangedtimestamp,passwordchanged)
+        return JWTtimestamp<passwordchangedtimestamp;
+
+    }
+    return false
+
+}
 
 
 const UserModel=model("User",userSchema);

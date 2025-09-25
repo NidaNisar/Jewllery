@@ -38,8 +38,10 @@ const createuser= async(req,res,next)=>{
         res.status(201).json({
 
             success:true,
+            token:token,
             message:"User is created",
            data:{
+            
                 user:newuser,
                 
             }
@@ -79,7 +81,7 @@ const login= async(req,res,next)=>{
         res.status(200).json({
             success:true,
             message:"Logged in",
-           token:''
+           token:token
         })
         next();
     } catch (error) {
@@ -116,11 +118,18 @@ try {
 
   const decodedtoken=  await util.promisify(jwt.verify)(token,process.env.SECRET_STR)
   // 3 If the user exists
-     const user=await User.findById(decodedtoken)
+     const user=await User.findById(decodedtoken.id)
      if(!user)
      {
-        res.status(401).json({
-             message:"The user is not exist "
+        return res.status(401).json({
+             message:"The user is not exist"
+        })
+     }
+     const ispasschange= await user.passwordchanged(decodedtoken.iat)
+     if(ispasschange)
+     {
+        return res.status(401).json({
+            message:"The password has changed recently.Please login again"
         })
      }
 
