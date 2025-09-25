@@ -24,7 +24,8 @@ const userSchema=new Schema ({
     password:{
         type:String,
           require:[true,"Please enter your Password"],
-          minlength:8
+          minlength:8,
+          select:false
     }
 
 })
