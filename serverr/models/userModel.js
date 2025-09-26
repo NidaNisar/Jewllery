@@ -29,7 +29,13 @@ const userSchema=new Schema ({
     },
      passwordChangedAt: {
     type: Date   
+  },
+  role:{
+    type:String,
+    enum:['user','admin'],
+    default:'user'
   }
+
 
 })
 

@@ -132,13 +132,41 @@ try {
             message:"The password has changed recently.Please login again"
         })
      }
-
+     req.user=user
  next();
 } catch (error) {
     return res.status(401).json({
       message: "Invalid or expired token. Login again",
     });
 }
+
  
 }
-module.exports={createuser,login,protect,getalluser};
+const  restrict =(role)=>{
+  return  (req,res,next)=>{
+    try {
+        if (!req.user) {
+        return res.status(401).json({
+          success: false,
+          message: "User not authenticated",
+        });
+      }
+         if(req.user.role!==role)
+   {
+    return res.status(403).json({
+        success:false,
+        message:"You dont have permission for this action.Only for admin"
+    })
+   
+   }
+    next()
+        
+    } catch (error) {
+         return res.status(401).json({
+     err:{}
+    });
+    }
+  
+}
+}
+module.exports={createuser,login,protect,getalluser,restrict};
