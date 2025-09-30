@@ -169,4 +169,34 @@ const  restrict =(role)=>{
   
 }
 }
-module.exports={createuser,login,protect,getalluser,restrict};
+const forgetpassword= async (req,res,next)=>{
+    try {
+         // 1 Get user based on posted email
+    const {email}=req.body
+    const user= await User.findOne({email});
+    if(!user){
+        return res.status(404).json({
+            success:false,
+            message:"The user is not exist with this email"
+
+        })
+    }
+   
+    // 2 Generate a random  reset token
+     const resettoken=user.resetpasstoken()
+     await user.save({validateBeforeSave:false});
+
+    // 3 Send the token back to user email
+
+    } catch (error) {
+          return res.status(401).json({
+     err:error,
+     stack: error.stack
+    });
+   
+}
+}
+const resetpassword=(req,res,next)=>{
+    
+}
+module.exports={createuser,login,protect,getalluser,restrict,forgetpassword,resetpassword};

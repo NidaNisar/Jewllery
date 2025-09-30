@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");  
-
+const crypto=require('crypto')
 const{model,Schema}=require('mongoose');
 const validator = require("validator");
 const bycrypt=require("bcryptjs");
@@ -34,7 +34,14 @@ const userSchema=new Schema ({
     type:String,
     enum:['user','admin'],
     default:'user'
+  },
+   passwordresettoken: {
+    type: String  
+  },
+  passwordresettokenexpires:{
+    type:Date
   }
+
 
 
 })
@@ -55,6 +62,13 @@ userSchema.methods.passwordchanged= async function(JWTtimestamp){
     }
     return false
 
+}
+userSchema.methods.resetpasstoken=function(){
+  const resettoken=crypto.randomBytes(32,this.toString('hex'))
+
+ this.passwordresettoken= crypto.createHash('sha256').update(resettoken).digest('hex')
+ this. passwordresettokenexpires=Date.now()+10 * 60* 1000
+ return resettoken;
 }
 
 
