@@ -1,6 +1,6 @@
 const User=require("./../models/userModel");
 const util = require("util");
-
+const sendEmail=require('./../utils/email')
 const jwt =require('jsonwebtoken');
 const bcrypt = require("bcryptjs");
 
@@ -187,7 +187,33 @@ const forgetpassword= async (req,res,next)=>{
      await user.save({validateBeforeSave:false});
 
     // 3 Send the token back to user email
+    
+    const reseturl = `${req.protocol}://${req.get('host')}/user/resetpassword/${resettoken}`;
 
+      const message=`We have received a password reset request. Please use the below link to reset your password\n\n ${reseturl}\n\n This reset password link will be valid only for 10 minutes`
+     try {
+        await sendEmail({
+        email:user.email,
+        subject:"Password change request receive",
+        message:message
+       
+      })
+       return res.status(200).json({
+        success:true,
+        message:"Password reset  linkk send to the user"
+       })
+        
+     } catch (error) {
+        user.passwordresettoken=undefined
+        user.passwordresettokenexpires=undefined;
+        user.save({validateBeforeSave:false});
+        return res.status(500).json({
+            success:false,
+            error:error.stack,
+            message:"There was an error in the sending reset password.Please try again later"
+        })
+     }
+      
     } catch (error) {
           return res.status(401).json({
      err:error,
