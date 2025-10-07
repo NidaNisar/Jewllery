@@ -27,6 +27,13 @@ const userSchema=new Schema ({
           minlength:8,
           select:false
     },
+    confirmpassword:{
+      type:String,
+          require:[true,"Please enter your confirm Password"],
+          minlength:8,
+          select:false
+    },
+    
      passwordChangedAt: {
     type: Date   
   },
@@ -50,6 +57,7 @@ userSchema.pre('save', async function(next){
     if(!this.isModified('password')) return next();
     this.password= await bycrypt.hash(this.password,12)
       this.passwordChangedAt = Date.now() - 1000
+      this.confirmpassword=undefined
     next();
 })
 userSchema.methods.passwordchanged= async function(JWTtimestamp){
@@ -67,7 +75,9 @@ userSchema.methods.resetpasstoken=function(){
   const resettoken=crypto.randomBytes(32).toString('hex')
 
  this.passwordresettoken= crypto.createHash('sha256').update(resettoken).digest('hex')
- this. passwordresettokenexpires=Date.now()+10 * 60* 1000
+this.passwordresettokenexpires = new Date(Date.now() + 30 * 60 * 1000);
+
+
  return resettoken;
 }
 

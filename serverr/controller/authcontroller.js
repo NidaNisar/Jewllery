@@ -3,6 +3,7 @@ const util = require("util");
 const sendEmail=require('./../utils/email')
 const jwt =require('jsonwebtoken');
 const bcrypt = require("bcryptjs");
+const crypto=require('crypto')
 
  const signtoken=(id)=>{
     return jwt.sign({id},process.env.SECRET_STR,{
@@ -188,7 +189,9 @@ const forgetpassword= async (req,res,next)=>{
 
     // 3 Send the token back to user email
     
-    const reseturl = `${req.protocol}://${req.get('host')}/user/resetpassword/${resettoken}`;
+  //  const reseturl = `${req.protocol}://${req.get('host')}/user/resetpassword/${resettoken}`;
+  const reseturl = `${req.protocol}://${req.get('host')}/user/resetpassword/${encodeURIComponent(resettoken)}`;
+
 
       const message=`We have received a password reset request. Please use the below link to reset your password\n\n ${reseturl}\n\n This reset password link will be valid only for 10 minutes`
      try {
@@ -198,11 +201,15 @@ const forgetpassword= async (req,res,next)=>{
         message:message
        
       })
+      console.log("Raw token sent in email:", resettoken);
+console.log("Hashed token saved in DB:", user.passwordresettoken);
+
        return res.status(200).json({
         success:true,
         message:"Password reset  linkk send to the user"
        })
-        
+       
+       
      } catch (error) {
         user.passwordresettoken=undefined
         user.passwordresettokenexpires=undefined;
@@ -222,7 +229,58 @@ const forgetpassword= async (req,res,next)=>{
    
 }
 }
-const resetpassword=(req,res,next)=>{
-    
+const resetpassword= async (req,res,next)=>{
+    try {
+       const rawToken = decodeURIComponent(req.params.token);
+const hashtoken = crypto.createHash('sha256').update(rawToken).digest('hex');
+
+
+           // const hashtoken=crypto.createHash('sha256').update(req.params.token).digest('hex')
+ //const user= await  User.findOne({passwordresettoken:hashtoken,passwordresettokenexpires:{$gt:Date.now()}})
+ const user = await User.findOne({ passwordresettoken: hashtoken });
+
+if (!user) {
+  return res.status(400).json({ message: "Token is invalid (no match in DB)" });
 }
-module.exports={createuser,login,protect,getalluser,restrict,forgetpassword,resetpassword};
+
+if (user.passwordresettokenexpires <= Date.now()) {
+  return res.status(400).json({ message: "Token is expired" });
+}
+  console.log("Raw token from URL:", req.params.token);
+console.log("Hashed token from URL:", hashtoken);
+ if(!user){
+    return res.status(400).json({
+        message:"Token is expire or invalid"
+    })
+ }
+ // Reset the user password
+  user.password=req.body.password;
+  user.confirmpassword=req.body.confirmpassword;
+  user.passwordresettoken=undefined
+  user.passwordresettokenexpires=undefined
+  user.passwordChangedAt=Date.now()
+ await user.save();
+// token for login to the user
+const logintoken =signtoken(user._id)
+        res.status(200).json({
+            success:true,
+            message:"Logged in",
+           token:logintoken
+        })
+        
+    } catch (error) {
+        return res.status(400).json({
+            error:error.stack,
+            err:error.message
+        })
+    }
+
+}
+const updatepassword= async (req,res,next)=>{
+    try {
+        
+    } catch (error) {
+        
+    }
+}
+module.exports={createuser,login,protect,getalluser,restrict,forgetpassword,resetpassword,updatepassword};
