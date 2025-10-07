@@ -7,5 +7,5 @@ router.post("/login",login)
 router.post("/forgetpassword",forgetpassword)
 router.patch("/resetpassword/:token",resetpassword)
 router.get("/getusers", protect,restrict('admin'),getalluser)
-router.post("/updatepass",protect,updatepassword)
+router.patch("/updatepass",protect,updatepassword)
 module.exports=router;

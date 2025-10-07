@@ -3,7 +3,8 @@ const util = require("util");
 const sendEmail=require('./../utils/email')
 const jwt =require('jsonwebtoken');
 const bcrypt = require("bcryptjs");
-const crypto=require('crypto')
+const crypto=require('crypto');
+const { error } = require("console");
 
  const signtoken=(id)=>{
     return jwt.sign({id},process.env.SECRET_STR,{
@@ -278,9 +279,42 @@ const logintoken =signtoken(user._id)
 }
 const updatepassword= async (req,res,next)=>{
     try {
-        
+        const {password,confirmpassword}=req.body
+        //Get cuurrent user data from database
+        const user= await User.findById(req.user._id).select('+password');
+        // Check if current supplie password is incorrect
+        if(!(await bcrypt.compare(req.body.currentpassword,user.password))){
+               return res.status(401).json({
+                success:false,
+                message:"The Current password you supplied is wrong"
+               })
+        }
+          if( confirmpassword!==password)
+          {
+              return res.status(401).json({
+                success:false,
+                message:"The confrim Password or Password does not match"
+               })
+          }
+        // If the supply password is correct Update user password with new value
+        user.password=req.body.password;
+        user.confirmpassword=req.body.confirmpassword;
+        await user.save();
+        // Login the user and send JWT
+        const token=signtoken(user._id)
+        res.status(200).json({
+            success:true,
+            error:error,
+            token:token,
+            data:{
+                user:user
+            }
+        })
     } catch (error) {
-        
+         return res.status(400).json({
+            error:error.stack,
+            err:error.message
+        })
     }
 }
 module.exports={createuser,login,protect,getalluser,restrict,forgetpassword,resetpassword,updatepassword};

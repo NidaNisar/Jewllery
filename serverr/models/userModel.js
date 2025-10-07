@@ -33,7 +33,12 @@ const userSchema=new Schema ({
           minlength:8,
           select:false
     },
-    
+    currentpassword:{
+        type:String,
+          require:[true,"Please enter your current Password"],
+          minlength:8,
+          select:false
+    },
      passwordChangedAt: {
     type: Date   
   },
