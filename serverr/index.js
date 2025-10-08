@@ -8,7 +8,8 @@ const coonecttomongo=require("./db")
 coonecttomongo();
 const user=require("./routes/authroute")
 app.use("/api/user" , user)
-
+ const userdetail=require("./routes/userroutes")
+ app.use("/api/userdetail",userdetail)
 app.get("/",(req,res)=>{
             res.send("Homee Pageeee");
 })
