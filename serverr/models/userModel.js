@@ -39,6 +39,11 @@ const userSchema=new Schema ({
           minlength:8,
           select:false
     },
+    active:{
+        type:Boolean,
+        default:true,
+        select:false
+    },
      passwordChangedAt: {
     type: Date   
   },
@@ -85,6 +90,10 @@ this.passwordresettokenexpires = new Date(Date.now() + 30 * 60 * 1000);
 
  return resettoken;
 }
+userSchema.pre(/^find/,function(next){
+  this.find({active:{$ne:false}})
+  next()
+})
 
 
 const UserModel=model("User",userSchema);

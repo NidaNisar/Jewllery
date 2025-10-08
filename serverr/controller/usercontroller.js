@@ -81,4 +81,19 @@ const updateme= async (req,res,next)=>{
         })
     }
 }
-module.exports={updatepassword,updateme};
+const deleteme= async (req,res,next)=>{
+    try {
+        await User.findByIdAndUpdate(req.user._id, { active: false });
+     res.status(204).json({
+      status: 'success',
+      data: null
+    });
+        
+    } catch (error) {
+       return res.status(400).json({
+            error:error.stack,
+            err:error.message
+        })
+}
+}
+module.exports={updatepassword,updateme,deleteme};
