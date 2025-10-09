@@ -4,8 +4,8 @@ const app=express();
 const port=3000;
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-const coonecttomongo=require("./db")
-coonecttomongo();
+const connectDB=require("./db")
+connectDB();
 const user=require("./routes/authroute")
 app.use("/api/user" , user)
  const userdetail=require("./routes/userroutes")

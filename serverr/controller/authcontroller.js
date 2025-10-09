@@ -5,7 +5,28 @@ const jwt =require('jsonwebtoken');
 const bcrypt = require("bcryptjs");
 const crypto=require('crypto');
 const { error } = require("console");
-
+ const createSendRespone=(user,statuscode,res)=>{
+    const token =signtoken(user._id)
+    const options={
+       maxAge: parseInt(process.env.LOGIN_EXPIRES) * 24 * 60 * 60 * 1000,
+        httpOnly:true
+    }
+     if(process.env.NODE_ENV==='production')
+        {
+            options.secure=true;
+        }
+    res.cookie('jwt',token,options)
+    user.password=undefined
+        res.status(statuscode).json({
+            success:true,
+            message:"Logged in",
+           token,
+           data:{
+            user:user
+           }
+        })
+       
+ }
  const signtoken=(id)=>{
     return jwt.sign({id},process.env.SECRET_STR,{
             expiresIn:process.env.LOGIN_EXPIRES
@@ -36,7 +57,8 @@ const { error } = require("console");
 const createuser= async(req,res,next)=>{
     try {
         const newuser=await User.create(req.body);
-           const token=signtoken(newuser._id);
+           
+            createSendRespone(newuser,200,res);
         res.status(201).json({
 
             success:true,
@@ -54,7 +76,7 @@ const createuser= async(req,res,next)=>{
           res.status(400).json({
             success:false,
             message: error.message ,
-            err:error
+            error:error.stack
            
         })
     }
@@ -79,12 +101,13 @@ const login= async(req,res,next)=>{
 
           return res.status(400).json({message:"Please provide the  correct email or pssword"})
         }
-           const token =signtoken(user._id)
-        res.status(200).json({
-            success:true,
-            message:"Logged in",
-           token:token
-        })
+        //    const token =signtoken(user._id)
+        // res.status(200).json({
+        //     success:true,
+        //     message:"Logged in",
+        //    token:token
+        // })
+        createSendRespone(user,200,res);
         next();
     } catch (error) {
         
