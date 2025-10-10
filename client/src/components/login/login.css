@@ -1,12 +1,13 @@
-.login-container{
+ .login-container{
     width: 50%;
-    /* background-color: beige; */
+   
     margin: auto;
 
 }
 .login-container h2{
    margin-left: 31%;
 }
+
 .login-text{
     width: 65%;
     margin-top: 5px;
@@ -41,7 +42,7 @@
   
  }
  .sign-up p {
-  display: inline; /* keeps both p tags in one line */
+  display: inline; 
   margin: 0;
 }
  .account{
@@ -55,16 +56,8 @@
     padding: 15px;
     border-radius: 10px;
  }
- /* .login-email i{
-    width: 20%;
- } */
-
-
-
-/* Extra adjustments for very small screens */
-
-
-
+ 
+  
 
 
 
@@ -115,8 +108,14 @@ margin-left: 8%;
    display: block;
    margin-top: 4px;
 }
+.login-text,
+  .login-email {
+    width: 100%;
+    padding: 11px;
+  }
 }
 
 
 
-
+ 
+ 

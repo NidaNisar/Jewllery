@@ -56,31 +56,38 @@ const { error } = require("console");
  }
 const createuser= async(req,res,next)=>{
     try {
+          
         const newuser=await User.create(req.body);
            
             createSendRespone(newuser,200,res);
-        res.status(201).json({
+   
 
-            success:true,
-            token:token,
-            message:"User is created",
-           data:{
-            
-                user:newuser,
-                
-            }
-        })
-        next();
+       
     } catch (error) {
         
-          res.status(400).json({
-            success:false,
-            message: error.message ,
-            error:error.stack
-           
-        })
+        let message = error.message;
+
+    
+    if (error.name === "ValidationError") {
+      message = Object.values(error.errors)
+        .map(val => val.message)
+        .join(", ");
     }
+
+    res.status(400).json({
+      success: false,
+      message
+    });
+  }
 }
+    //   return    res.status(400).json({
+    //         success:false,
+    //         message: error.message ,
+    //         error:error.stack
+           
+    //     })
+    
+
 
 const login= async(req,res,next)=>{
     try {

@@ -7,7 +7,7 @@ const Login = () => {
     <div className='login'>
        <div className='login-container'>
         <h2>Login</h2>
-        <form>
+        <form className='login-form'>
                 <label for="email">Email</label>
                    <input type="email" id="email" name="email" className='login-email' placeholder='Enter your e-mail'
                    required/>

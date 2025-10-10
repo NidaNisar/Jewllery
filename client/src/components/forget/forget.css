@@ -9,7 +9,7 @@
    align-items: center;
    justify-content: center;
    justify-self: center;
-   flex-direction: row;
+   flex-direction: row; 
    gap: 15px;
 }
 .forgot{
