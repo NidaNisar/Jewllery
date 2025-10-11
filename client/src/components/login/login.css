@@ -1,121 +1,144 @@
- .login-container{
-    width: 50%;
-   
-    margin: auto;
 
-}
-.login-container h2{
-   margin-left: 31%;
+
+ .login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  width: 40%;
+  margin: 10px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  
+  border-radius: 10px;
+  background-color: #fff;
+  transition: all 0.3s ease;
 }
 
-.login-text{
-    width: 65%;
-    margin-top: 5px;
-    padding: 15px;
-    border-radius: 10px;
-}
-.sign-button{
-    margin-top: 10px;
-    background-color: black;
-    color: white;
-    width: 73%;
-    padding: 17px;
-    text-align: center;
-    border-radius: 12px;
- }
- .forget{
-    color: grey;
-    text-decoration: underline;
-  margin-left: 50%;
+
+.login-container form input {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
   font-size: 14px;
-   
- }
-
-
- .sign-up{
-    color: grey;
-  
-   margin-top: 15px;
-    margin-left: 10%;
-    margin-bottom: 5%;
-    font-size:14px;
-  
- }
- .sign-up p {
-  display: inline; 
-  margin: 0;
 }
- .account{
-    text-decoration: underline;
-      text-decoration: none;
-    color: grey;
- }
- .login-email{
-    width: 65%;
-    margin-top: 5px;
-    padding: 15px;
-    border-radius: 10px;
- }
- 
-  
 
 
 
 
-@media(max-width:1120px)
-{
-  .forget {
-
-    margin-left: 45%;
-}
-}
-@media(max-width:936px)
-{
-  .forget {
-
-    margin-left: 39%;
-}
-.sign-up{
-margin-left: 8%;
-}
+.login-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-@media(max-width:896px)
-{
-  .forget {
-
-    margin-left: 39%;
-}
-}
-
-@media(max-width:700px)
-{
-  .forget {
-
-    margin-left: 30%;
-}
-.sign-up{
-  margin-left: 2%;
-}
-}
-@media(max-width:642px)
-{
-  .forget {
-
-   margin-left: 0px;
-}
-.sign-up p{
-   display: block;
-   margin-top: 4px;
-}
 .login-text,
-  .login-email {
-    width: 100%;
-    padding: 11px;
+.login-email {
+  width: 100%;
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+.sign-button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: black;
+  color: white;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sign-button:hover {
+  background-color: #333;
+}
+
+
+.forget {
+  color: grey;
+  text-decoration: underline;
+  font-size: 14px;
+  align-self: flex-end;
+  margin-top: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-self: end;
+}
+
+.sign-up {
+  color: grey;
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.sign-up p {
+  display: inline;
+  margin: 0 5px 0 0;
+}
+
+.account {
+  text-decoration: underline;
+  color: grey;
+  cursor: pointer;
+}
+
+
+@media (max-width: 1024px) {
+  .login-container {
+    width: 60%;
   }
 }
 
+@media (max-width: 768px) {
+  .login-container {
+    width: 80%;
+  }
+}
 
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    padding: 15px;
+  }
 
- 
- 
+  .login-container form input {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .login-container {
+    
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  .login-text,
+  .login-email {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .sign-button {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .forget {
+    font-size: 12px;
+  }
+
+  .sign-up {
+    font-size: 12px;
+  }
+}

@@ -34,7 +34,7 @@ const Signup = () => {
       if (data.success) {
      
        setAlert({ show: true, type: "success", message: "Account created successfully!"||data.message });
-      //  setTimeout(() => navigate("/login"), 5000);
+        setTimeout(() => navigate("/login"), 3000);
   
       } else {
       
@@ -60,8 +60,8 @@ const Signup = () => {
       )}
    
 
-       <div className='login-container'>
-        <h1>Create New Account</h1>
+       <div className='sign-container'>
+        <h2>Create New Account</h2>
         <form  onSubmit={handleSubmit}>
              <label for="First name">First Name</label>
                    <input type="text" id="firstname" name="firstname" className='firstname' placeholder='First Name' value={signform.firstname}

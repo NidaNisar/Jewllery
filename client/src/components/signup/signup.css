@@ -1,63 +1,82 @@
-.login-container{
-    width: 50%;
-    /* background-color: beige; */
-    margin-left: 33%;
 
+ 
+
+ .sign-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  width: 40%;
+  margin: 10px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  
+  border-radius: 10px;
+  background-color: #fff;
+  transition: all 0.3s ease;
 }
-.login-container h1{
-   margin-left: 12%;
+
+
+.sign-container form input {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
 }
-.login-text{
-    width: 65%;
-    margin-top: 5px;
-    padding: 15px;
-    border-radius: 10px;
+.sign-container h2 {
+  display: flex;
+  justify-content: center;  
+  align-items: center;       
+  margin: auto;
+  text-align: center;        
 }
+
+
 .sign-button{
     margin-top: 10px;
     background-color: black;
     color: white;
-    width: 70%;
+    width: 100%;
     padding: 17px;
     text-align: center;
     border-radius: 12px;
  }
- /* .forget{
-    color: grey;
-    text-decoration: underline;
+
  
-    margin-left: 50%;
- } */
- .firstname{
-     width: 65%;
-    margin-top: 5px;
-    padding: 15px;
-    border-radius: 10px;
- }
- .lastname{
-     width: 65%;
-    margin-top: 5px;
-    padding: 15px;
-    border-radius: 10px;
- }
- /* .sign-up{
-    color: grey;
-   display: flex;
-   margin-top: 15px;
-    margin-left: 18%;
-    margin-bottom: 5%;
-   
- } */
+
  .account{
     text-decoration: underline;
      color: grey;
  }
  .login-email{
-    width: 65%;
+    width: 100%;
     margin-top: 5px;
     padding: 15px;
     border-radius: 10px;
  }
- /* .login-email i{
-    width: 20%;
- } */
+ @media (max-width: 1024px) {
+  .sign-container {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sign-container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .sign-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .sign-container form input {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
