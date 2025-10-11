@@ -1,12 +1,13 @@
 .productpic img{
     position: relative;
    height: 50vh;
-   width: 96vw;
+   width: 94vw;
    border-radius: 15px;
 }
 .productpic{
     margin-top: 3%;
     margin-left: 2%;
+    margin-right: 3%;
 }
 .product-pic-text{
             position: absolute;
@@ -18,7 +19,26 @@
             font-style: italic;
             letter-spacing: 2px;
             line-height: 5.5rem;
-            /* color: #E5C100;
-             text-shadow: 2px 2px 6px rgba(0,0,0,0.6); */
+            
+
+
+}
+@media (max-width: 786px) {
+    .productpic img {
+        height: 40vh;
+        width: 90vw;
+    }
+}
+@media (max-width: 340px) {
+    .productpic img {
+        height: 37vh;
+        width: 90vw;
+    }
+}
+@media (max-width: 464px) {
+    .productpic img {
+         margin-top: 30px;
+        
+    }
 
 }
