@@ -17,6 +17,7 @@ import Cartitem from './components/cartitem/Cartitem';
 import Checkout from './components/checkout/Checkout';
 import Forget from './components/forget/Forget';
 import { useState } from 'react';
+import Reset from './components/reset/Reset';
 function App() {
    
   
@@ -40,6 +41,7 @@ function App() {
           <Route path="/cartitem" element={<Cartitem />}/>
            <Route path="/checkout" element={<Checkout/>}/>
            <Route path="/forget" element={<Forget/>}/>
+            <Route path="/reset" element={<Reset/>}/>
 
 
 </Routes>
