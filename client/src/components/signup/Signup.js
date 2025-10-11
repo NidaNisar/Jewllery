@@ -13,7 +13,8 @@ const Signup = () => {
       password:''
    })
   const [alert, setAlert] = useState({ show: false, type: "", message: "" });
-
+ const [password,setpassword]=useState(false);
+ console.log(password)
    const handlechange=(e)=>{
       setsignform({...signform,[e.target.name]:e.target.value})
    }
@@ -74,8 +75,16 @@ const Signup = () => {
                    <input type="email" id="email" name="email" className='login-email' placeholder='Enter your e-mail'
                    required onChange={handlechange} value={signform.email}/>
                    <label for="password">Password</label>
-                   <input type="text" id="password" name="password" className='login-text' placeholder='Enter your password' required onChange={handlechange} value={signform.password}/>
+                   <div className='password'>
+                     <input  type={password ?   "password":"text"} id="password" name="password" className='login-text' placeholder='Enter your password' required onChange={handlechange} value={signform.password}/>
+                <i className={`fa-regular ${password ? "fa-eye-slash" : "fa-eye"}`} onClick={()=>{
+                  setpassword(prev=> !prev )
+                  
 
+                }}></i>
+                
+                   </div>
+                  
                    
                      <button className='sign-button' type='submit' >Create Account</button>
                      

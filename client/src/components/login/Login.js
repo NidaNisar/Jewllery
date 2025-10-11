@@ -11,6 +11,7 @@ const Login = () => {
     email:'',
     password:'',
   })
+  const [password,setpassword]=useState(false);
    const [alert, setAlert] = useState({ show: false, type: "", message: "" });
   const handlechange=(e)=>{
       setloginform({...loginform,[e.target.name]:e.target.value})
@@ -60,7 +61,15 @@ const Login = () => {
                    <input type="email" id="email" name="email" className='login-email' placeholder='Enter your e-mail' value={loginform.email} onChange={handlechange}
                    required/>
                    <label for="password">Password</label>
-                   <input type="text" id="password" name="password" className='login-text' placeholder='Enter your password' value={loginform.password} onChange={handlechange} required/>
+                   <div className='password'>
+                    <input type={password?"password":"text"} id="password" name="password" className='login-text' placeholder='Enter your password' value={loginform.password} onChange={handlechange} required />
+                     <i className={`fa-regular ${password ? "fa-eye-slash" : "fa-eye"}`} onClick={()=>{
+                  setpassword(prev=> !prev )
+                  
+
+                }}></i>
+                   </div>
+                   
                  <Link to='/forget'><p className='forget'>Forget Password?</p></Link>
                      <button className='sign-button'  type='submit'>Sign In</button>
                      
