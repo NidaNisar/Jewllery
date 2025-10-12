@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './Reset.css';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Alert from '../alert/Alert'
 const Reset = () => {
+  const navigate=useNavigate()
   const{token}=useParams()
   const[reset,setreset]=useState({
     password:'',
@@ -27,6 +28,7 @@ const Reset = () => {
       if (data.success) {
      
        setAlert({ show: true, type: "success", message: data.message });
+        setTimeout(() => navigate("/"), 3000);
       
   
       } else {
@@ -49,11 +51,15 @@ const Reset = () => {
       <h2>Reset Password</h2>
       <form onSubmit={handleSubmit}>
         <label>New Password</label>
-        <div className='passowrd'>
-          <input type={password?"password":"text"} name="password" placeholder="Enter new password" onChange={handlechange} value={reset.password}/>
-           <i className={`fa-regular ${password ? "fa-eye-slash" : "fa-eye"}`} onClick={()=>{
-                  setpassword(prev=> !prev )   }}></i>
-        </div>
+         <div className='password'>
+                    <input type={password?"password":"text"} id="password" name="password" className='login-text' placeholder='Enter your password' value={reset.password} onChange={handlechange} required />
+                     <i className={`fa-regular ${password ? "fa-eye-slash" : "fa-eye"}`} onClick={()=>{
+                  setpassword(prev=> !prev )
+                  
+
+                }}></i>
+                   </div>
+     
         <label>Confirm Password</label>
         <div className='password'>
           <input type={password?"password":"text"} name="confirmpassword" placeholder="Confirm password"onChange={handlechange} value={reset.confirmpassword} />

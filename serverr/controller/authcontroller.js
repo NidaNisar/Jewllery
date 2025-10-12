@@ -264,6 +264,8 @@ console.log("Hashed token saved in DB:", user.passwordresettoken);
 }
 const resetpassword= async (req,res,next)=>{
     try {
+
+        const{password,confirmpassword}=req.body
        const rawToken = decodeURIComponent(req.params.token);
 const hashtoken = crypto.createHash('sha256').update(rawToken).digest('hex');
 
@@ -271,7 +273,11 @@ const hashtoken = crypto.createHash('sha256').update(rawToken).digest('hex');
            // const hashtoken=crypto.createHash('sha256').update(req.params.token).digest('hex')
  //const user= await  User.findOne({passwordresettoken:hashtoken,passwordresettokenexpires:{$gt:Date.now()}})
  const user = await User.findOne({ passwordresettoken: hashtoken });
-
+  
+ if(password!==confirmpassword)
+ {
+    return res.status(400).json({ message: "Password and Confirm Password does not match" });
+ }
 if (!user) {
   return res.status(400).json({ message: "Token is invalid (no match in DB)" });
 }
