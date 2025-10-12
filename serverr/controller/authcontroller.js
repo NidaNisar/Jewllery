@@ -221,7 +221,8 @@ const forgetpassword= async (req,res,next)=>{
     // 3 Send the token back to user email
     
   //  const reseturl = `${req.protocol}://${req.get('host')}/user/resetpassword/${resettoken}`;
-  const reseturl = `${req.protocol}://${req.get('host')}/user/resetpassword/${encodeURIComponent(resettoken)}`;
+  const reseturl = `http://localhost:3001/reset/${encodeURIComponent(resettoken)}`;
+
 
 
       const message=`We have received a password reset request. Please use the below link to reset your password\n\n ${reseturl}\n\n This reset password link will be valid only for 10 minutes`
@@ -242,6 +243,7 @@ console.log("Hashed token saved in DB:", user.passwordresettoken);
        
        
      } catch (error) {
+         console.error(" Controller catch:", error);
         user.passwordresettoken=undefined
         user.passwordresettokenexpires=undefined;
         user.save({validateBeforeSave:false});

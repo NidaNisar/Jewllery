@@ -41,7 +41,7 @@ function App() {
           <Route path="/cartitem" element={<Cartitem />}/>
            <Route path="/checkout" element={<Checkout/>}/>
            <Route path="/forget" element={<Forget/>}/>
-            <Route path="/reset" element={<Reset/>}/>
+            <Route path="/reset/:token" element={<Reset/>}/>
 
 
 </Routes>
