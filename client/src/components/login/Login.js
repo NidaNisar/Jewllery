@@ -2,9 +2,10 @@ import React from 'react'
 import './login.css'
 import { Link } from 'react-router-dom'
 import Footer from '../../components/footer/Footer'
-import Alert from '../alert/Alert'
+import Swal from "sweetalert2";
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+
 const Login = () => {
    const navigate=useNavigate();
   const[loginform,setloginform]=useState({
@@ -12,7 +13,7 @@ const Login = () => {
     password:'',
   })
   const [password,setpassword]=useState(false);
-   const [alert, setAlert] = useState({ show: false, type: "", message: "" });
+  
   const handlechange=(e)=>{
       setloginform({...loginform,[e.target.name]:e.target.value})
    }
@@ -32,28 +33,34 @@ const Login = () => {
      
       if (data.success) {
      
-       setAlert({ show: true, type: "success", message: data.message });
-       setTimeout(() => navigate("/"), 3000);
+     Swal.fire({
+      icon:"success",
+      title:"Login Successful",
+      text:data.message|| "Logged in"
+
+
+     })
   
       } else {
-      
-        setAlert({ show: true, type: "error", message: data.message || "login failed!" });
+      Swal.fire({
+             icon: "error",
+                title: "Login Unsuccessful!",
+                text: data.message || "Please try again.",
+             })
+         
       }
     } catch (error) {
      
-      setAlert({ show: true, type: "error", message: "Server error! Please try again." });
-    
+     Swal.fire({
+            icon: "error",
+               title: "Server Error!",
+               text:  "Please try again.",
+            })
     }
   };
   return (
     <div className='login'>
-       {alert.show && (
-        <Alert
-          type={alert.type}
-          message={alert.message}
-          onClose={() => setAlert({ ...alert, show: false })}
-        />
-      )}
+       
        <div className='login-container'>
         <h2>Login</h2>
         <form className='login-form'  onSubmit={handleSubmit}>
@@ -79,6 +86,8 @@ const Login = () => {
         </form>
        </div>
        <Footer/>
+      
+
     </div>
   )
 }

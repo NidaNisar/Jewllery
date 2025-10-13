@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import './forget.css'
 import Footer from '../../components/footer/Footer'
 import { Link, useNavigate } from 'react-router-dom'
-import Alert from '../alert/Alert'
+import Swal from "sweetalert2";
 import { Navigate } from 'react-router-dom'
 const Forget = () => {
   const[forgete,setforgete]=useState("")
-  const [alert, setAlert] = useState({ show: false, type: "", message: "" });
+
    const handlechange=(e)=>{
       setforgete(e.target.value)
    }
@@ -26,16 +26,30 @@ const Forget = () => {
      
       if (data.success) {
      
-       setAlert({ show: true, type: "success", message: data.message });
-      
+       Swal.fire({
+          icon: "success",
+          title: "Email Sent!",
+          text: data.message || "Check your inbox to reset your password.",
+          showConfirmButton: false,
+          timer: 2500,
+        });
   
       } else {
-      
-        setAlert({ show: true, type: "error", message: data.message || "login failed!" });
+       Swal.fire({
+          icon: "error",
+          title: "Failed!",
+          text: data.message || "Please try again.",
+        });
       }
+         
+      
     } catch (error) {
      
-      setAlert({ show: true, type: "error", message: "Server error! Please try again." });
+    Swal.fire({
+        icon: "error",
+        title: "Server Error",
+        text: "Something went wrong. Please try again later.",
+      });
     
     }
   };
@@ -46,13 +60,8 @@ const Forget = () => {
   return (
     <div>
         <div className='forget-container'>
-          {alert.show && (
-        <Alert
-          type={alert.type}
-          message={alert.message}
-          onClose={() => setAlert({ ...alert, show: false })}
-        />
-      )}
+        
+       
           <div className='forgetp'>
              <p className='forget-pass'>Forgot your Password</p>
             <p>We wil send you an email to reset your Password</p>

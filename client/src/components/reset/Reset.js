@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Reset.css';
 import { useNavigate, useParams } from 'react-router-dom';
-import Alert from '../alert/Alert'
+import Swal from "sweetalert2";
 const Reset = () => {
   const navigate=useNavigate()
   const{token}=useParams()
@@ -9,7 +9,7 @@ const Reset = () => {
     password:'',
     confirmpassword:''
   })
-   const [alert, setAlert] = useState({ show: false, type: "", message: "" });
+   
    const [password,setpassword]=useState(false);
      const handlechange=(e)=>{
       setreset({...reset,[e.target.name]:e.target.value})
@@ -27,27 +27,35 @@ const Reset = () => {
     
       if (data.success) {
      
-       setAlert({ show: true, type: "success", message: data.message });
-        setTimeout(() => navigate("/"), 3000);
+      Swal.fire({
+              icon:"success",
+              title:"Reset Password",
+              text:data.message,
+               showConfirmButton: false,
+                timer: 2500,
+             })
       
   
       } else {
       
-        setAlert({ show: true, type: "error", message: data.message || "login failed!" });
+         Swal.fire({
+                icon:"error",
+                title:"Email Not Found",
+                text:data.message,
+               })
+              
       }
      } catch (error) {
-      
+      Swal.fire({
+             icon: "error",
+                title: "Server error",
+                text: "Please try again.",
+             })
      }
    }
   return (
     <div className="reset-container">
-      {alert.show && (
-        <Alert
-          type={alert.type}
-          message={alert.message}
-          onClose={() => setAlert({ ...alert, show: false })}
-        />
-      )}
+      
       <h2>Reset Password</h2>
       <form onSubmit={handleSubmit}>
         <label>New Password</label>

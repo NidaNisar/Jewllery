@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './signup.css'
+import Swal from "sweetalert2";
 
-import Alert from '../alert/Alert'
+
 
 import { Link,Navigate, useNavigate } from 'react-router-dom'
 const Signup = () => {
@@ -12,7 +13,7 @@ const Signup = () => {
       email:'',
       password:''
    })
-  const [alert, setAlert] = useState({ show: false, type: "", message: "" });
+ 
  const [password,setpassword]=useState(false);
  console.log(password)
    const handlechange=(e)=>{
@@ -33,17 +34,30 @@ const Signup = () => {
       const data = await res.json();
      
       if (data.success) {
-     
-       setAlert({ show: true, type: "success", message: "Account created successfully!"||data.message });
-        setTimeout(() => navigate("/login"), 3000);
+      Swal.fire({
+        icon:"success",
+        title:"Account Created",
+        text:data.message|| "Account created Succesfully",
+         showConfirmButton: false,
+          timer: 2500,
+       })
   
       } else {
       
-        setAlert({ show: true, type: "error", message: data.message || "Signup failed!" });
+        Swal.fire({
+        icon:"error",
+        title:"Signup Failed",
+        text:data.message||"Signup Failed"
+       })
       }
     } catch (error) {
      
-      setAlert({ show: true, type: "error", message: "Server error! Please try again." });
+          Swal.fire({
+       icon: "error",
+          title: "Server Error!",
+          text:  "Please try again.",
+       })
+
     
     }
   };
@@ -52,14 +66,7 @@ const Signup = () => {
     <div>
       
        <div className='login'>
-        {alert.show && (
-        <Alert
-          type={alert.type}
-          message={alert.message}
-          onClose={() => setAlert({ ...alert, show: false })}
-        />
-      )}
-   
+       
 
        <div className='sign-container'>
         <h2>Create New Account</h2>
@@ -96,6 +103,7 @@ const Signup = () => {
        </div>
        
     </div>
+  
     </div>
   )
 }
