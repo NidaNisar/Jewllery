@@ -1,5 +1,8 @@
 const express=require("express");
 const rate_limit=require('express-rate-limit')
+const dotenv = require("dotenv");      
+dotenv.config();                       
+
 const app=express();
 const port=3000;
 app.use(express.json())
@@ -9,8 +12,12 @@ const connectDB=require("./db")
 connectDB();
 const user=require("./routes/authroute")
 app.use("/api/user" , user)
+
  const userdetail=require("./routes/userroutes")
  app.use("/api/userdetail",userdetail)
+
+ const contact=require("./routes/contactroute")
+ app.use("/api/user",contact)
 app.get("/",(req,res)=>{
             res.send("Homee Pageeee");
 })

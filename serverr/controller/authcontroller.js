@@ -279,17 +279,17 @@ const hashtoken = crypto.createHash('sha256').update(rawToken).digest('hex');
     return res.status(400).json({ message: "Password and Confirm Password does not match" });
  }
 if (!user) {
-  return res.status(400).json({ message: "Token is invalid (no match in DB)" });
+  return res.status(400).json({ message: "We couldn’t find an account with that email address." });
 }
 
 if (user.passwordresettokenexpires <= Date.now()) {
-  return res.status(400).json({ message: "Token is expired" });
+  return res.status(400).json({ message: "Your reset link has expired. Please request a new one to continue." });
 }
   console.log("Raw token from URL:", req.params.token);
 console.log("Hashed token from URL:", hashtoken);
  if(!user){
     return res.status(400).json({
-        message:"Token is expire or invalid"
+        message:"We couldn’t find an account with that email address."
     })
  }
  // Reset the user password

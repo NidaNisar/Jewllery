@@ -11,10 +11,10 @@ const sendemail= async (options)=>{
   })
  
   const mailOptions = {
-     from: `Jewellery Support <${process.env.EMAIL_USER}>`,
-    to: options.email,
+     from: options.from,
+    to: `Jewellery <${process.env.EMAIL_USER}>`,
     subject: options.subject,
-    text: options.message
+    text: options.text
   };
 
   // Send email
