@@ -225,12 +225,14 @@ const forgetpassword= async (req,res,next)=>{
 
 
 
-      const message=`We have received a password reset request. Please use the below link to reset your password\n\n ${reseturl}\n\n This reset password link will be valid only for 10 minutes`
+      
      try {
         await sendEmail({
         email:user.email,
         subject:"Password change request receive",
-        message:message
+        reseturl,
+        
+
        
       })
       console.log("Raw token sent in email:", resettoken);

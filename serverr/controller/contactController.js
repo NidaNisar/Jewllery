@@ -1,17 +1,32 @@
 const util = require("util");
+const validator = require("validator");
+const { isEmail } = require("validator");
+
 
 const sendemail=require('./../utils/contactemail')
 const contact= async (req,res,next)=>{
 try {
    const{Firstname,Lastname,help,email,message}=req.body;
     
+  
+ 
+
+if (!isEmail(email.trim())) {
+      return res.status(400).json({
+        success: false,
+        message: "Please provide a valid email address.",
+      });
+    }
+   
        await sendemail({  
-      from: `"${Firstname}" "${Lastname}" <${email}>`,
-        subject: `${help}`,
-        text: ` You have received a new message from the  ${email} .
-        Name: ${Firstname} ${Lastname}
-        Message:
-        ${message}` })
+       name:`"${Firstname}" "${Lastname}" `,
+        subject: "Jewllery",
+           help,
+           message,
+           email,
+
+        
+         })
      
        return res.status(200).json({
         success:true,

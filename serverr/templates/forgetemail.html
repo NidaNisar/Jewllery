@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Password Reset</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      background-color: #ffffff;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333333;
+    }
+    p {
+      color: #555555;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .reset-btn {
+      display: block;
+      text-align: center;
+      background-color: #050505;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      margin: 25px auto;
+      width: fit-content;
+      font-weight: bold;
+    }
+    .reset-btn:hover {
+      background-color: #b5912c;
+    }
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      color: #999999;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Password Reset Request</h2>
+    <p>Hi {{email}},</p>
+    <p>We received a request to reset your password for your account.  
+       You can reset it by clicking the button below:</p>
+
+    <a href="{{resetLink}}" class="reset-btn">Reset Password</a>
+
+    <p>If you didn’t request this, you can safely ignore this email.  
+       Your password won’t be changed until you click the button above and set a new one.</p>
+
+    <div class="footer">
+      &copy; 2025 Jewellery Store — All rights reserved.
+    </div>
+  </div>
+</body>
+</html>
