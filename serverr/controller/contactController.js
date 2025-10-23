@@ -1,25 +1,31 @@
 const util = require("util");
 const validator = require("validator");
-const { isEmail } = require("validator");
+
 
 
 const sendemail=require('./../utils/contactemail')
 const contact= async (req,res,next)=>{
 try {
-   const{Firstname,Lastname,help,email,message}=req.body;
-    
   
+   const{Firstname,Lastname,help,email,message}=req.body;
+    const cleanEmail = Array.isArray(email) ? email[0] : email;
+    const final=cleanEmail.trim().replace(/['"]+/g, "");
+console.log("Full body:", req.body);
+console.log("Email raw:", email);
+console.log("Email type:", typeof email);
+
  
 
-if (!isEmail(email.trim())) {
+if (!validator.isEmail(final,{allow_utf8_local_part:false,require_tld:true})) {
       return res.status(400).json({
         success: false,
         message: "Please provide a valid email address.",
       });
     }
    
+   
        await sendemail({  
-       name:`"${Firstname}" "${Lastname}" `,
+       name:`${Firstname} ${Lastname} `,
         subject: "Jewllery",
            help,
            message,

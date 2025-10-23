@@ -13,6 +13,8 @@ connectDB();
 const user=require("./routes/authroute")
 app.use("/api/user" , user)
 
+const products=require("./routes/productroute")
+app.use("/api/product",products)
  const userdetail=require("./routes/userroutes")
  app.use("/api/userdetail",userdetail)
 
