@@ -18,6 +18,9 @@ import Checkout from './components/checkout/Checkout';
 import Forget from './components/forget/Forget';
 import { useState } from 'react';
 import Reset from './components/reset/Reset';
+import Admin from './components/admin/Admin';
+import Mainlayout from './components/mainlayout/Mainlayout';
+import Adminlayout from './components/mainlayout/Adminlayout';
 function App() {
    
   
@@ -25,10 +28,10 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
-      <Header/>
-      <Navbar/>
+     
    
       <Routes>
+         <Route element={<Mainlayout />}>
   <Route path="/" element={<Main />} />
   <Route path="/product" element={<Product/>} />
   <Route path="/contact" element={<Contact/>} />
@@ -42,6 +45,10 @@ function App() {
            <Route path="/checkout" element={<Checkout/>}/>
            <Route path="/forget" element={<Forget/>}/>
             <Route path="/reset/:token" element={<Reset/>}/>
+</Route>
+           <Route element={<Adminlayout />}>
+          <Route path="/admin" element={<Admin />} />
+        </Route>
 
 
 </Routes>

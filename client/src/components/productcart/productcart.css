@@ -81,6 +81,30 @@ hr{
     text-decoration: none;
     color: black;
 }
+.stock-status {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 8px 0 16px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.in-stock {
+  color: #2ca02c;
+  background: #e8f7e8;
+}
+
+.low-stock {
+  color: #e6a100;
+  background: #fff5db;
+}
+
+.out-of-stock {
+  color: #e63946;
+  background: #ffeaea;
+}
+
 
 
 @media (max-width: 600px) {

@@ -30,7 +30,7 @@ const Reset = () => {
       Swal.fire({
               icon:"success",
               title:"Reset Password",
-              text:data.message,
+              text:"Login with your new password",
                showConfirmButton: false,
                 timer: 2500,
              })
@@ -40,7 +40,7 @@ const Reset = () => {
       
          Swal.fire({
                 icon:"error",
-                title:"Email Not Found",
+                title:"Error",
                 text:data.message,
                })
               

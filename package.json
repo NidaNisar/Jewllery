@@ -19,7 +19,7 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd serverr && npm start",
-    "client": "cd client && npm start"
+    "client": "npm start --prefix client"
   },
   "eslintConfig": {
     "extends": [

@@ -29,7 +29,7 @@ const Forget = () => {
        Swal.fire({
           icon: "success",
           title: "Email Sent!",
-          text: data.message || "Check your inbox to reset your password.",
+          text:  "Check your inbox to reset your password.",
           showConfirmButton: false,
           timer: 2500,
         });

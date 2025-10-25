@@ -33,7 +33,11 @@ const Productcart = () => {
             <p>Category : {category.name}</p>
             <hr/>
             <h3>PKR {products.price}</h3>
-
+             <div className={`stock-status ${
+        products.stock > 10 ? "in-stock" : products.stock > 0 ? "low-stock" : "out-of-stock"
+      }`}>
+        {products.stock > 10 ? `In Stock (${products.stock})`: products.stock > 0? `Low Stock (${products.stock})`: "Out of Stock"}
+      </div>
             <div className='buttons'>
                 <button className='increm'>
                 <div className='plus' onClick={()=>  increment(products.id)}>+</div>

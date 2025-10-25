@@ -40,6 +40,9 @@ const Login = () => {
 
 
      })
+     setTimeout(() => {
+         navigate('/')
+       }, 2000);
   
       } else {
       Swal.fire({

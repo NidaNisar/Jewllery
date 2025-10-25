@@ -37,10 +37,13 @@ const Signup = () => {
       Swal.fire({
         icon:"success",
         title:"Account Created",
-        text:data.message|| "Account created Succesfully",
+        text: "Account created Succesfully",
          showConfirmButton: false,
           timer: 2500,
        })
+       setTimeout(() => {
+         navigate('/login')
+       }, 2000);
   
       } else {
       

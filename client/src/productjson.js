@@ -15,18 +15,18 @@ import main13 from './pictures/main13.jpg'
 
 
 export  const Products=[
-  {id:'2',name:'Earings',price:'1000',image:main11,categoryid:21,quantity:1},
-  {id:'1',name:'Necklace',price:'1000',image:main10,categoryid:20,quantity:1},
-        {id:'3',name:'Rings',price:'1000',image:main12,categoryid:22,quantity:1},
-          {id:'4',name:'Ring',price:'1000',image:main13,categoryid:22,quantity:1},
-            {id:'5',name:'Earrings',price:'1000',image:main1,categoryid:21,quantity:1},
-              {id:'6',name:'Earrings',price:'1000',image:main7,categoryid:21,quantity:1},
-                {id:'7',name:'Earrings',price:'1000',image:main3,categoryid:21,quantity:1},
-                  {id:'8',name:'Locketset',price:'1000',image:main4,categoryid:23,quantity:1},
-                    {id:'9',name:'Earrings',price:'1000',image:main2,categoryid:21,quantity:1},
-                      {id:'10',name:'Watches',price:'1000',image:main6,categoryid:24,quantity:1},
-                        {id:'11',name:'Rings set',price:'1000',image:main8,categoryid:25,quantity:1},
-                          {id:'12',name:'Braclets',price:'1000',image:main9,categoryid:26,quantity:1}
+  {id:'2',name:'Earings',price:'1000',image:main11,categoryid:21,quantity:1,stock: 120,},
+  {id:'1',name:'Necklace',price:'1000',image:main10,categoryid:20,quantity:1,stock: 1,},
+        {id:'3',name:'Rings',price:'1000',image:main12,categoryid:22,quantity:1,stock: 0},
+          {id:'4',name:'Ring',price:'1000',image:main13,categoryid:22,quantity:1,stock: 12},
+            {id:'5',name:'Earrings',price:'1000',image:main1,categoryid:21,quantity:1,stock: 7},
+              {id:'6',name:'Earrings',price:'1000',image:main7,categoryid:21,quantity:1,stock: 17},
+                {id:'7',name:'Earrings',price:'1000',image:main3,categoryid:21,quantity:1,stock: 20},
+                  {id:'8',name:'Locketset',price:'1000',image:main4,categoryid:23,quantity:1,stock: 13},
+                    {id:'9',name:'Earrings',price:'1000',image:main2,categoryid:21,quantity:1,stock: 10},
+                      {id:'10',name:'Watches',price:'1000',image:main6,categoryid:24,quantity:1,stock: 0},
+                        {id:'11',name:'Rings set',price:'1000',image:main8,categoryid:25,quantity:1,stock: 37},
+                          {id:'12',name:'Braclets',price:'1000',image:main9,categoryid:26,quantity:1,stock: 100}
 
 ]
  export const categories = [
