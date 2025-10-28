@@ -1,49 +1,45 @@
-const mongoose = require("mongoose");  
-const crypto=require('crypto')
-const{model,Schema}=require('mongoose');
- const Product= new Schema({
-    productId: {
+const mongoose = require("mongoose");
+const { Schema, model } = mongoose;
+
+
+const ProductSchema = new Schema({
+  productId: {
     type: String,
-    required: true,
-    unique: true, 
+    unique: true,
   },
   name: {
     type: String,
-    required: true,
+    required: [true, "Enter the Product Name"],
   },
   price: {
-     type: Number,
+    type: Number,
+    required: [true, "Enter the Price"],
+  },
+  stock: {
+    type: Number,
     required: true,
   },
-  categoryid:{
-    type:Number,
-    required:true
+  quantity: {
+    type: Number,
+    default: 1,
   },
-   categoryname:{
-    type:String,
-    required:true
+  photo: {
+    type: String,
+    default:
+      "https://cdn.pixabay.com/photo/2016/11/18/16/33/jewelry-1839069_1280.jpg",
   },
-  quantity:{
-    type:Number,
-    default:1
-  },
-   photo: {
-    type: String, 
-     default: "https://cdn.pixabay.com/photo/2016/11/18/16/33/jewelry-1839069_1280.jpg", 
-  },
-  
- 
 });
-Product.pre("save", async function (next) {
+
+
+ProductSchema.pre("validate", async function (next) {
   if (!this.productId) {
-   
-    const count = await this.constructor.countDocuments(); 
+    const count = await this.constructor.countDocuments();
     const nextNum = count + 1;
-    this.productId = `${nextNum.toString().padStart(3, "0")}`; 
+    this.productId = nextNum.toString().padStart(3, "0");
   }
   next();
 });
- 
 
- const Productmodel= model("product",Product)
- module.exports=Productmodel
+
+const ProductModel = model("Product", ProductSchema);
+module.exports = ProductModel;

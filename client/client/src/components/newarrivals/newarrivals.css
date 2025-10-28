@@ -1,0 +1,67 @@
+.arrival-product img{
+    margin-top: 10px;
+       width: 35vh;
+       height: 20vw;
+       border-radius: 10px;
+}
+.main-arrivals h3{
+   text-align: center ;
+    font-size: 40px;
+   
+}
+.arrivalpic img{
+    position: relative;
+   height: 50vh;
+   width: 94vw;
+   border-radius: 15px;
+}
+@media (max-width: 786px) {
+    .arrivalpic img {
+        height: 40vh;
+        width: 93vw;
+    }
+}
+@media (max-width: 464px) {
+    .arrivalpic img {
+         margin-top: 30px;
+        height: 30vh;
+        width: 90vw;
+    }
+    .main-arrivals h3{
+    font-size: 20px;
+   }
+}
+@media (max-width: 554px) {
+   .main-arrivals h3{
+    font-size: 30px;
+   }
+}
+@media (max-width: 340px) {
+    .arrivalpic img {
+        height: 37vh;
+        width: 90vw;
+    }
+}
+.arrivalpic{
+    margin-left: 2%;
+    margin-bottom: 5%;
+    margin-top: 3%;
+    margin-right: 3%;
+}
+/* .main-arrivals h3{
+    margin-left: 2%;
+} */
+.arrivalproducts{
+     display: flex;
+    /* flex-direction: row; */
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-left: 7%;
+     margin-bottom: 5%;
+    
+    
+} 
+
+/* .all{
+     margin-left: 7% 
+} */

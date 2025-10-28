@@ -1,0 +1,157 @@
+.cart-pic img {
+width: 30vw;
+height: 50vh;
+}
+.buttons button{
+    display: flex;
+    gap: 20px;
+    background-color: white;
+    border: 1px solid grey;
+    padding: 6px;
+    border-radius: 3px;
+    
+}
+.buttons {
+    display: flex;
+    gap: 25px;
+}
+.addto {
+    display: flex;
+    
+    width: 45%;
+    justify-content: center;
+    align-items: center;
+    /* padding: 6px; */
+        border: 1px solid rgb(159 143 143);
+        border-radius: 2px;
+    
+}
+.addto p{
+    font-weight: 600;
+    font-size: 15px;
+}
+.addto:hover{
+    background-color: black;
+    color: white;
+}
+/* .addto p{
+    margin-right: 10%;
+} */
+.number{
+    margin-top: 10px;
+}
+.cart-info{
+    width: 100%;
+}
+.cart-container{
+    margin-left: 4%;
+    margin-top: 4%;
+    display: flex;
+    gap: 90px;
+    margin-bottom: 3%;
+}
+hr{
+ /* width: 50%;  */
+ margin-right: 30%;
+}
+.plus{
+     margin-top: 4px;
+    border: 1px solid grey;
+    font-size: 25px;
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    border-radius: 3px;
+    text-align: center;
+}
+.minus{
+    margin-top: 4px;
+     border: 1px solid grey;
+    background-color: rgb(219, 211, 211);
+    color: black;
+    width: 30px;
+    font-size: 25px;
+    text-align: center;
+    font-weight: 500;
+     height: 30px;
+       border-radius: 3px;
+}
+.buttons a{
+    text-decoration: none;
+    color: black;
+}
+.stock-status {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 8px 0 16px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.in-stock {
+  color: #2ca02c;
+  background: #e8f7e8;
+}
+
+.low-stock {
+  color: #e6a100;
+  background: #fff5db;
+}
+
+.out-of-stock {
+  color: #e63946;
+  background: #ffeaea;
+}
+
+
+
+@media (max-width: 600px) {
+    .cart-container {
+        flex-direction: column; /* stack image and info */
+        align-items: center;
+        gap: 40px;
+        margin-left: 0;
+    }
+
+    .cart-pic img {
+        width: 60vw; /* smaller image width for narrow screens */
+        height: auto; /* keep proportions */
+    }
+
+    .cart-info {
+        width: 90%;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+       
+    }
+
+    .buttons button {
+        width: 80%;
+        justify-content: center;
+    }
+
+    .addto {
+        width: 80%;
+    }
+
+    .addto p {
+        font-size: 14px;
+    }
+
+    .plus,
+    .minus {
+        width: 25px;
+        height: 25px;
+        font-size: 20px;
+    }
+
+  .cart-info  hr {
+        margin-right: 0;
+        width: 100%;
+    }
+}

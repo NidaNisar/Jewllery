@@ -1,8 +1,8 @@
 import React ,{useState}from "react";
 import "./ProductTable.css";
-import { Products } from "../../productjson";
+import { Products ,categories} from "../../productjson";
 
-const ProductTable = () => {
+const ProductTable = ({options}) => {
    const[addp,setaddp]=useState(false);
 
   return (
@@ -10,7 +10,14 @@ const ProductTable = () => {
       {/* <h2 className="product-table-heading">Product List</h2> */}
       <table className="product-table">
         <thead>
+          {options==='categories'?
           <tr>
+           
+            <th>Categoryid</th>
+            <th>Category-name </th>
+            <th>Actions</th>
+            
+          </tr>: <tr>
             <th>Product</th>
             <th>Categoryid</th>
             <th>Price</th>
@@ -19,10 +26,64 @@ const ProductTable = () => {
             <th>Actions</th>
             
           </tr>
+          }
+         
         </thead>
 
         <tbody>
-          {Products.map((item) => (
+          {options==='categories'?categories.map((cat)=>{
+            return(
+              <tr key={cat.id}>
+          <td>{cat.id}</td>
+          <td>{cat.name}</td>
+
+          
+         
+          <td className="actions">
+            <button className="edit-btn" onClick={() => setaddp((prev) => !prev)}>
+              <i className="fa-solid fa-pen"></i>
+            </button>
+
+            
+            <div className={addp ? "addproduct" : "no"}>
+              <div className="adminmark">
+                <p>Edit Category</p>
+                <i
+                  className="fa-solid fa-xmark"
+                  onClick={() => setaddp(false)}
+                ></i>
+              </div>
+
+              <div className="mainadd">
+               <form className="category-form">
+  <label htmlFor="name">Name:</label>
+  <input
+    type="text"
+    id="name"
+    placeholder="Enter category name"
+    defaultValue={cat.name}
+  />
+
+  <label htmlFor="categoryid">Category ID:</label>
+  <input
+    type="text"
+    id="categoryid"
+    placeholder="Enter category id"
+    defaultValue={cat.categoryid}
+  />
+</form>
+
+                <button type="submit">Update Save</button>
+              </div>
+            </div>
+
+            <button className="delete-btn">
+              <i className="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+            ) 
+          }):Products.map((item) => (
             <tr key={item.id}>
               <td className="product-cell">
                 <img src={item.image} alt={item.name} />
@@ -55,6 +116,7 @@ const ProductTable = () => {
                     <form action="">
                         <label for="Name">Name:</label>
                 <input type="text" placeholder='Enter the product name'/>
+                 <label for="image">Image:</label>
                 <input type="file" id="image" name="image" accept="image/*"></input>
                 <label for="Price">Product Price:</label>
               <input type="number" placeholder='Enter the product Price' name='price' id='price'/>
@@ -62,10 +124,10 @@ const ProductTable = () => {
             <input type="number" name="categoryid" id="categoryid" placeholder='Enter your categoryid'/>
             <label for="stock">Stock:</label>
             <input type="number" name="stock" id="stock" placeholder='Enter the Stock'/>
-                    <button type="submit">Update save</button>
+                    
 
                     </form>
-             
+             <button type="submit">Update save</button>
                         
                         </div>
                     </div>

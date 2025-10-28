@@ -1,11 +1,13 @@
-const Product=require("./../models/productmodel")
+const ProductModel = require("./../models/productmodel");
+
 const Create= async (req,res)=>{
 
     try {
-        const product= await Product.create(req.body);
+        const product= await ProductModel.create(req.body);
         res.status(200).json({
             success:true,
-            message:"Product is Created"
+            message:"Product is Created",
+           product,
         })
     } catch (error) {
         res.status(400).json({
@@ -18,7 +20,7 @@ const Create= async (req,res)=>{
 }
 const getAllProducts = async (req, res) => {
   try {
-    const products = await Product.find();
+    const products = await ProductModel.find();
     res.status(200).json({
       success: true,
       count: products.length,
@@ -31,45 +33,49 @@ const getAllProducts = async (req, res) => {
     });
   }
 };
-const deleteproduct= async (req,res)=>{
+const deleteproduct = async (req, res) => {
+  try {
+    const { productId } = req.params;
 
-    try {
-        const{id}=req.params;
-        
-        
-        const product= await Product.findByIdAndDelete(id);
-        res.status(200).json({
-            success:true,
-            message:"Product is deleted sucessfully"
-        })
-        if(!product){
-          return   res.status(400).json({
-            success:false,
-            message:"Product not found "
-        })
+    
+    const product = await ProductModel.findOneAndDelete({ productId });
+
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: "Product not found",
+      });
     }
-    } catch (error) {
-        res.status(400).json({
-            success:false,
-            message: error.message ,
-            err:error
-           
-        })
-    }
-}
+    console.log("DELETE route hit! productId =", req.params.productId);
+
+
+    
+    res.status(200).json({
+      success: true,
+      message: "Product is deleted successfully",
+    });
+
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+      err: error,
+    });
+  }
+};
+
 const updateproduct= async (req,res)=>{
 
     try {
-        const{id}=req.params;
-        const { name, price, quantity, photo, categoryid, categoryname } = req.body;
+        const{productId}=req.params;
+        const { name, price,stock, photo} = req.body;
         
-        const product= await Product.findByIdAndUpdate(id,{
+        const product= await ProductModel.findOneAndUpdate({productId},{
         name,
         price,
-        quantity,
+        stock,
         photo,
-        categoryid,
-        categoryname,
+       
       }, { new: true, runValidators: true }
      );
        

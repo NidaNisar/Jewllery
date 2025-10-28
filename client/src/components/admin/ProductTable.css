@@ -1,16 +1,16 @@
 .product-table-container {
   background: white;
   padding: 25px;
-  
-  border-bottom-right-radius: 12px;
-  border-bottom-left-radius: 12px;
+  border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin-top: 150px;
-   position: absolute;
-    top: 93px;
-    left: 240px;
-    right: 30px;
+  position: absolute;
+  top: 40px;
+  left: 299px;
+  right: 30px;
+  transition: all 0.3s ease;
 }
+
 
 .product-table-heading {
   margin-bottom: 20px;
@@ -19,9 +19,12 @@
   color: #333;
 }
 
+
 .product-table {
   width: 100%;
   border-collapse: collapse;
+  overflow-x: auto;
+  
 }
 
 .product-table th,
@@ -30,12 +33,14 @@
   padding: 14px 10px;
   font-size: 14px;
   border-bottom: 1px solid #f0f0f0;
+  white-space: nowrap;
 }
 
 .product-table th {
   color: #666;
   font-weight: 500;
 }
+
 
 .product-cell {
   display: flex;
@@ -49,6 +54,7 @@
   border-radius: 8px;
   object-fit: cover;
 }
+
 
 .status-badge {
   padding: 5px 12px;
@@ -71,6 +77,7 @@
   background-color: #ffe6e6;
   color: #e63946;
 }
+
 
 .actions {
   display: flex;
@@ -95,4 +102,90 @@
 .delete-btn:hover {
   background: #ffeaea;
   color: #e63946;
+}
+
+
+@media (max-width: 992px) {
+  .product-table-container {
+    left: 240px;
+    right: 20px;
+    top: 60px;
+    padding: 20px;
+  }
+
+  .product-table-heading {
+    font-size: 18px;
+  }
+
+  .product-table th,
+  .product-table td {
+    font-size: 13px;
+    padding: 12px 8px;
+  }
+
+  .product-cell img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .product-table-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 120px 10px 30px 10px;
+    padding: 18px;
+  }
+
+  .product-table {
+    overflow-x: auto;
+    /* display: block;
+  } */
+  }
+
+  .product-table th,
+  .product-table td {
+    font-size: 13px;
+    padding: 10px 8px;
+  }
+
+  .product-cell img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .product-table-container {
+    padding: 15px;
+    margin: 40px 5px;
+  }
+
+  .product-table-heading {
+    font-size: 16px;
+  }
+
+  .product-table th,
+  .product-table td {
+    font-size: 12px;
+    padding: 8px 6px;
+  }
+
+  .status-badge {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .actions {
+    gap: 5px;
+  }
+
+  .product-cell img {
+    width: 30px;
+    height: 30px;
+  }
 }

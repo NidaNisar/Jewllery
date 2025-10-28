@@ -3,15 +3,24 @@ import logo1 from "../../pictures/logo1.png"
 import "./Admin.css" 
 import ProductTable from './ProductTable';
 const Admin = () => {
+    const[options,setoptions]=useState("Productlist")
+    const handlechange=(e)=>{
+              const selected = e.target.value;
+             setoptions(selected);
+    }
    
     const[addp,setaddp]=useState(false);
-
+const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className='admin-container'>
         <div className='admin'>
-            <div className='first'>
+             <div className={`first ${sidebarOpen ? "active" : ""}`}>
             <div className='options'>
                <h2 className='admin-h'>Admin</h2>
+                <div className="menu-toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
+             <i class="fa-solid fa-xmark"></i>
+          </div>
+             
                 <div className='admin-dashboard'>
                     <div className='dashboard'>
                     <span class="material-icons">widgets</span>
@@ -19,8 +28,8 @@ const Admin = () => {
                     </div>
                     <div className='products'>
                          <span class="material-icons">category</span>
-          <select className="heading-select">
-  <option value="Product List">Product List</option>
+          <select className="heading-select" onChange={handlechange} value={options}>
+  <option value="Productlist" >Product-List</option>
   <option value="categories">Categories</option>
              </select>
  
@@ -47,15 +56,18 @@ const Admin = () => {
             </div>
             <div className='second'>
                 <div className='productss'>
+                    <div className="menu-toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
+            <i className="fa-solid fa-bars"></i>
+          </div>
 
-                    <h2 className='product-h'>Products</h2>
+                    <h2 className='product-h'>Product</h2>
                    <div className='admin-icons'>
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <i class="fa-regular fa-bell"></i>
                    </div>
                 </div>
                 <div className='product-list'>
-                    <h2>Product-list</h2>
+                    <h2>{options==='categories'?"Categories":"Products-list"}</h2>
                      <div className='products-button'>
                         <div className='filter'>
                             <i class="fa-solid fa-filter"></i>
@@ -93,7 +105,7 @@ const Admin = () => {
                         </div>
                     </div>
                 </div>
-                <ProductTable/>
+                <ProductTable options={options}/>
 
             </div>
         </div>

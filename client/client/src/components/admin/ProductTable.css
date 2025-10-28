@@ -1,0 +1,98 @@
+.product-table-container {
+  background: white;
+  padding: 25px;
+  
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 150px;
+   position: absolute;
+    top: 93px;
+    left: 240px;
+    right: 30px;
+}
+
+.product-table-heading {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table th,
+.product-table td {
+  text-align: left;
+  padding: 14px 10px;
+  font-size: 14px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.product-table th {
+  color: #666;
+  font-weight: 500;
+}
+
+.product-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-cell img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.status-badge.active {
+  background-color: #e6f7e6;
+  color: #2ca02c;
+}
+
+.status-badge.low {
+  background-color: #fff7e6;
+  color: #e6a100;
+}
+
+.status-badge.out {
+  background-color: #ffe6e6;
+  color: #e63946;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.edit-btn:hover {
+  background: #eaf1ff;
+  color: #2b6ff7;
+}
+
+.delete-btn:hover {
+  background: #ffeaea;
+  color: #e63946;
+}
