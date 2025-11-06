@@ -1,23 +1,22 @@
 const ProductModel = require("./../models/productmodel");
 
-const Create= async (req,res)=>{
-
-    try {
-        const product= await ProductModel.create(req.body);
-        res.status(200).json({
-            success:true,
-            message:"Product is Created",
-           product,
-        })
-    } catch (error) {
-        res.status(400).json({
-            success:false,
-            message: error.message ,
-            err:error
-           
-        })
-    }
-}
+const Create = async (req, res) => {
+  const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+  try {
+    const product = await ProductModel.create({ ...req.body, imagePath });
+    res.status(200).json({
+      success: true,
+      message: "Product is Created",
+      product,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+      err: error,
+    });
+  }
+};
 const getAllProducts = async (req, res) => {
   try {
     const products = await ProductModel.find();
@@ -37,7 +36,6 @@ const deleteproduct = async (req, res) => {
   try {
     const { productId } = req.params;
 
-    
     const product = await ProductModel.findOneAndDelete({ productId });
 
     if (!product) {
@@ -48,13 +46,10 @@ const deleteproduct = async (req, res) => {
     }
     console.log("DELETE route hit! productId =", req.params.productId);
 
-
-    
     res.status(200).json({
       success: true,
       message: "Product is deleted successfully",
     });
-
   } catch (error) {
     res.status(400).json({
       success: false,
@@ -64,39 +59,44 @@ const deleteproduct = async (req, res) => {
   }
 };
 
-const updateproduct= async (req,res)=>{
+const updateproduct = async (req, res) => {
+  try {
+    const { productId } = req.params;
+    const { name, price, stock, photo } = req.body;
+    let photopath;
+    if (req.file) {
+      photopath = `/uploads/${req.file.filename}`;
+    }
+    const Updateddata = {
+      name,
+      price,
+      stock,
+    };
+    if (photopath) {
+      Updateddata.photo = photopath;
+    }
+    const product = await ProductModel.findOneAndUpdate(
+      { productId },
+      Updateddata,
 
-    try {
-        const{productId}=req.params;
-        const { name, price,stock, photo} = req.body;
-        
-        const product= await ProductModel.findOneAndUpdate({productId},{
-        name,
-        price,
-        stock,
-        photo,
-       
-      }, { new: true, runValidators: true }
-     );
-       
-       
-        res.status(200).json({
-            success:true,
-            message:"Product is updated sucessfully"
-        })
-        if(!product){
-          return   res.status(400).json({
-            success:false,
-            message:"Product not found "
-        })
+      { new: true, runValidators: true }
+    );
+    if (!product) {
+      return res.status(400).json({
+        success: false,
+        message: "Product not found ",
+      });
     }
-    } catch (error) {
-        res.status(400).json({
-            success:false,
-            message: error.message ,
-            err:error
-           
-        })
-    }
-}
- module.exports={Create,deleteproduct,updateproduct,getAllProducts}
+    res.status(200).json({
+      success: true,
+      message: "Product is updated sucessfully",
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+      err: error,
+    });
+  }
+};
+module.exports = { Create, deleteproduct, updateproduct, getAllProducts };

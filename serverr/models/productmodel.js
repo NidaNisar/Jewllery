@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
-
+const upload = require("./../middleware/Upload");
 
 const ProductSchema = new Schema({
   productId: {
@@ -30,7 +30,6 @@ const ProductSchema = new Schema({
   },
 });
 
-
 ProductSchema.pre("validate", async function (next) {
   if (!this.productId) {
     const count = await this.constructor.countDocuments();
@@ -39,7 +38,6 @@ ProductSchema.pre("validate", async function (next) {
   }
   next();
 });
-
 
 const ProductModel = model("Product", ProductSchema);
 module.exports = ProductModel;
