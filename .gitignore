@@ -11,6 +11,7 @@ server/node_modules/
 /coverage
 
 
+
 # Build folders
 client/build/
 server/dist/
