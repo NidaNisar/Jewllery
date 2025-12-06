@@ -1,13 +1,13 @@
 const ProductModel = require("./../models/productmodel");
 
 const Create = async (req, res) => {
-  const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+  const photo = req.file ? `/uploads/${req.file.filename}` : null;
   try {
-    const product = await ProductModel.create({ ...req.body, imagePath });
+    const products = await ProductModel.create({ ...req.body, photo });
     res.status(200).json({
       success: true,
       message: "Product is Created",
-      product,
+      products,
     });
   } catch (error) {
     res.status(400).json({
@@ -62,7 +62,7 @@ const deleteproduct = async (req, res) => {
 const updateproduct = async (req, res) => {
   try {
     const { productId } = req.params;
-    const { name, price, stock, photo } = req.body;
+    const { name, price, stock, categoryid } = req.body;
     let photopath;
     if (req.file) {
       photopath = `/uploads/${req.file.filename}`;
@@ -71,6 +71,7 @@ const updateproduct = async (req, res) => {
       name,
       price,
       stock,
+      categoryid,
     };
     if (photopath) {
       Updateddata.photo = photopath;

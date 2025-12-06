@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 const upload = require("./../middleware/Upload");
+const { type } = require("@testing-library/user-event/dist/type");
 
 const ProductSchema = new Schema({
   productId: {
@@ -19,14 +20,16 @@ const ProductSchema = new Schema({
     type: Number,
     required: true,
   },
+  categoryid: {
+    type: Number,
+    required: true,
+  },
   quantity: {
     type: Number,
     default: 1,
   },
   photo: {
     type: String,
-    default:
-      "https://cdn.pixabay.com/photo/2016/11/18/16/33/jewelry-1839069_1280.jpg",
   },
 });
 

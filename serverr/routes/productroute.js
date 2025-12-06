@@ -1,15 +1,27 @@
 const express = require("express");
 const router = express.Router();
 const upload = require("./../middleware/Upload.js");
+const { restrict } = require("../controller/authcontroller");
 const {
   Create,
   deleteproduct,
   updateproduct,
   getAllProducts,
 } = require("./../controller/productcontroller");
-router.post("/createproduct", upload.single("image"), Create);
+router.post(
+  "/createproduct",
+
+  upload.single("image"),
+  Create
+);
 router.delete("/deleteproduct/:productId", deleteproduct);
-router.patch("/update/:productId", updateproduct);
+
+router.patch(
+  "/update/:productId",
+
+  upload.single("image"),
+  updateproduct
+);
 router.get("/getallproducts", getAllProducts);
 
 module.exports = router;
