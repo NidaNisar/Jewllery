@@ -1,25 +1,33 @@
 const express = require("express");
-const rate_limit = require("express-rate-limit");
 const dotenv = require("dotenv");
 const path = require("path");
-// const cors = require("cors");
-// app.use(cors());
+const cors = require("cors");
 
 dotenv.config();
 
 const app = express();
-const port = 3000;
 
 // -------------------------
-// STATIC FILES
+// CORS (VERY IMPORTANT)
+// -------------------------
+app.use(
+  cors({
+    origin: "https://jewllery-alpha.vercel.app/",
+    credentials: true,
+  })
+);
+
+// -------------------------
+// STATIC FILES (Images)
 // -------------------------
 app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
-app.use(express.static("./public"));
+
 // -------------------------
-// JSON BODY (AFTER file upload routes)
+// BODY PARSER (ONLY ONCE)
 // -------------------------
 app.use(express.json({ limit: "20mb" }));
 app.use(express.urlencoded({ extended: true, limit: "20mb" }));
+
 // -------------------------
 // DATABASE
 // -------------------------
@@ -27,15 +35,13 @@ const connectDB = require("./db");
 connectDB();
 
 // -------------------------
-//  ROUTES BEFORE BODY PARSER
-// (Important: file upload routes first)
+// ROUTES
 // -------------------------
 
-// authentication
+// auth
 app.use("/api/user", require("./routes/authroute"));
 
-// product route contains multer middleware (upload.single("photo"))
-// so it MUST be before express.json()
+// product (multer inside route)
 app.use("/api/product", require("./routes/productroute"));
 
 app.use("/api/userdetail", require("./routes/userroutes"));
@@ -43,21 +49,17 @@ app.use("/api/user", require("./routes/contactroute"));
 app.use("/api/product", require("./routes/category"));
 
 // -------------------------
-// JSON BODY (AFTER file upload routes)
-// -------------------------
-app.use(express.json({ limit: "20mb" }));
-app.use(express.urlencoded({ extended: true, limit: "20mb" }));
-
-// -------------------------
 // HOME ROUTE
 // -------------------------
 app.get("/", (req, res) => {
-  res.send("Home Page");
+  res.send("Jewellery Backend Running ");
 });
 
 // -------------------------
-// START SERVER
+// START SERVER (IMPORTANT)
 // -------------------------
-app.listen(port, () => {
-  console.log(`App Started on ${port}`);
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

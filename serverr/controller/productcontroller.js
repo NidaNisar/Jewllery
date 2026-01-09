@@ -19,11 +19,23 @@ const Create = async (req, res) => {
 };
 const getAllProducts = async (req, res) => {
   try {
-    const products = await ProductModel.find();
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 1;
+    const categoryid = req.query.categoryid;
+    const skip = (page - 1) * limit;
+    let filter = {};
+    if (categoryid) {
+      filter.categoryid = Number(categoryid);
+    }
+    const total = await ProductModel.countDocuments(filter);
+    const products = await ProductModel.find(filter).skip(skip).limit(limit);
+
     res.status(200).json({
       success: true,
-      count: products.length,
+      count: total,
       products,
+      page,
+      pages: Math.ceil(total / limit),
     });
   } catch (error) {
     res.status(400).json({
@@ -32,6 +44,7 @@ const getAllProducts = async (req, res) => {
     });
   }
 };
+
 const deleteproduct = async (req, res) => {
   try {
     const { productId } = req.params;
@@ -100,4 +113,37 @@ const updateproduct = async (req, res) => {
     });
   }
 };
-module.exports = { Create, deleteproduct, updateproduct, getAllProducts };
+const getbycategory = async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 1;
+    const skip = (page - 1) * limit;
+    const { categoryid } = req.params;
+    console.log(req.params);
+
+    const total = await ProductModel.countDocuments({ categoryid: categoryid });
+    const products = await ProductModel.find({ categoryid: categoryid })
+      .skip(skip)
+      .limit(limit);
+
+    res.status(200).json({
+      success: true,
+      count: total,
+      products,
+      page,
+      pages: Math.ceil(total / limit),
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+module.exports = {
+  Create,
+  deleteproduct,
+  updateproduct,
+  getAllProducts,
+  getbycategory,
+};
