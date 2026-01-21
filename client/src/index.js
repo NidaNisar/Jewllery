@@ -8,11 +8,11 @@ import { Apiprovider } from "./components/context/Apicontext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Cartprovider>
-      <Apiprovider>
+    <Apiprovider>
+      <Cartprovider>
         <App />
-      </Apiprovider>
-    </Cartprovider>
+      </Cartprovider>
+    </Apiprovider>
   </React.StrictMode>
 );
 

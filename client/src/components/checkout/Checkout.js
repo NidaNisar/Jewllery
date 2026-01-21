@@ -32,16 +32,24 @@ const Checkout = () => {
       <div className="cart-summary">
         <h2 className="heading-check">Your Cart</h2>
         <ul>
-          {allcarts.map((item, index) => {
-            return (
-              <li key={item.id}>
-                <span>
+          {allcarts.map((item) => (
+            <li key={item.id} className="cart-item-check">
+              <div className="cart-item-left">
+                <img
+                  src={item.photo}
+                  alt={item.name}
+                  className="cart-img-check"
+                />
+                <span className="cart-name-check">
                   {item.name} x{item.quantity}
                 </span>
-                <span>Rs. {item.price * item.quantity}</span>
-              </li>
-            );
-          })}
+              </div>
+
+              <span className="cart-price-check">
+                Rs. {item.price * item.quantity}
+              </span>
+            </li>
+          ))}
 
           <li className="total">
             <strong>Total</strong>

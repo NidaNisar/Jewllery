@@ -17,6 +17,39 @@ const Category = ({ setaddp, addp, updateproducts, setupdate }) => {
   useEffect(() => {
     fetchcategory();
   }, []);
+  const deletecategory = async (id) => {
+    try {
+      const res = await fetch(`/api/product/deletecategory/${id}`, {
+        method: "DELETE",
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        Swal.fire({
+          icon: "success",
+          title: "Successful",
+          text: data.message || "Product Updated",
+        });
+
+        setcategories((prev) => prev.filter((item) => item.categoryid !== id));
+
+        // setaddp(false);
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Unsuccessful",
+          text: data.message || "Please try again.",
+        });
+      }
+    } catch (err) {
+      console.log("Update error:", err);
+      Swal.fire({
+        icon: "error",
+        title: "Server Error!",
+        text: "Please try again.",
+      });
+    }
+  };
 
   const editmodel = (item) => {
     setcform({
@@ -78,7 +111,10 @@ const Category = ({ setaddp, addp, updateproducts, setupdate }) => {
 
             {/* DELETE BUTTON */}
             <button className="delete-btn">
-              <i className="fa-solid fa-trash"></i>
+              <i
+                className="fa-solid fa-trash"
+                onClick={() => deletecategory(cat.categoryid)}
+              ></i>
             </button>
           </td>
         </tr>

@@ -17,9 +17,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd serverr && npm start",
-    "client": "npm start --prefix client"
+    "start": "node index.js"
   },
   "eslintConfig": {
     "extends": [

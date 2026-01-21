@@ -6,6 +6,8 @@ export const Apiprovider = ({ children }) => {
   // -------- states
   const [options, setoptions] = useState("Productlist");
   const [product, setproduct] = useState([]);
+  const [currentpage, setcurrentpage] = useState(1);
+  const [totalpages, settotalpages] = useState(1);
   const [form, setForm] = useState({
     name: "",
     price: "",
@@ -134,23 +136,25 @@ export const Apiprovider = ({ children }) => {
     });
     setaddp(false);
   };
-  const fetchProducts = async () => {
+
+  const fetchProducts = async (page = 1, categoryid = "") => {
     try {
-      const res = await fetch("/api/product/getAllProducts");
+      const limit = 8;
+      const res = await fetch(
+        `/api/product/getAllProducts?page=${page}&limit=${limit}&categoryid=${categoryid}`
+      );
       const data = await res.json();
+
+      console.log("API Response:", data);
+
       setProducts(data.products);
+      setcurrentpage(data.page);
+      settotalpages(data.pages);
     } catch (err) {
       console.log("Error fetching products:", err);
     }
   };
-  // const [form, setForm] = useState({
-  //    id: "",
-  //    name: "",
-  //    price: "",
-  //    stock: "",
-  //    photo: "",
-  //    categoryid: "",
-  //  });
+
   const handledelete = async (id) => {
     try {
       const res = await fetch(`/api/product/deleteproduct/${id}`, {
@@ -278,6 +282,11 @@ export const Apiprovider = ({ children }) => {
   const [categoriees, setcategories] = useState([]);
   const [updateproducts, setupdate] = useState(false);
 
+  useEffect(() => {
+    fetchProducts();
+    fetchcategory();
+  }, []);
+
   return (
     <Apicontext.Provider
       value={{
@@ -310,6 +319,10 @@ export const Apiprovider = ({ children }) => {
         setupdate,
         handledelete,
         updatecategory,
+        currentpage,
+        setcurrentpage,
+        totalpages,
+        settotalpages,
       }}
     >
       {children}

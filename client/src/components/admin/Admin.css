@@ -36,7 +36,10 @@
   margin-left: 20px;
   margin-top: 10px;
 }
-
+.category-form {
+  display: flex;
+  flex-direction: column;
+}
 .dashboard,
 .products,
 .customer,
