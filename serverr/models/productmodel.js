@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 const upload = require("./../middleware/Upload");
-const { type } = require("@testing-library/user-event/dist/type");
+
 
 const ProductSchema = new Schema({
   productId: {
