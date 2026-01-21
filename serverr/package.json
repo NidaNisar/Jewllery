@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node serverr/index.js",
+    "start": "node index.js",
     "dev": "nodemon serverr/index.js"
   },
   "dependencies": {
