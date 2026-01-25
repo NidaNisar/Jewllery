@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 const upload = require("./../middleware/Upload");
 
+
 const ProductSchema = new Schema({
   productId: {
     type: String,
