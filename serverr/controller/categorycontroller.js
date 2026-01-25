@@ -1,4 +1,4 @@
-const { data } = require("react-router-dom");
+
 const CategoryModel = require("../models/Categorymodel");
 
 // get all
