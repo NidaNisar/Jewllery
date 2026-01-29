@@ -141,7 +141,7 @@ export const Apiprovider = ({ children }) => {
     try {
       const limit = 8;
       const res = await fetch(
-        `/api/product/getAllProducts?page=${page}&limit=${limit}&categoryid=${categoryid}`
+        `${process.env.REACT_APP_API_URL}/api/product/getAllProducts?page=${page}&limit=${limit}&categoryid=${categoryid}`
       );
       const data = await res.json();
 
@@ -190,7 +190,7 @@ export const Apiprovider = ({ children }) => {
   };
   const fetchcategory = async () => {
     try {
-      const res = await fetch("/api/product/getcategory");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/product/getcategory`);
       const data = await res.json();
       setcategories(data.data);
     } catch (err) {
