@@ -10,11 +10,30 @@ const app = express();
 // -------------------------
 // CORS (VERY IMPORTANT)
 // -------------------------
+
+ const allowedorigins=[
+  "https://jewllery-alpha.vercel.app/",
+  "http://localhost:3000"
+ ]
 app.use(
   cors({
-    origin: "https://jewllery-alpha.vercel.app/",
-    credentials: true,
+    origin:function(origin ,callback){
+      if(!origin)
+        return callback(null,true)
+      
+      if(allowedorigins.includes(origin))
+      
+        return callback(null,true)
+
+      
+      else
+        callback(new Error("Not allowed by the CORS"))
+      
+    },
+    credentials:true,
   })
+ 
+   
 );
 
 // -------------------------
