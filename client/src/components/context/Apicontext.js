@@ -3,6 +3,8 @@ import { Products } from "../../productjson";
 import Swal from "sweetalert2";
 export const Apicontext = createContext();
 export const Apiprovider = ({ children }) => {
+  const API_URL=process.env.REACT_APP_API_URL;
+
   // -------- states
   const [options, setoptions] = useState("Productlist");
   const [product, setproduct] = useState([]);
@@ -140,8 +142,8 @@ export const Apiprovider = ({ children }) => {
   const fetchProducts = async (page = 1, categoryid = "") => {
     try {
       const limit = 8;
-      const res = await fetch(
-        `${process.env.REACT_APP_API_URL}api/product/getAllProducts?page=${page}&limit=${limit}&categoryid=${categoryid}`
+      console.log(API_URL)
+      const res = await fetch(`${API_URL}api/product/getAllProducts?page=${page}&limit=${limit}&categoryid=${categoryid}`
       );
       const data = await res.json();
 
@@ -190,7 +192,7 @@ export const Apiprovider = ({ children }) => {
   };
   const fetchcategory = async () => {
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}api/product/getcategory`);
+      const res = await fetch(`${API_URL}api/product/getcategory`);
       const data = await res.json();
       setcategories(data.data);
     } catch (err) {
