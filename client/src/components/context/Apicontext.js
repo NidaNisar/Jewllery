@@ -51,7 +51,7 @@ export const Apiprovider = ({ children }) => {
   const addcategory = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("/api/product/addcategory", {
+      const res = await fetch(`${API_URL}/api/product/addcategory`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(cform),
@@ -100,7 +100,7 @@ export const Apiprovider = ({ children }) => {
     ]);
 
     try {
-      const res = await fetch("/api/product/createproduct", {
+      const res = await fetch(`${API_URL}/api/product/createproduct`, {
         method: "POST",
 
         body: formData,
@@ -159,7 +159,7 @@ export const Apiprovider = ({ children }) => {
 
   const handledelete = async (id) => {
     try {
-      const res = await fetch(`/api/product/deleteproduct/${id}`, {
+      const res = await fetch(`${API_URL}/api/product/deleteproduct/${id}`, {
         method: "DELETE",
       });
 
@@ -212,7 +212,7 @@ export const Apiprovider = ({ children }) => {
       fd.append("image", form.photo);
     }
     try {
-      const res = await fetch(`/api/product/update/${form.productId}`, {
+      const res = await fetch(`${API_URL}/api/product/update/${form.productId}`, {
         method: "PATCH",
         body: fd,
       });
@@ -249,7 +249,7 @@ export const Apiprovider = ({ children }) => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`/api/product/updatecategory/${categoryid}`, {
+      const res = await fetch(`${API_URL}/api/product/updatecategory/${categoryid}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(cform),
