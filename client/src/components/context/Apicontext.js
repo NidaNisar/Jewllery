@@ -143,7 +143,7 @@ export const Apiprovider = ({ children }) => {
     try {
       const limit = 8;
       console.log(API_URL)
-      const res = await fetch(`${API_URL}api/product/getAllProducts?page=${page}&limit=${limit}&categoryid=${categoryid}`
+      const res = await fetch(`${API_URL}/api/product/getAllProducts?page=${page}&limit=${limit}&categoryid=${categoryid}`
       );
       const data = await res.json();
 
@@ -192,7 +192,7 @@ export const Apiprovider = ({ children }) => {
   };
   const fetchcategory = async () => {
     try {
-      const res = await fetch(`${API_URL}api/product/getcategory`);
+      const res = await fetch(`${API_URL}/api/product/getcategory`);
       const data = await res.json();
       setcategories(data.data);
     } catch (err) {
