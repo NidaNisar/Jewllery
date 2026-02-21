@@ -12,7 +12,7 @@ const app = express();
 // -------------------------
 
  const allowedorigins=[
-  "https://jewllery-alpha.vercel.app/",
+  "https://jewllery-alpha.vercel.app",
   "http://localhost:3000"
  ]
 app.use(
