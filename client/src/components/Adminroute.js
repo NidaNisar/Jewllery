@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 const Adminroute = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(null);
   const token = localStorage.getItem("token");
-
+const API_URL=process.env.REACT_APP_API_URL
   useEffect(() => {
     const checkAdmin = async () => {
       if (!token) {
@@ -19,7 +19,7 @@ const Adminroute = ({ children }) => {
       }
 
       try {
-        const res = await fetch("/api/user/admin/check", {
+        const res = await fetch(`${API_URL}/api/user/admin/check`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

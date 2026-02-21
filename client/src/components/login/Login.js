@@ -32,15 +32,7 @@ const Login = () => {
 
       if (data.success) {
         localStorage.setItem("token", data.token);
-        
-        const redirectPath =
-        data.role === "admin" ? "/admin/Admin" : "/forget/Forget";
-
-        navigate(redirectPath);
-        
-        
-       
-        Swal.fire({
+              Swal.fire({
           icon: "success",
           title: "Login Successful",
           text: data.message || "Logged in",
