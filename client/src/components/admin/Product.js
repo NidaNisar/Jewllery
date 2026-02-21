@@ -11,7 +11,7 @@ const Product = ({ Products = [] }) => {
     setForm,
     handledelete,
   } = useContext(Apicontext);
-
+const API_URL=process.env.REACT_APP_API_URL
   const handlechange = (e) => {
     setForm({
       ...form,
@@ -32,12 +32,13 @@ const Product = ({ Products = [] }) => {
     setupdate(true);
   };
 
+
   return (
     <>
       {Products.map((item) => (
         <tr key={item.productId}>
           <td className="product-cell">
-            <img src={`http://localhost:3000${item.photo}`} alt={item.name} />
+            <img src={item.photo} alt={item.name} />
             <span>{item.name}</span>
           </td>
 
