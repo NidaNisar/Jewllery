@@ -20,7 +20,7 @@ const HomeProduct = () => {
             <Link to={`/productcart/${product.productId}`}>
               <div key={product.productId} className="all">
                 <div className="home-product">
-                  <img alt="" src={product.photo} />
+                  <img alt={product.name} src={product.photo} />
                 </div>
                 <div className="homep-name">
                   <p>{product.name}</p>
