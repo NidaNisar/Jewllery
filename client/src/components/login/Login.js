@@ -32,7 +32,11 @@ const Login = () => {
 
       if (data.success) {
         localStorage.setItem("token", data.token);
-
+        if(data.role==="admin")
+        
+        navigate("../admin/Admin");
+        
+        else
         Swal.fire({
           icon: "success",
           title: "Login Successful",
