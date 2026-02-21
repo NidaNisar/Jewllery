@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import { Navigate } from 'react-router-dom'
 const Forget = () => {
   const[forgete,setforgete]=useState("")
-
+  const API_URL=process.env.REACT_APP_API_URL
    const handlechange=(e)=>{
       setforgete(e.target.value)
    }
@@ -16,7 +16,7 @@ const Forget = () => {
 
     try {
       
-      const res = await fetch('/api/user/forgetpassword', {
+      const res = await fetch(`${API_URL}/api/user/forgetpassword`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: forgete }),

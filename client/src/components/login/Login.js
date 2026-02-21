@@ -12,6 +12,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const API_URL=process.env.REACT_APP_API_URL
   const [password, setpassword] = useState(false);
 
   const handlechange = (e) => {
@@ -21,7 +22,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("/api/user/login", {
+      const res = await fetch(`${API_URL}/api/user/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginform),
