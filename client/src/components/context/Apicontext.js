@@ -6,7 +6,7 @@ export const Apiprovider = ({ children }) => {
   //const API_URL=process.env.REACT_APP_API_URL;
    const API_URL =
    process.env.NODE_ENV === "production"
-    ? "https://your-railway-backend.up.railway.app"
+    ? "https://jewllery-production.up.railway.app"
     : "http://localhost:5000";
   // -------- states
   const [options, setoptions] = useState("Productlist");
