@@ -5,7 +5,7 @@ export const Apicontext = createContext();
 export const Apiprovider = ({ children }) => {
   //const API_URL=process.env.REACT_APP_API_URL;
    const API_URL =
-  import.meta.env.MODE === "production"
+   process.env.NODE_ENV === "production"
     ? "https://your-railway-backend.up.railway.app"
     : "http://localhost:5000";
   // -------- states
