@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './newarrivals.css'
 import main6 from '../../pictures/main6.jpg'
 import main8 from '../../pictures/main8.jpeg'
@@ -15,12 +15,16 @@ import main13 from '../../pictures/main13.jpg'
 import about5 from '../../pictures/about5.jpg'
 import Footer from '../footer/Footer'
 import { Link } from 'react-router-dom'
+import Pages from '../pages/Pages'
 
-
-import {Products} from '../../productjson'
+import {Apicontext} from './../context/Apicontext'
 
 
 const Newarrivals = () => {
+  const{Products,fetchProducts}=useContext(Apicontext)
+  useEffect(() => {
+    fetchProducts(1);
+  }, []);
   return (
     <div className='main-arrivals'>
       <div className='arrivalpic'>
@@ -29,30 +33,16 @@ const Newarrivals = () => {
                      </div>
                        </div>
           <h3>New-Arrivals</h3>
-        {/* <div className='arrivalproducts'>
-          
-        <div className='all-a'>
-           < div className='arrival-product'>
-               <img alt='' src={main1}/>
-      </div>
-      <div className='arrivalp-name'>
-               <p>Necklace</p>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-                <p>Rs.1000</p>   
-      </div>
-      </div> */}
+       
      
       
         <div className='forproducts'>
       {Products.map(product=>{
               return(
-                  <Link to={`/productcart/${product.id}`}>
-                    <div  key={product.id} className='all'>
+                  <Link to={`/productcart/${product.productId}`}>
+                    <div  key={product.productId} className='all'>
                  < div className='home-product'>
-                     <img alt='' src={product.image}/>
+                     <img alt='' src={product.photo}/>
             </div>
             <div className='homep-name'>
                      <p>{product.name}</p>
@@ -69,7 +59,9 @@ const Newarrivals = () => {
             })}
             </div>
       
-      
+      <Pages onChange={(page)=>{
+        fetchProducts(page)
+      }}/>
      
         {/* </div> */}
         <Footer/>
