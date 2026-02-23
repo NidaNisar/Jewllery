@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect } from 'react'
 import './newarrivals.css'
 import main6 from '../../pictures/main6.jpg'
 import main8 from '../../pictures/main8.jpeg'

@@ -3,8 +3,11 @@ import { Products } from "../../productjson";
 import Swal from "sweetalert2";
 export const Apicontext = createContext();
 export const Apiprovider = ({ children }) => {
-  const API_URL=process.env.REACT_APP_API_URL;
-
+  //const API_URL=process.env.REACT_APP_API_URL;
+   const API_URL =
+  import.meta.env.MODE === "production"
+    ? "https://your-railway-backend.up.railway.app"
+    : "http://localhost:5000";
   // -------- states
   const [options, setoptions] = useState("Productlist");
   const [product, setproduct] = useState([]);
