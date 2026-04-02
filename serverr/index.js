@@ -68,6 +68,12 @@ app.use("/api/user", require("./routes/contactroute"));
 app.use("/api/product", require("./routes/category"));
 
 // -------------------------
+// Checkout ROUTES
+// -------------------------
+         app.use("/api/order",require("././routes/checkoutroute"))
+
+
+// -------------------------
 // HOME ROUTE
 // -------------------------
 app.get("/", (req, res) => {
