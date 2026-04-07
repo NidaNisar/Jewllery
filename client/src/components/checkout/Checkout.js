@@ -42,7 +42,7 @@ const Checkout = () => {
                 />
                 <span className="cart-name-check">
                   {item.name} x{item.quantity}
-                </span>
+                </span> 
               </div>
 
               <span className="cart-price-check">

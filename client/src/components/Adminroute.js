@@ -5,7 +5,11 @@ import Swal from "sweetalert2";
 const Adminroute = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(null);
   const token = localStorage.getItem("token");
-const API_URL=process.env.REACT_APP_API_URL
+//const API_URL=process.env.REACT_APP_API_URL
+const API_URL =
+   process.env.NODE_ENV === "production"
+    ? "https://jewllery-production.up.railway.app"
+    : "http://localhost:5000";
   useEffect(() => {
     const checkAdmin = async () => {
       if (!token) {

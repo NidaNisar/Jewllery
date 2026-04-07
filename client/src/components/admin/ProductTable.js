@@ -4,6 +4,7 @@ import "./ProductTable.css";
 import Category from "./Category";
 import Product from "./Product";
 import { Apicontext } from "../context/Apicontext";
+import Ordershistory from "../orders/Ordershistory";
 
 const ProductTable = ({ options }) => {
   const [updateproducts, setupdate] = useState(false);
@@ -52,6 +53,7 @@ const ProductTable = ({ options }) => {
           )}
         </tbody>
       </table>
+     
     </div>
   );
 };

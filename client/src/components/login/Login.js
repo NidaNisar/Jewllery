@@ -12,7 +12,11 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const API_URL=process.env.REACT_APP_API_URL
+ // const API_URL=process.env.REACT_APP_API_URL
+ const API_URL =
+   process.env.NODE_ENV === "production"
+    ? "https://jewllery-production.up.railway.app"
+    : "http://localhost:5000";
   const [password, setpassword] = useState(false);
 
   const handlechange = (e) => {

@@ -22,6 +22,7 @@ import Admin from "./components/admin/Admin";
 import Mainlayout from "./components/mainlayout/Mainlayout";
 import Adminlayout from "./components/mainlayout/Adminlayout";
 import Errorpage from "./components/error/Errorpage";
+import Ordershistory from "./components/orders/Ordershistory";
 function App() {
   return (
     <BrowserRouter>
@@ -51,10 +52,16 @@ function App() {
               element={
                 <Adminroute>
                   <Admin />
+                 
                 </Adminroute>
               }
             />
             <Route path="/404" element={<Errorpage />} />
+             <Route path="/orderhistory" element={<Adminroute>
+                  
+                 <Ordershistory />
+                </Adminroute>} />
+            
           </Route>
         </Routes>
       </div>

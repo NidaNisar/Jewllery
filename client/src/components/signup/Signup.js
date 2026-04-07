@@ -6,7 +6,11 @@ import Swal from "sweetalert2";
 
 import { Link,Navigate, useNavigate } from 'react-router-dom'
 const Signup = () => {
-  const API_URL=process.env.REACT_APP_API_URL
+  //const API_URL=process.env.REACT_APP_API_URL
+  const API_URL =
+   process.env.NODE_ENV === "production"
+    ? "https://jewllery-production.up.railway.app"
+    : "http://localhost:5000";
    const navigate=useNavigate();
    const [signform,setsignform]= useState({
       firstname:'',

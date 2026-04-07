@@ -71,6 +71,7 @@ const Productcart = () => {
               <div
                 className="plus"
                 onClick={() => increment(products.productId)}
+                disabled={increment>=products.stock}
               >
                 +
               </div>

@@ -68,7 +68,7 @@ const Cartprovider = ({ children }) => {
   const increment = (id) => {
     setproduct((prev) => {
       return prev.map((p) =>
-        p.productId === id ? { ...p, quantity: p.quantity + 1 } : p
+        p.productId === id ? { ...p, quantity:p.quantity>=p.stock? p.stock:p.quantity + 1 } : p
       );
     });
     const updatedCart = cartItems.map((item) =>
