@@ -51,19 +51,19 @@ const getalluser = async (req, res, next) => {
 };
 const createuser = async (req, res, next) => {
   try {
-    // 1️⃣ Check if this is the first user in DB
+    // 1 Check if this is the first user in DB
     const checkIfFirstUser = (await User.countDocuments()) === 0;
 
-    // 2️⃣ Create user data with role logic
+    // 2 Create user data with role logic
     const newUserData = {
       ...req.body,
       role: checkIfFirstUser ? "admin" : "user",
     };
 
-    // 3️⃣ Create the user with proper role
+    // 3 Create the user with proper role
     const newuser = await User.create(newUserData);
 
-    // 4️⃣ Send Response
+    // 4 Send Response
     createSendRespone(newuser, 200, res);
   } catch (error) {
     let message = error.message;

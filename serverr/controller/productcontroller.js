@@ -2,7 +2,10 @@ const ProductModel = require("./../models/productmodel");
 
 const Create = async (req, res) => {
   const BASE_URL=process.env.BASE_URL
-  const photo = req.file ? `${BASE_URL}/uploads/${req.file.filename}` : null;
+  // const photo = req.file ? `${BASE_URL}/uploads/${req.file.filename}` : null;
+  const photo = req.file
+  ? `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`
+  : null;
   try {
     const products = await ProductModel.create({ ...req.body, photo });
     res.status(200).json({

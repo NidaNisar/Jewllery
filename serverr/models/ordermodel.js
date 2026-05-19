@@ -1,15 +1,15 @@
 const mongoose=require('mongoose')
 const { isNumeric } = require('validator')
 const {Schema,model}=mongoose
-const Orderschema=new Schema({
+const Orderschema=new Schema({ 
     Fullname:{
         type:String,
         required: [true, "Enter the full Name"],
     },
     email:{
         type:String,
-        unique:true,
-        required: [true, "Enter your email"],
+       required: [true, "Enter your email"],
+       lowercase:true,
 
     },
     phonenumber:{
@@ -30,16 +30,13 @@ const Orderschema=new Schema({
             },
             quantity:{
                 type:Number,
-                require:[true,"Enter the quantity of the product"]
+                required:[true,"Enter the quantity of the product"]
             },
             price:{
                 type:Number,
-                require:[true,"Enter the price of the product"]
+                required:[true,"Enter the price of the product"]
             },
-            // photo:{
-            //     type:String,
-            //     require:[true,"Enter the photo of the product"]
-            // },
+           
         },
     ],
     totalAmount: {
@@ -54,5 +51,5 @@ const Orderschema=new Schema({
 
 
 
-}, {timesstamps:true})
+}, {timestamps:true})
 module.exports = model("Order", Orderschema);
