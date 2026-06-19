@@ -4,9 +4,7 @@
   "main": "server.js",
   "scripts": {
     "serverr": "node index.js",
-    "dev": "nodemon index.js",
-   
-
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
