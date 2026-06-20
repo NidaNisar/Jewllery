@@ -63,16 +63,17 @@ function App() {
 
   <Route path="/404" element={<Errorpage />} />
 </Route> */}
-           <Route element={<Adminlayout />}>
+           <Route element={
+            <Adminroute><Adminlayout /></Adminroute>}>
             <Route
               path="/admin"
               element={
                 <Adminroute>
                   <Admin/>
                  </Adminroute>
-              }
+              } 
             />
-            <Route path="/404" element={<Errorpage />} />
+           
              <Route path="/orderhistory" element={<Adminroute>
                   
                  <Ordershistory />
@@ -92,6 +93,7 @@ function App() {
 
             
           </Route> 
+           <Route path="/404" element={<Errorpage />} />
         </Routes>
       </div>
     </BrowserRouter>
