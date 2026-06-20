@@ -36,8 +36,9 @@ const Productcart = () => {
   const category = categoriees.find(
     (item) => item.categoryid === products.categoryid
   );
+  
   console.log("updateproduct", productupadte);
-  console.log("category", categoriees);
+  console.log("category", category);
 
   return (
     <div>

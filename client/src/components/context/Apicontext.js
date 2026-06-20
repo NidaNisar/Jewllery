@@ -1,15 +1,20 @@
 import React, { createContext, useState, useEffect } from "react";
 import { Products } from "../../productjson";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+
 export const Apicontext = createContext();
+
 export const Apiprovider = ({ children }) => {
   //const API_URL=process.env.REACT_APP_API_URL;
+  
    const API_URL =
    process.env.NODE_ENV === "production"
     ? "https://jewllery-production.up.railway.app"
     : "http://localhost:5000";
   // -------- states
-  const [options, setoptions] = useState("Productlist");
+ 
+  const [options, setoptions] = useState('');
   const [product, setproduct] = useState([]);
   const [currentpage, setcurrentpage] = useState(1);
   const [totalpages, settotalpages] = useState(1);
@@ -21,7 +26,7 @@ export const Apiprovider = ({ children }) => {
     categoryid: "",
   });
   const [addp, setaddp] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false); // Admin states
+  const [sidebarOpen, setSidebarOpen] = useState(true); // Admin states
   //
   const [cform, setcform] = useState({
     categoryid: "",
@@ -40,6 +45,9 @@ export const Apiprovider = ({ children }) => {
   const handleOptionChange = (e) => {
     const selected = e.target.value;
     setoptions(selected);
+    console.log("options are",options)
+   
+
   };
 
   const handlechange = (e) => {

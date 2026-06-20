@@ -5,7 +5,10 @@ const Adminlayout = () => {
   return (
    <div className="admin-page">
     <Adminsidebar/>
+    <div className="page-content">
       <Outlet />
+    </div>
+      
     </div>
   );
 }

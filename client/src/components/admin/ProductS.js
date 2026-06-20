@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import "./Admin.css";
 import { Apicontext } from "../context/Apicontext";
 import Swal from "sweetalert2";
-const Product = ({ Products = [] }) => {
+// { Products = [] }
+const ProductS = () => {
   const {
     updateproducts,
     updateproduct,
@@ -10,8 +11,12 @@ const Product = ({ Products = [] }) => {
     form,
     setForm,
     handledelete,
+    Products
   } = useContext(Apicontext);
-const API_URL=process.env.REACT_APP_API_URL
+  const API_URL =
+    process.env.NODE_ENV === "production"
+      ? "https://jewllery-production.up.railway.app"
+      : "http://localhost:5000"
   const handlechange = (e) => {
     setForm({
       ...form,
@@ -28,17 +33,29 @@ const API_URL=process.env.REACT_APP_API_URL
       categoryid: item.categoryid,
       photo: null,
     });
+  
 
     setupdate(true);
   };
 
+  {Products.map((item) => {
+  console.log("PHOTO VALUE:", item.photo);
+  })}
 
   return (
     <>
+    
       {Products.map((item) => (
         <tr key={item.productId}>
           <td className="product-cell">
-            <img src={item.photo} alt={item.name} />
+          <img
+  src={item.photo}
+  //   item.photo?.startsWith("http")
+  //     ? item.photo
+  //     : `http://localhost:5000${item.photo}`
+  // }
+  // alt={item.name}
+/>
             <span>{item.name}</span>
           </td>
 
@@ -137,4 +154,4 @@ const API_URL=process.env.REACT_APP_API_URL
   );
 };
 
-export default Product;
+export default ProductS;

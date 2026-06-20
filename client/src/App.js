@@ -23,6 +23,10 @@ import Mainlayout from "./components/mainlayout/Mainlayout";
 import Adminlayout from "./components/mainlayout/Adminlayout";
 import Errorpage from "./components/error/Errorpage";
 import Ordershistory from "./components/orders/Ordershistory";
+import Category from "./components/admin/Category";
+import ProductS from "./components/admin/ProductS";
+import Adminsidebar from "./adminside/Adminsidebar";
+import Adminproducts from "./components/admin/Adminproducts";
 function App() {
   return (
     <BrowserRouter>
@@ -45,15 +49,27 @@ function App() {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/forget" element={<Forget />} />
             <Route path="/reset/:token" element={<Reset />} />
+              
           </Route>
-          <Route element={<Adminlayout />}>
+          {/* <Route element={<Adminlayout />}>
+  <Route element={<Adminroute />}>
+    
+    <Route path="/admin" element={<Admin />} />
+    <Route path="/orderhistory" element={<Ordershistory />} />
+    <Route path="/categorylist" element={<Adminproducts />} />
+    <Route path="/productlist" element={<Adminproducts />} />
+
+  </Route>
+
+  <Route path="/404" element={<Errorpage />} />
+</Route> */}
+           <Route element={<Adminlayout />}>
             <Route
               path="/admin"
               element={
                 <Adminroute>
-                  <Admin />
-                 
-                </Adminroute>
+                  <Admin/>
+                 </Adminroute>
               }
             />
             <Route path="/404" element={<Errorpage />} />
@@ -61,8 +77,21 @@ function App() {
                   
                  <Ordershistory />
                 </Adminroute>} />
+                <Route path="/categorylist" element={
+                  <Adminroute>
+                     <Adminproducts/>
+                  </Adminroute>
+                
+                } />
+                <Route path="/productlist" element={<Adminroute>
+                  
+               <Adminproducts/>
+                </Adminroute>} />
+
+
+
             
-          </Route>
+          </Route> 
         </Routes>
       </div>
     </BrowserRouter>

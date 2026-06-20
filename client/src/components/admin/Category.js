@@ -2,8 +2,10 @@ import React, { useState, useEffect, useContext } from "react";
 import "./Admin.css";
 import Swal from "sweetalert2";
 import { Apicontext } from "../context/Apicontext";
+import ProANDcat from "./ProANDcat";
 
-const Category = ({ setaddp, addp, updateproducts, setupdate }) => {
+const Category = () => {
+   const [updateproducts, setupdate] = useState(false);
   const {
     setcform,
     cform,
@@ -61,6 +63,7 @@ const Category = ({ setaddp, addp, updateproducts, setupdate }) => {
 
   return (
     <>
+    
       {categoriees.map((cat) => (
         <tr key={cat.categoryid}>
           <td>{cat.categoryid}</td>

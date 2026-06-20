@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./ProductTable.css";
-
+import { Link, useNavigate } from 'react-router-dom';
 import Category from "./Category";
-import Product from "./Product";
+import ProductS from "./ProductS";
 import { Apicontext } from "../context/Apicontext";
 import Ordershistory from "../orders/Ordershistory";
-
-const ProductTable = ({ options }) => {
-  const [updateproducts, setupdate] = useState(false);
-  const { setaddp, setProducts, addp, Products, fetchProducts } =
+import { useLocation } from "react-router-dom";
+const ProductTable = () => {
+  const location= useLocation();
+//  const  iscategory=location.path==='/categorylist'
+  const { setaddp, setProducts, addp, Products, fetchProducts , options} =
     useContext(Apicontext);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const ProductTable = ({ options }) => {
     <div className="product-table-container">
       <table className="product-table">
         <thead>
-          {options === "categories" ? (
+          {options === "/categorylist" || location.pathname==='/categorylist' ? (
             <tr>
               <th>Categoryid</th>
               <th>Category-name </th>
@@ -38,19 +39,10 @@ const ProductTable = ({ options }) => {
         </thead>
 
         <tbody>
-          {options === "categories" ? (
-            // <Category addp={addp} setaddp={setaddp} />
-            <Category updateproducts={updateproducts} setupdate={setupdate} />
-          ) : (
-            <Product
-              Products={Products}
-              addp={addp}
-              setaddp={setaddp}
-              setProducts={setProducts}
-              updateproducts={updateproducts}
-              setupdate={setupdate}
-            />
-          )}
+          {location.pathname === "/categorylist"
+  ? <Category />
+  : <ProductS />}
+          
         </tbody>
       </table>
      

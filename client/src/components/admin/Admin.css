@@ -9,15 +9,19 @@
   background-color: white;
   border-radius: 10px;
   position: fixed;
-  left: 0;
+  left: 11px;
   top: 0;
   transition: left 0.3s ease;
   z-index: 1000;
 }
+/* .first.size {
+  display: none;
+} */
 
-.first.active {
-  left: 0;
-}
+
+/* .first.active {
+  display: none;
+} */
 .first-flex {
   display: flex;
   flex-direction: row;
@@ -44,12 +48,27 @@
 .products,
 .customer,
 .notifications,
-.settings {
+.settings,.orderhistory {
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
   padding: 8px 0;
+}
+.aclick{
+  color: white;
+}
+.clickdesign{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 3px 15px;
+  background-color: #0e0e0f;
+  color: white;
+  border-radius: 10px;
+  margin-right: 8px;
 }
 
 .products select {
@@ -65,9 +84,11 @@
   margin-top: 10px;
   flex: 1;
   background: white;
-  border-radius: 10px;
+ 
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding-bottom: 50px;
   transition: margin-left 0.3s ease;
 }
@@ -96,16 +117,20 @@
   cursor: pointer;
 }
 
+
 .product-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 25px;
-  background-color: white;
-  border-radius: 10px;
-  margin: 20px;
-  flex-wrap: wrap;
-  gap: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 25px;
+    background-color: white;
+    
+    margin: 0px;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-left: 260px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .products-button {
@@ -212,20 +237,20 @@
 
 @media (max-width: 992px) {
   .second {
-    margin-left: 229px;
+    margin-left: 260px;
   }
 }
 
 @media (max-width: 768px) {
-  .first {
-    left: -250px;
-  }
+  /* .first {
+    display: none;
+  } */
   .addproduct {
     width: 40%;
   }
 
   .first.active {
-    left: 0;
+    display: none;
   }
 
   .second {

@@ -5,7 +5,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin-top: 150px;
   position: absolute;
-  top: 40px;
+  top: 65px;
   left: 299px;
   right: 30px;
   transition: all 0.3s ease;
@@ -107,9 +107,9 @@
 
 @media (max-width: 992px) {
   .product-table-container {
-    left: 240px;
+    left: 279px;
     right: 20px;
-    top: 60px;
+    top: 65px;
     padding: 20px;
   }
 
